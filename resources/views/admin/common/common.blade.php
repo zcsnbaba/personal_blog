@@ -129,11 +129,41 @@
                             <li><a href="form_wizard.html">Wizard</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#"><i class="icon-user"></i>用户管理</a>
+                        <ul>
+                            <li><a href="/admin/user/create">用户添加</a></li>
+                            <li><a href="/admin/user/index">用户查看</a></li>
+                            <li><a href="">回收站</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>         
         </div>
+@if (session('success'))
+    <div class="mws-form-message success">
+        <ul>
+            <li>{{ session('success') }}</li>
+        </ul>      
+    </div>
+@endif
+@if (session('error'))
+    <div class="mws-form-message error">
+        <ul>
+            <li>{{ session('error') }}</li>
+        </ul>      
+    </div>
+@endif
+@if (count($errors) > 0)
+    <div class="mws-form-message error">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 @section('content')
-
 
 
 @show
