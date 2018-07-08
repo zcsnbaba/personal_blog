@@ -29,7 +29,8 @@ Route::controller('/admin/user', 'admin\UserController');
 
 
 
-
+Route::controller('/admin/category','admin\CategoryController');
+Route::controller('/admin/article','admin\ArticleController');
 
 
 

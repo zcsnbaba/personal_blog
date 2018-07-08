@@ -122,11 +122,19 @@
             <div id="mws-navigation">
                 <ul>
                     <li>
-                        <a href="#"><i class="icon-list"></i> Forms</a>
+                        <a href="#"><i class="icon-list"></i> 分类管理</a>
                         <ul>
-                            <li><a href="form_layouts.html">Layouts</a></li>
-                            <li><a href="form_elements.html">Elements</a></li>
-                            <li><a href="form_wizard.html">Wizard</a></li>
+                            <li><a href="/admin/category">分类列表</a></li>
+                            <li><a href="/admin/category/create">分类添加</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-list"></i> 文章管理</a>
+                        <ul>
+                            <li><a href="/admin/article">文章列表</a></li>
+                            <li><a href="/admin/article/create">文章添加</a></li>
                         </ul>
                     </li>
                     <li>
