@@ -27,7 +27,8 @@ Route::get('/', function () {
 
 
 
-
+Route::controller('/admin/category','admin\CategoryController');
+Route::controller('/admin/article','admin\ArticleController');
 
 
 
