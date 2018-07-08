@@ -61,9 +61,8 @@ Route::controller('/admin/article','admin\ArticleController');
 
 
 
-
-
-
+Route::controller('/admin/dh','admin\DhController');
+//Route::controller('/admin/xc','admin\XcController');
 
 
 

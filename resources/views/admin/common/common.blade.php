@@ -145,8 +145,33 @@
                             <li><a href="">回收站</a></li>
                         </ul>
                     </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <li>
+                        <a href="#"><i class="icon-th"></i>导航管理</a>
+                        <ul>
+                            <li><a href="/admin/dh/index">导航列表</a></li>
+                            <li><a href="/admin/dh/create">添加导航</a></li>
+                        </ul>
+                    </li>
+
+                    
                 </ul>
-            </div>         
+            </div>
+            
+                  
+                           
         </div>
 @if (session('success'))
     <div class="mws-form-message success">
