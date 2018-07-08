@@ -58,9 +58,8 @@ Route::get('/', function () {
 
 
 
-
-
-
+Route::controller('/admin/dh','admin\DhController');
+//Route::controller('/admin/xc','admin\XcController');
 
 
 
