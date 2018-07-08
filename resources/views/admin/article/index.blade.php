@@ -1,6 +1,8 @@
 @extends('admin.common.common')
 
 @section('content')
+
+<div class="mws-panel grid_7">
 		<div class="mws-panel grid_8">
                 	<div class="mws-panel-header">
                     	<span><i class="icon-table"></i> 文章列表</span>

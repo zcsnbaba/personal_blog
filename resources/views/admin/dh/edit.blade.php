@@ -1,7 +1,7 @@
 @extends('admin.common.common')
 
 @section('content')  
-<div class="container">
+
     
 
                 <div class="mws-panel grid_7">

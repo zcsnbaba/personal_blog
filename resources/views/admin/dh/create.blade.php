@@ -1,16 +1,8 @@
 @extends('admin.common.common')
 
 @section('content')  
-<div class="container">
-     @if (count($errors) > 0)
-    <div class="mws-form-message error">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
+<div class="mws-panel grid_7">
 
                 <div class="mws-panel grid_7">
                     <div class="mws-panel-header">

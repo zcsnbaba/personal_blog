@@ -167,7 +167,20 @@
 {{ session('success') }}
 </div>
 @endif
-<div class="mws-panel grid_7">
+@if(session('error'))
+<div class="mws-form-message error">                             
+{{ session('error') }}
+</div>
+@endif
+@if (count($errors) > 0)
+    <div class="mws-form-message error">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 @section('content')
 
 

@@ -1,6 +1,8 @@
 @extends('admin.common.common')
 
 @section('content')
+
+<div class="mws-panel grid_7">
 	<div class="mws-panel grid_8">
                 	<div class="mws-panel-header">
                     	<span><i class="icon-magic"></i> 添加分类</span>

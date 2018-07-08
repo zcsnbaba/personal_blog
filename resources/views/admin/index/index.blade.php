@@ -4,7 +4,6 @@
 
         
             <!-- Inner Container Start -->
-            <div class="container">
             
                 <!-- Statistics Button Container -->
                 <div class="mws-stat-container clearfix">
