@@ -16,7 +16,7 @@
                             </thead>
                             <tbody>
                             	@foreach ($cate as $k => $v)
-                                <tr>
+                                <tr style="border:1px #ccc solid">
                                     <td>{{ $v['id'] }}</td>
                                     <td>{{ $v['name_class'] }}</td>
                                     <td>

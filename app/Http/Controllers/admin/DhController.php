@@ -47,6 +47,13 @@ class DhController extends Controller
      */
     public function postStore(Request $request)
     {
+        $this->validate($request,[
+            'name' => 'required',
+            'url' => 'required',
+          ],[
+            'name.required' => '导航名必填',
+            'url.required' => 'url地址必填',
+          ]);
         DB::beginTransaction();
         //接收 提交的数据
         $data = $request -> only('name','url');
@@ -56,13 +63,7 @@ class DhController extends Controller
             return redirect('/admin/dh')->with('success','添加成功');
         }
 
-      $this->validate($request,[
-        'name' => 'required',
-        'url' => 'required',
-      ],[
-        'name.required' => '导航名必填',
-        'url.required' => 'url地址必填',
-      ]);
+
 
     }
 

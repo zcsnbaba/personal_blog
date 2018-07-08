@@ -20,7 +20,7 @@
                                 </tr>
                                 </thead>
                                 @foreach($data as $k=>$v)
-                                <tr class="even">
+                                <tr class="even" style="border:1px #ccc solid">
                                     <td class=" sorting_1">{{$v['id']}}</td>
                                     <td class=" ">{{$v['name']}}</td>
                                     <td class=" ">{{$v['url']}}</td>
