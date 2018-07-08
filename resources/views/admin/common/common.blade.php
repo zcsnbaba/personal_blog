@@ -142,22 +142,8 @@
                         <ul>
                             <li><a href="/admin/user/create">用户添加</a></li>
                             <li><a href="/admin/user/index">用户查看</a></li>
-                            <li><a href="">回收站</a></li>
                         </ul>
                     </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
                     <li>
                         <a href="#"><i class="icon-th"></i>导航管理</a>
                         <ul>
@@ -172,30 +158,16 @@
             
                   
                            
-        </div>
-@if (session('success'))
-    <div class="mws-form-message success">
-        <ul>
-            <li>{{ session('success') }}</li>
-        </ul>      
-    </div>
+        </div>   
+
+<div class="container">
+
+@if(session('success'))
+<div class="mws-form-message success">                             
+{{ session('success') }}
+</div>
 @endif
-@if (session('error'))
-    <div class="mws-form-message error">
-        <ul>
-            <li>{{ session('error') }}</li>
-        </ul>      
-    </div>
-@endif
-@if (count($errors) > 0)
-    <div class="mws-form-message error">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+<div class="mws-panel grid_7">
 @section('content')
 
 

@@ -2,7 +2,6 @@
 
 @section('content')
 
-        <div id="mws-container" class="clearfix">
         
             <!-- Inner Container Start -->
             <div class="container">
