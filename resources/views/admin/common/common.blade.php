@@ -161,17 +161,16 @@
                     <li>
                         <a href="#"><i class="icon-cog-2"></i>网站配置管理</a>
                         <ul>
-                            <li><a href="/admin/wp/index">配置列表</a></li>
-                            <li><a href="/admin/wp/create">添加配置</a></li>
+                            <li><a href="/admin/wp/index">配置列表</a></li>                           
                         </ul>
                     </li>
-                    <!-- <li>
-                        <a href="#"><i class="icon-cog-2"></i>相册管理</a>
+                    <li>
+                        <a href="#"><i class="icon-picture"></i>相册管理</a>
                         <ul>
-                            <li><a href="/admin/wp/index">相册列表</a></li>
-                            <li><a href="/admin/wp/create">添加相册</a></li>
+                            <li><a href="/admin/xc/index">相册列表</a></li>
+                            <li><a href="/admin/xc/create">添加相册</a></li>
                         </ul>
-                    </li> -->
+                    </li>
 
                     
                 </ul>

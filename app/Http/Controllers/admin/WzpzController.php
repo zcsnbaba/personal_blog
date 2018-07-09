@@ -33,7 +33,6 @@ class WzpzController extends Controller
      */
     public function getCreate()
     {
-         return view('admin/wp/create');
     }
 
     /**
@@ -44,49 +43,7 @@ class WzpzController extends Controller
      */
     public function postStore(Request $request)
     {
-        //
-        $this->validate($request,[
-            'name' => 'required',
-            'describe' => 'required',
-            'logo' => 'required',
-            'filing' => 'required',
-            'telephone' => 'required',
-            'url' => 'required',
-            'cright' => 'required',
-          ],[
-            'name.required' => '网站名称必填',
-            'describe.required' => '网站描述必填',
-            'logo.required' => '网站logo必选',
-            'filing.required' => '网站备案号必填',
-            'telephone.required' => '联系方式必填',
-            'url.required' => '网站地址必填',
-            'cright.required' => '版权信息必填',
-          ]);
-
-         $data = $request -> except('_token');
-         //$data = $request -> all();
-         if($request -> hasFile('logo')){
-          // 使用request 创建文件上传对象
-            $profile = $request -> file('logo');
-            $ext = $profile->getClientOriginalExtension();
-            //getClientOriginalExtension();
-            // 处理文件名称
-            $temp_name = str_random(20);
-            $name =  $temp_name.'.'.$ext;
-            $dirname = date('Ymd',time());
-            $res = $profile -> move('./logo/'.$dirname,$name);
-            
-       }
-       $lujing = '/logo/'.$dirname.'/'.$name;
-       //dump($lujing);
-
-        $res = DB::table('blog_webs')
-                ->insert(['name'=>$data['name'],'describe'=>$data['describe'],'logo'=>$lujing,'filing'=>$data['filing'],'telephone'=>$data['telephone'],'url'=>$data['url'],'cright'=>$data['cright']]);
-        if($res){
-            return redirect('/admin/wp/index')->with('success','添加成功');
-        }else{
-            return back()->with('error','添加失败'); 
-        }
+      
     }
 
     /**
@@ -168,14 +125,6 @@ class WzpzController extends Controller
      */
     public function getDestroy($id)
     {
-        DB::beginTransaction();
-        $res = DB::table('blog_webs')->where('id','=',$id)->delete();
-        if($res){
-            DB::commit();
-            return redirect('/admin/wp/index')->with('success','删除成功');
-        }else{
-            DB::rollBack();
-            return back()-> with('error','删除失败');
-        }
+        
     }
 }

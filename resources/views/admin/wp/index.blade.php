@@ -37,7 +37,6 @@
 	               
 	                <td style="text-align:center">
 	                	<a href="/admin/wp/edit/{{ $v['id'] }}" class="btn btn-warning">修改</a>
-	                	<a href="/admin/wp/destroy/{{ $v['id'] }}" class="btn btn-danger">删除</a>
 	                </td>
 	            </tr>
 			
