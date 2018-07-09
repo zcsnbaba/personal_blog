@@ -53,7 +53,7 @@
 				    <script type="text/javascript">
 				        var ue = UE.getEditor('container',{toolbars: [
 						    ['fullscreen', 'source', 'undo', 'redo','bold','italic','underline','pasteplain','time','date','mergeright','mergedown','deleterow','deletecol', 'splittorows','splittocols','splittocells',],
-						    [ 'justifyleft', 'justifyright','justifycenter', 'justifyjustify', 'forecolor', 'backcolor','insertorderedlist', 'insertunorderedlist', 'fullscreen', 'directionalityltr','directionalityrtl', 'rowspacingtop','rowspacingbottom','pagebreak',]
+						    [ 'justifyleft', 'justifyright','justifycenter', 'justifyjustify', 'forecolor', 'backcolor','insertorderedlist', 'insertunorderedlist', 'fullscreen', 'directionalityltr','directionalityrtl', 'rowspacingtop','rowspacingbottom','pagebreak','simpleupload','insertimage',]
 						]});
 				    </script>
     			</div>

@@ -2,7 +2,6 @@
 
 @section('content')
 
-<div class="mws-panel grid_6">
 <div class="mws-panel grid_8">
     	<div class="mws-panel-header">
         	<span><i class="icon-user"></i> 轮播列表</span>
