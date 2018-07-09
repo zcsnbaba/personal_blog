@@ -1,7 +1,6 @@
 @extends('admin.common.common')
 
 @section('content')  
-<div class="mws-panel grid_6">
     <div class="mws-panel-header">
         <span>导航修改</span>
     </div>

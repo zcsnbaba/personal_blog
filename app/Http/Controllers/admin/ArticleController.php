@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
-
+use App\Http\Requests\admin\ArticleRequest;
 class ArticleController extends Controller
 {
     /**
@@ -18,8 +18,17 @@ class ArticleController extends Controller
     public function getIndex()
     {
         //
-        $article = DB::table('article') -> get();
-        // dump($article);
+        $article = DB::table('article as p')
+            -> join('user as u','p.uid','=','u.id')
+            -> join('category as a','p.cid','=','a.id')
+            -> select('u.uname','a.name_class','p.*')
+            -> paginate(15);
+        $article->setPath('index');
+        $num=$article->lastPage();
+        $nextpage=$num-$article->currentPage() ==0 ? $num : $article->currentPage()+1 ; 
+        $lastpage=$article->currentPage()-1 <0 ? 1 : $article->currentPage()-1 ; 
+        $article->next=$nextpage;
+        $article->last=$lastpage;
         return view('admin.article.index',['article' => $article]);
     }
 
@@ -30,7 +39,8 @@ class ArticleController extends Controller
      */
     public function getCreate()
     {
-        return view('admin.article.create');
+        $article = DB::table('category')->select('name_class','id')->get();
+        return view('admin.article.create',['article'=>$article]);
     }
 
     /**
@@ -39,9 +49,24 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function postStore(ArticleRequest $request)
     {
-        //
+       $data = $request->except(['_token']);
+       $created_at = date('Y-m-d H.i.s',time());
+       $res = DB::table('article')->insert([
+            'title' => $data['title'], 
+            'cid' => $data['cid'],
+            'is_recommend' => $data['is_recommend'],
+            'desc' => $data['desc'],
+            'content' => $data['content'],
+            'ckick_count' => '0',
+            'created_at' => $created_at,
+        ]);
+        if($res){
+            return redirect('/admin/article/index')->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败'); 
+        }
     }
 
     /**
@@ -61,9 +86,13 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function getEdit($id)
     {
-        //
+        $article = DB::table('category')->select('name_class','id')->get();
+        $article_data =  DB::table('article')->where('id','=',$id)->first();
+        // dd($article_data['title']);
+
+        return view('admin.article.edit',['article_data'=>$article_data,'article'=>$article]);
     }
 
     /**
@@ -73,9 +102,17 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function postUpdate(ArticleRequest $request, $id)
     {
-        //
+        $data = $request->except(['_token']);
+        $res = DB::table('article')
+                ->where('id','=',$id)
+                ->update(['title' => $data['title'],'cid' => $data['cid'],'is_recommend'=>$data['is_recommend'],'desc'=>$data['desc'],'content'=>$data['content']]);
+        if($res){
+            return redirect('/admin/article/index')->with('success','修改成功');
+        }else{
+            return back()->with('error','修改失败'); 
+        }
     }
 
     /**
@@ -84,8 +121,14 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function getDestroy($id)
     {
-        //
+        echo $id;
+        $res = DB::table('article')->where('id', '=', $id)->delete();
+        if($res){
+            return redirect('/admin/article/index')->with('success','删除成功');
+        }else{
+            return back()->with('error','删除失败'); 
+        }
     }
 }
