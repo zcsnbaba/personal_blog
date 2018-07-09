@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function getIndex()
     {
-        $user_data = DB::table('user')->paginate(5);
+        $user_data = DB::table('user')->paginate(20);
         // dd($user_data);
         $user_data->setPath('index');
         $num=$user_data->lastPage();

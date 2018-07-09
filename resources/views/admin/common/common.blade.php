@@ -115,10 +115,6 @@
                 <span></span>
                 <span></span>
             </div>
-            
-            <!-- Searchbox -->
-            
-            <!-- Main Navigation -->
             <div id="mws-navigation">
                 <ul>
                     <li>
@@ -131,9 +127,9 @@
                 </ul>
                 <ul>
                     <li>
-                        <a href="#"><i class="icon-list"></i> 文章管理</a>
+                        <a href="#"><i class="icon-book"></i> 文章管理</a>
                         <ul>
-                            <li><a href="/admin/article">文章列表</a></li>
+                            <li><a href="/admin/article/index">文章列表</a></li>
                             <li><a href="/admin/article/create">文章添加</a></li>
                         </ul>
                     </li>
@@ -150,7 +146,8 @@
                             <li><a href="/admin/dh/index">导航列表</a></li>
                             <li><a href="/admin/dh/create">添加导航</a></li>
                         </ul>
-                    </li>
+                    </li>  
+                    
                     <li>
                         <a href="#"><i class="icon-pictures"></i>轮播管理</a>
                         <ul>
@@ -170,18 +167,32 @@
                             <li><a href="/admin/xc/index">相册列表</a></li>
                             <li><a href="/admin/xc/create">添加相册</a></li>
                         </ul>
+<<<<<<< HEAD
                     </li>
 
                     
+=======
+                    </li> -->
+                    <li>        
+                        <a href="#"><i class="icon-th"></i>文章收藏管理</a>
+                        <ul>
+                            <li><a href="/admin/collect">文章收藏列表</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-th"></i>友情链接管理</a>
+                        <ul>
+                            <li><a href="/admin/link">友情链接列表</a></li>
+                            <li><a href="/admin/link/create">友情链接添加</a></li>
+                        </ul>
+                    </li>
+>>>>>>> origin/yangfeng
+>>>>>>> 3c9eddf281254994d1948972ac863e399872ebce
                 </ul>
-            </div>
-            
-                  
-                           
+            </div>                    
         </div>   
-
 <div class="container">
-
+<div class="mws-panel grid_6">
 @if(session('success'))
 <div class="mws-form-message success">                             
 {{ session('success') }}

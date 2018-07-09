@@ -1,7 +1,6 @@
 @extends('admin.common.common')
 
 @section('content')
-<div class="mws-panel grid_6">
 	<div class="mws-panel-header">
     	<span><i class="icon-table"></i> 分类列表</span>
     </div>
@@ -10,7 +9,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>name_class</th>
+                    <th>分类名称</th>
                     <th>操作</th>
                 </tr>
             </thead>

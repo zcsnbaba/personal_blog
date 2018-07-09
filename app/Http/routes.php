@@ -31,8 +31,8 @@ Route::controller('/admin/user', 'admin\UserController');
 
 Route::controller('/admin/category','admin\CategoryController');
 Route::controller('/admin/article','admin\ArticleController');
-
-
+Route::controller('/admin/collect','admin\CollectController');
+Route::controller('/admin/link','admin\LinkController');
 
 
 
