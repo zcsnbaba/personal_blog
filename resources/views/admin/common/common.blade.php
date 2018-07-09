@@ -146,7 +146,34 @@
                             <li><a href="/admin/dh/index">导航列表</a></li>
                             <li><a href="/admin/dh/create">添加导航</a></li>
                         </ul>
+<<<<<<< HEAD
                     </li>  
+=======
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-pictures"></i>轮播管理</a>
+                        <ul>
+                            <li><a href="/admin/lb/index">轮播列表</a></li>
+                            <li><a href="/admin/lb/create">添加轮播</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-cog-2"></i>网站配置管理</a>
+                        <ul>
+                            <li><a href="/admin/wp/index">配置列表</a></li>
+                            <li><a href="/admin/wp/create">添加配置</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li>
+                        <a href="#"><i class="icon-cog-2"></i>相册管理</a>
+                        <ul>
+                            <li><a href="/admin/wp/index">相册列表</a></li>
+                            <li><a href="/admin/wp/create">添加相册</a></li>
+                        </ul>
+                    </li> -->
+
+                    
+>>>>>>> origin/zhaopingang
                 </ul>
             </div>                    
         </div>   
