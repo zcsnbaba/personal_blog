@@ -147,7 +147,7 @@
                             <li><a href="/admin/dh/create">添加导航</a></li>
                         </ul>
                     </li>  
-                    </li>
+                    
                     <li>
                         <a href="#"><i class="icon-pictures"></i>轮播管理</a>
                         <ul>
@@ -169,6 +169,20 @@
                             <li><a href="/admin/wp/create">添加相册</a></li>
                         </ul>
                     </li> -->
+                    <li>        
+                        <a href="#"><i class="icon-th"></i>文章收藏管理</a>
+                        <ul>
+                            <li><a href="/admin/collect">文章收藏列表</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-th"></i>友情链接管理</a>
+                        <ul>
+                            <li><a href="/admin/link">友情链接列表</a></li>
+                            <li><a href="/admin/link/create">友情链接添加</a></li>
+                        </ul>
+                    </li>
+>>>>>>> origin/yangfeng
                 </ul>
             </div>                    
         </div>   

@@ -9,18 +9,21 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>分类名称</th>
+                    <th>用户ID</th>
+                    <th>文章ID</th>
+                    <th>添加时间</th>
                     <th>操作</th>
                 </tr>
             </thead>
             <tbody>
-            	@foreach ($cate as $k => $v)
+            	@foreach($collect as $k => $v)
                 <tr style="border:1px #ccc solid">
                     <td>{{ $v['id'] }}</td>
-                    <td>{{ $v['name_class'] }}</td>
+                    <td>{{ $v['uname'] }}</td>
+                    <td>{{ $v['title'] }}</td>
+                    <td>{{ $v['created_at'] }}</td>
                     <td>
-                    	<a href="/admin/category/edit/{{ $v['id'] }}" class="btn btn-warning">修改</a>
-                    	<a href="/admin/category/destroy/{{ $v['id'] }}" class="btn btn-danger">删除</a>
+                    	<a href="/admin/collect/destroy/{{ $v['id'] }}" class="btn btn-danger">删除</a>
                     </td>
                 </tr>
                 @endforeach
@@ -28,7 +31,4 @@
         </table>
     </div>
 </div>
-{!! $cate -> render() !!}
-</div>
 @endsection
-
