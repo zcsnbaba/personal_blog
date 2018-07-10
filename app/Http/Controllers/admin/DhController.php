@@ -24,7 +24,7 @@ class DhController extends Controller
         $data = DB::table('daohang as d')
               -> where('name','like','%'.$search.'%')
               ->select('d.id','d.name','d.url')
-              ->paginate(2);
+              ->paginate(20);
         return view('admin/dh/index',['data'=>$data]);
     }
 

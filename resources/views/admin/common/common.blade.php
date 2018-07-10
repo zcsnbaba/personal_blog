@@ -158,17 +158,20 @@
                     <li>
                         <a href="#"><i class="icon-cog-2"></i>网站配置管理</a>
                         <ul>
-                            <li><a href="/admin/wp/index">配置列表</a></li>
-                            <li><a href="/admin/wp/create">添加配置</a></li>
+                            <li><a href="/admin/wp/index">配置列表</a></li>                           
                         </ul>
                     </li>
-                    <!-- <li>
-                        <a href="#"><i class="icon-cog-2"></i>相册管理</a>
+                    <li>
+                        <a href="#"><i class="icon-picture"></i>相册管理</a>
                         <ul>
-                            <li><a href="/admin/wp/index">相册列表</a></li>
-                            <li><a href="/admin/wp/create">添加相册</a></li>
+                            <li><a href="/admin/xc/index">相册列表</a></li>
+                            <li><a href="/admin/xc/create">添加相册</a></li>
                         </ul>
-                    </li> -->
+                    </li>
+
+                    
+
+                    </li>
                     <li>        
                         <a href="/admin/collect"><i class="icon-archive"></i>文章收藏管理</a>
                     </li>
@@ -179,6 +182,7 @@
                             <li><a href="/admin/link/create">友情链接添加</a></li>
                         </ul>
                     </li>
+
                     <li>
                         <a href="/admin/message/index"><i class="icon-sound"></i>留言管理</a>
                     </li>

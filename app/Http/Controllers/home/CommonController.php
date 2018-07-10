@@ -6,19 +6,18 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\home\CommonController;
 use DB;
-class HomeController extends Controller
+class CommonController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex(CommonController $daohangs)
+    public function zcw()
     {
-        $daohang = $daohangs -> zcw();
-        return view('home.index.index',['daohang'=>$daohang]);
+        return $daohangs = DB::table('daohang')->get();
+        // dump($daohang);
     }
 
     /**
