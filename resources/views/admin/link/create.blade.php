@@ -1,9 +1,8 @@
 @extends('admin.common.common')
 
 @section('content') 
-	<div id="mws-container" class="clearfix">
 	<div class="mws-panel grid_8">
-	 <form id="mws-wizard-form" class="mws-form" action="/admin/link/store" method="post">
+	 <form id="mws-wizard-form" class="mws-form" action="/admin/link/store" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <fieldset id="step-1" class="mws-form-inline">
         <div class="mws-panel-header">
@@ -33,7 +32,7 @@
         <tr>
             <th><i class="require-red">*</i>文件上传:</th>
             <td>
-                <input type="file" name="link_logo">
+                <input type="file" name="link_logo" value="" style="width:80px;height:40px">
             </td>
         </tr>
         <tr>

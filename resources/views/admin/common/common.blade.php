@@ -168,17 +168,21 @@
                             <li><a href="/admin/xc/create">添加相册</a></li>
                             <li><a href="/admin/xc/tpcreate">添加图片</a></li>
                         </ul>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 942fc74de26c8cd6e299420db091a6469f4189c9
                     </li>
 
                     
 
+<<<<<<< HEAD
                     </li> 
+=======
+                    </li>
+>>>>>>> 942fc74de26c8cd6e299420db091a6469f4189c9
                     <li>        
-                        <a href="#"><i class="icon-th"></i>文章收藏管理</a>
-                        <ul>
-                            <li><a href="/admin/collect">文章收藏列表</a></li>
-                        </ul>
+                        <a href="/admin/collect"><i class="icon-archive"></i>文章收藏管理</a>
                     </li>
                     <li>
                         <a href="#"><i class="icon-th"></i>友情链接管理</a>
@@ -188,6 +192,9 @@
                         </ul>
                     </li>
 
+                    <li>
+                        <a href="/admin/message/index"><i class="icon-sound"></i>留言管理</a>
+                    </li>
                 </ul>
             </div>                    
         </div>   

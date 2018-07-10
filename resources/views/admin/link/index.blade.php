@@ -1,7 +1,6 @@
 @extends('admin.common.common')
 
 @section('content') 
-    <div id="mws-container" class="clearfix">   
     <div class="mws-panel grid_8">
         <div class="mws-panel-header">
             <span><i class="icon-table"></i> 友情链接</span>
@@ -26,10 +25,10 @@
                     <td>{{ $v['link_name'] }}</td>
                     <td>{{ $v['link_title'] }}</td>
                     <td>{{ $v['link_url'] }}</td>
-                    <td>{{ $v['link_logo'] }}</td>
+                    <td><img src="{{ $v['link_logo'] }}" style="width:80px;height:40px"></td>
                     <td>
-                        <a href="" class="btn btn-warning">修改</a>
-                        <a href="" class="btn btn-danger">删除</a>
+                        <a href="/admin/link/edit/{{ $v['id'] }}" class="btn btn-warning">修改</a>
+                        <a href="/admin/link/destroy/{{ $v['id'] }}" class="btn btn-danger">删除</a>
                     </td>
                 </tr>
                 @endforeach

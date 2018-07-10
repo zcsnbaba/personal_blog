@@ -67,7 +67,7 @@
                 </div>
                 <div class="mws-button-row">
                     <input type="submit" value="提交" class="btn btn-success">
-                    <input type="reset" value="返回" class="btn btn-warning">
+                    <a href="/admin/user/index" class="btn btn-warning">返回</a>
                 </div>
             </form>
         </div>      

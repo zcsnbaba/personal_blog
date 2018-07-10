@@ -1,7 +1,6 @@
 @extends('admin.common.common')
 
 @section('content')  
-\
 	<div class="mws-panel-header">
     	<span><i class="icon-table"></i> 导航列表</span>
     </div>
