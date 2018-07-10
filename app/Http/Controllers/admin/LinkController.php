@@ -19,7 +19,7 @@ class LinkController extends Controller
     {
         //
         $link = DB::table('blog_link')->get();
-        dump($link);
+        // dump($link);
         return view('admin.link.index',['link'=>$link]);
     }
 
@@ -44,9 +44,28 @@ class LinkController extends Controller
     {
         //
         $data = $request->except(['_token']);
-         dump($data);
-        $res = DB::table('blog_link')->insert(['link_name'=>$data['link_name'],'link_title'=>$data['link_title'],'link_url'=>$data['link_url'],'link_logo'=>$data['link_logo']]);
-        
+        // dump($data); 
+         $url = '';  
+        if($request -> hasFile('link_logo')){
+        //使用request 创建文件上传对象
+        $profile = $request -> file('link_logo');
+        // dump($profile);
+        $ext = $profile -> getClientOriginalExtension();
+        //处理文件名称
+        $temp_name = str_random(20);
+        $name = $temp_name.'.'.$ext;
+        $dirname = date('Ymd',time());
+        $profile -> move('./uploads/'.$dirname,$name);
+        $url = ('/uploads/'.$dirname.'/'.$name);
+        // dump($url);
+        }
+       $res = DB::table('blog_link')
+            ->insert(['link_name'=>$data['link_name'],'link_title'=>$data['link_title'],'link_url'=>$data['link_url'],'link_logo'=>$url]);
+        if($res){
+            return redirect('/admin/link/index') -> with('success','添加成功');
+        }else{
+            return back() -> with('error','添加失败');
+        }
     }
 
     /**
@@ -66,9 +85,12 @@ class LinkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function getEdit($id)
+    {  
         //
+        $data = DB::table('blog_link')->where('id','=',$id)->first();
+        // dump($data);
+        return view('admin.link.edit',['data'=>$data]);
     }
 
     /**
@@ -78,9 +100,35 @@ class LinkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function postUpdate(Request $request, $id)
     {
         //
+        $data = $request->except(['_token']);
+        // dump($data);
+        $res1 = false;
+        if($request -> hasFile('link_logo')){
+        //使用request 创建文件上传对象
+        $profile = $request -> file('link_logo');
+        // dump($profile);
+        $ext = $profile -> getClientOriginalExtension();
+        //处理文件名称
+        $temp_name = str_random(20);
+        $name = $temp_name.'.'.$ext;
+        $dirname = date('Ymd',time());
+        $profile -> move('./uploads/'.$dirname,$name);
+        $data['link_logo'] = ('/uploads/'.$dirname.'/'.$name);
+        $res1 = DB::table('blog_link')
+            ->where('id','=',$id)
+            ->update(['link_logo'=>$data['link_logo']]);
+        }
+       $res = DB::table('blog_link')
+            ->where('id','=',$id)
+            ->update(['link_name'=>$data['link_name'],'link_title'=>$data['link_title'],'link_url'=>$data['link_url']]);
+        if($res || $res1){
+            return redirect('/admin/link/index') -> with('success','修改成功');
+        }else{
+            return back() -> with('error','修改失败');
+        }
     }
 
     /**
@@ -89,8 +137,14 @@ class LinkController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function getDestroy($id)
     {
         //
+        $res = DB::table('blog_link')->where('id', '=', $id)->delete();
+        if($res){
+            return redirect('/admin/link/index') -> with('success','删除成功');
+        }else{
+            return back() -> with('error','删除失败');
+        }
     }
 }
