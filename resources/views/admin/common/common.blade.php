@@ -166,13 +166,14 @@
                         <ul>
                             <li><a href="/admin/xc/index">相册列表</a></li>
                             <li><a href="/admin/xc/create">添加相册</a></li>
+                            <li><a href="/admin/xc/tpcreate">添加图片</a></li>
                         </ul>
-<<<<<<< HEAD
+
                     </li>
 
                     
 
-                    </li> -->
+                    </li> 
                     <li>        
                         <a href="#"><i class="icon-th"></i>文章收藏管理</a>
                         <ul>
