@@ -170,10 +170,7 @@
                         </ul>
                     </li> -->
                     <li>        
-                        <a href="#"><i class="icon-th"></i>文章收藏管理</a>
-                        <ul>
-                            <li><a href="/admin/collect">文章收藏列表</a></li>
-                        </ul>
+                        <a href="/admin/collect"><i class="icon-archive"></i>文章收藏管理</a>
                     </li>
                     <li>
                         <a href="#"><i class="icon-th"></i>友情链接管理</a>
@@ -182,7 +179,9 @@
                             <li><a href="/admin/link/create">友情链接添加</a></li>
                         </ul>
                     </li>
->>>>>>> origin/yangfeng
+                    <li>
+                        <a href="/admin/message/index"><i class="icon-sound"></i>留言管理</a>
+                    </li>
                 </ul>
             </div>                    
         </div>   

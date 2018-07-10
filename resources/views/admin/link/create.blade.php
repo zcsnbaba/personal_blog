@@ -1,7 +1,6 @@
 @extends('admin.common.common')
 
 @section('content') 
-	<div id="mws-container" class="clearfix">
 	<div class="mws-panel grid_8">
 	 <form id="mws-wizard-form" class="mws-form" action="/admin/link/store" method="post">
             {{ csrf_field() }}
