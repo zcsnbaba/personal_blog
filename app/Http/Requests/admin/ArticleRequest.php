@@ -26,7 +26,7 @@ class ArticleRequest extends Request
         return [
             'title' => 'required',
             'cid' => 'required',
-            'desc' => 'required|between:10,50',
+            'desc' => 'required',
             'content' => 'required|between:300,99999',
         ];
     }
@@ -35,7 +35,6 @@ class ArticleRequest extends Request
         return [
             'title.required' => '请填写标题',
             'cid.required' => '请选择分类',
-            'desc.between' => '请填写填写10-50个字符的标题',
             'desc.required' => '请填写描述',
             'content.required' => '文章内容不能为空',
             'content.between' => '文章内容至少三百字',
