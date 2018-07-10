@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use DB;
 
 class XcController extends Controller
 {
@@ -14,9 +15,11 @@ class XcController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getIndex()
     {
-        //
+        $data = DB::table('photo-cate')-> get();
+         
+        return view('admin/xc/index',['data'=>$data]);
     }
 
     /**
@@ -24,9 +27,10 @@ class XcController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function getCreate()
     {
-        //
+
+        return view('admin/xc/create');
     }
 
     /**
@@ -35,9 +39,24 @@ class XcController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function postStore(Request $request)
     {
-        //
+
+        $this->validate($request,[
+            'name' => 'required',
+          ],[
+            'name.required' => '相册名称必填',
+          ]);
+
+         $data = $request -> except('_token');
+ 
+         $res = DB::table('photo-cate')
+                ->insert(['name'=>$data['name']]);
+        if($res){
+            return redirect('/admin/xc/index')->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败'); 
+        }
     }
 
     /**
@@ -46,10 +65,7 @@ class XcController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -57,9 +73,15 @@ class XcController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function getEdit($id)
     {
         //
+            
+        $data = DB::table('photo-cate as p')
+              ->where('id','=',$id)
+              ->select('p.id','p.name')
+              ->first();
+        return view('admin/xc/edit',['data'=>$data]);
     }
 
     /**
@@ -69,9 +91,19 @@ class XcController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function postUpdate(Request $request, $id)
     {
         //
+        $data = $request -> except(['_token']);
+        DB::beginTransaction();
+        $res = DB::table('photo-cate')->where('id','=',$id)->update(['name'=>$data['name']]);
+        if($res){
+            DB::commit();
+            return redirect('/admin/xc/index')->with('success','修改成功');
+        }else{
+            DB::rollBack();
+            return back()->with('error','修改失败');
+        }
     }
 
     /**
@@ -80,8 +112,17 @@ class XcController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function getDestroy($id)
     {
         //
+        DB::beginTransaction();
+        $res = DB::table('photo')->where('id','=',$id)->delete();
+        if($res){
+            DB::commit();
+            return redirect('/admin/xc/index')->with('success','删除成功');
+        }else{
+            DB::rollBack();
+            return back()-> with('error','删除失败');
+        }
     }
 }

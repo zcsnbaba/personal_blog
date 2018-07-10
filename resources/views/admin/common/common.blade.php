@@ -171,7 +171,7 @@
                     </li>
 
                     
-=======
+
                     </li> -->
                     <li>        
                         <a href="#"><i class="icon-th"></i>文章收藏管理</a>
@@ -186,8 +186,7 @@
                             <li><a href="/admin/link/create">友情链接添加</a></li>
                         </ul>
                     </li>
->>>>>>> origin/yangfeng
->>>>>>> 3c9eddf281254994d1948972ac863e399872ebce
+
                 </ul>
             </div>                    
         </div>   
