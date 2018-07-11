@@ -11,7 +11,8 @@
                 <thead>
                     <tr role="row">
                     	<th>网站名称</th>
-                    	<th>网站描述</th>
+                        <th>网站描述</th>
+                    	<th>网站关键字</th>
                     	<th>网站备案号</th>
                         <th>联系方式</th>
                     	<th>网站地址</th>
@@ -24,13 +25,14 @@
              @foreach($data as $k => $v)
 	            <tr class="odd" style="border:1px #ccc solid">
 	                <td class=" sorting_1" style="text-align:center">{{ $v['name'] }}</td>
-	                <td class=" " style="text-align:center">{{ $v['describe'] }}</td>
+                    <td class=" " style="text-align:center">{{ $v['describe'] }}</td>
+	                <td class=" " style="text-align:center">{{ $v['gjz'] }}</td>
 	                <td class=" "  style="text-align:center">{{ $v['filing' ] }}</td>
                     <td class=" " style="text-align:center">{{ $v['telephone'] }}</td>
                     <td class=" "  style="text-align:center">{{ $v['url' ] }}</td>
                     <td class=" " style="text-align:center">{{ $v['cright'] }}</td>
                     <td style="text-align:center">
-                        <img src="{{$v['logo']}}" class="img-rounded" style="width:80px;height:60px;">
+                        <img src="{{$v['logo']}}" class="img-rounded" style="width:180px;height:37px;">
 
                     </td>	           
 	               

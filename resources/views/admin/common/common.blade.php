@@ -33,7 +33,7 @@
 <link rel="stylesheet" type="text/css" href="/adminmoban/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/adminmoban/css/themer.css" media="screen">
 
-<title>MWS Admin - Dashboard</title>
+<title>{{ $common['web']['0']['name'] }}</title>
 
 </head>
     <!-- Themer (Remove if not needed) -->  
@@ -45,7 +45,7 @@
                 <i class="icon-bended-arrow-right"></i>
             </div>
             <div id="mws-theme-presets-container" class="mws-themer-section">
-                <label for="mws-theme-presets">Color Presets</label>
+                <label for="mws-theme-presets">颜色设置</label>
             </div>
             <div class="mws-themer-separator"></div>
             <div id="mws-theme-pattern-container" class="mws-themer-section">
@@ -54,16 +54,16 @@
             <div class="mws-themer-separator"></div>
             <div class="mws-themer-section">
                 <ul>
-                    <li class="clearfix"><span>Base Color</span> <div id="mws-base-cp" class="mws-cp-trigger"></div></li>
-                    <li class="clearfix"><span>Highlight Color</span> <div id="mws-highlight-cp" class="mws-cp-trigger"></div></li>
-                    <li class="clearfix"><span>Text Color</span> <div id="mws-text-cp" class="mws-cp-trigger"></div></li>
-                    <li class="clearfix"><span>Text Glow Color</span> <div id="mws-textglow-cp" class="mws-cp-trigger"></div></li>
-                    <li class="clearfix"><span>Text Glow Opacity</span> <div id="mws-textglow-op"></div></li>
+                    <li class="clearfix"><span>基色：</span> <div id="mws-base-cp" class="mws-cp-trigger"></div></li>
+                    <li class="clearfix"><span>突出颜色：</span> <div id="mws-highlight-cp" class="mws-cp-trigger"></div></li>
+                    <li class="clearfix"><span>文本颜色：</span> <div id="mws-text-cp" class="mws-cp-trigger"></div></li>
+                    <li class="clearfix"><span>文本发光颜色：</span> <div id="mws-textglow-cp" class="mws-cp-trigger"></div></li>
+                    <li class="clearfix"><span>文本发光不透明度：</span> <div id="mws-textglow-op"></div></li>
                 </ul>
             </div>
             <div class="mws-themer-separator"></div>
             <div class="mws-themer-section">
-                <button class="btn btn-danger small" id="mws-themer-getcss">Get CSS</button>
+                <button class="btn btn-danger small" id="mws-themer-getcss">CSS样式</button>
             </div>
         </div>
         <div id="mws-themer-css-dialog">
@@ -79,7 +79,7 @@
     <div id="mws-header" class="clearfix">
         <div id="mws-logo-container">
             <div id="mws-logo-wrap">
-                <img src="/adminmoban/images/mws-logo.png" alt="mws admin">
+                <img src="{{ $common['web']['0']['logo'] }}" alt="mws admin">
             </div>
         </div>
         <div id="mws-user-tools" class="clearfix">
@@ -92,9 +92,9 @@
                         zcwd
                     </div>
                     <ul>
-                        <li><a href="#">Profile</a></li>
-                        <li><a href="#">Change Password</a></li>
-                        <li><a href="index.html">Logout</a></li>
+                        <li><a href="/"><i class="icon-file-openoffice" style="color:red"></i> 前台</a></li>
+                        <li><a href="#"> | </a></li>
+                        <li><a href="/"><i class="icon-off" style="color:red"> </i> 退出</a></li>
                     </ul>
                 </div>
             </div>
@@ -156,21 +156,15 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="icon-cog-2"></i>网站配置管理</a>
-                        <ul>
-                            <li><a href="/admin/wp/index">配置列表</a></li>                           
-                        </ul>
+                        <a href="/admin/wp/edit"><i class="icon-cog-2"></i>网站配置管理</a>
                     </li>
                     <li>
                         <a href="#"><i class="icon-picture"></i>相册管理</a>
                         <ul>
                             <li><a href="/admin/xc/index">相册列表</a></li>
                             <li><a href="/admin/xc/create">添加相册</a></li>
+                            <li><a href="/admin/xc/tpcreate">添加图片</a></li>
                         </ul>
-                    </li>
-
-                    
-
                     </li>
                     <li>        
                         <a href="/admin/collect"><i class="icon-archive"></i>文章收藏管理</a>

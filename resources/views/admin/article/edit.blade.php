@@ -10,7 +10,7 @@
     	<span>文章修改</span>
     </div>
     <div class="mws-panel-body no-padding">
-    	<form class="mws-form" action="/admin/article/update/{{ $article_data['id'] }}" method="post">
+    	<form class="mws-form" action="/admin/article/update/{{ $article_data['id'] }}" method="post" enctype="multipart/form-data">
     		{{ csrf_field() }}
     		<div class="mws-form-block">
     			<div class="mws-form-row">
@@ -38,6 +38,14 @@
                         </ul>
                     </div>
                 </div>
+                <div class="mws-form-row">
+                    <label class="mws-form-label">文章图片：</label>
+                    <div class="mws-form-item" style="width:48%">
+                        <input type="file" name="file" id="file" onchange="imgPreview(this)"/> 
+                        <img id="preview" style="width:200px">
+                        <img src="{{ $article_data['file'] }}" style="width:200px">
+                    </div>
+                </div>
     			<div class="mws-form-row">
     				<label class="mws-form-label">文章描述：</label>
     				<div class="mws-form-item">
@@ -60,7 +68,33 @@
     	</form>
     </div>
 </div>
+<script type="text/javascript">
+    function imgPreview(fileDom){
+        //判断是否支持FileReader
+        if (window.FileReader) {
+            var reader = new FileReader();
+        } else {
+            alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
+        }
 
+        //获取文件
+        var file = fileDom.files[0];
+        var imageType = /^image\//;
+        //是否是图片
+        if (!imageType.test(file.type)) {
+            alert("请选择图片！");
+            return;
+        }
+        //读取完成
+        reader.onload = function(e) {
+            //获取图片dom
+            var img = document.getElementById("preview");
+            //图片路径设置为读取的图片
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+</script>
 
 
 

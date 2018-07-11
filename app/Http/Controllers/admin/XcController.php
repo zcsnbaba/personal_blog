@@ -17,7 +17,9 @@ class XcController extends Controller
      */
     public function getIndex()
     {
+       
         $data = DB::table('photo-cate')-> get();
+
          
         return view('admin/xc/index',['data'=>$data]);
     }
@@ -31,6 +33,103 @@ class XcController extends Controller
     {
 
         return view('admin/xc/create');
+    }
+
+    public function getTpcreate()
+    {
+        $data = DB::table('photo-cate')-> get(); 
+        return view('admin/xc/tpcreate',['data'=>$data]);
+    }
+
+     public function postTpstore(Request $request)
+    {
+        $data = $request -> except('_token');
+        if($request -> hasFile('avatar')){
+          // 使用request 创建文件上传对象
+            $profile = $request -> file('avatar');
+            $ext = $profile->getClientOriginalExtension();
+            //getClientOriginalExtension();
+            // 处理文件名称
+            $temp_name = str_random(20);
+            $name =  $temp_name.'.'.$ext;
+            $dirname = date('Ymd',time());
+            $res = $profile -> move('./photos/'.$dirname,$name);
+            
+       }
+       $lujing = '/photos/'.$dirname.'/'.$name;
+       //dump($lujing);
+
+        $res = DB::table('photo')
+                ->insert(['cname'=>$data['cname'],'photo'=>$lujing]);
+        if($res){
+            return redirect('/admin/xc/index')->with('success','添加成功');
+        }else{
+            return back()->with('error','添加失败'); 
+        }
+
+
+    }
+
+    public function postTpjd(Request $request,$id)
+    {
+        $data = $request -> except('_token');
+        if($request -> hasFile('avatar')){
+          // 使用request 创建文件上传对象
+            $profile = $request -> file('avatar');
+            $ext = $profile->getClientOriginalExtension();
+            //getClientOriginalExtension();
+            // 处理文件名称
+            $temp_name = str_random(20);
+            $name =  $temp_name.'.'.$ext;
+            $dirname = date('Ymd',time());
+            $res = $profile -> move('./uploads/'.$dirname,$name);   
+            $lujing = '/uploads/'.$dirname.'/'.$name;        
+       }else{
+              $data2 = DB::table('photo as p')
+              -> where('p.id','=',$id)
+              ->select('p.photo','p.cname')
+              ->first();
+              $lujing = $data2['photo']; 
+
+           }
+
+
+        $res = DB::table('photo')
+                ->where('id','=',$id)
+                ->update(['cname'=>$data['cname'],'photo'=>$lujing]);
+        if($res){
+            return redirect('/admin/xc/index')->with('success','修改成功');
+        }else{
+            return back()->with('error','修改失败'); 
+        }
+
+    }
+     public function getTpedit($id)
+    {
+        // ->join('photo-cate as pc','p.cname','=','pc.name')
+        //       ->select('p.photo','pc.name','p.id')
+        $data = DB::table('photo as p')
+              -> where('p.id','=',$id)
+              ->select('p.photo','p.id')
+              ->first();
+        $data2 = DB::table('photo-cate')->get();
+
+        return view('admin/xc/tpedit',['data'=>$data,'data2'=>$data2]);
+
+    }
+
+    public function getTpdestroy( Request $request,$id)
+    {
+        //
+        DB::beginTransaction();
+        $res = DB::table('photo')->where('id','=',$id)->delete();
+        if($res){
+            DB::commit();
+            return redirect('/admin/xc/index')->with('success','删除成功');
+        }else{
+            DB::rollBack();
+            return back()-> with('error','删除失败');
+        }
     }
 
     /**
@@ -57,6 +156,25 @@ class XcController extends Controller
         }else{
             return back()->with('error','添加失败'); 
         }
+    }
+
+    public function getShow(Request $request ,$id)
+    {
+        
+
+       $cname = DB::table('photo-cate as p')
+              ->where('id','=',$id)
+              ->select('p.name')
+              ->first();
+
+       $data = DB::table('photo as p')
+              ->where('name','=',$cname['name'])
+              ->join('photo-cate as pc','p.cname','=','pc.name')
+              ->select('p.photo','pc.name','p.id')
+              ->paginate(10);
+              //dump($data);
+              //exit;  
+        return view('admin/xc/show',['data'=>$data]);
     }
 
     /**
@@ -116,7 +234,7 @@ class XcController extends Controller
     {
         //
         DB::beginTransaction();
-        $res = DB::table('photo')->where('id','=',$id)->delete();
+        $res = DB::table('photo-cate')->where('id','=',$id)->delete();
         if($res){
             DB::commit();
             return redirect('/admin/xc/index')->with('success','删除成功');

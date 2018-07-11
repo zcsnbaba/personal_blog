@@ -63,13 +63,10 @@ class WzpzController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function getEdit($id)
+    public function getEdit()
     {
         //
-        $data = DB::table('blog_webs as d')
-              -> where('d.id','=',$id)
-              ->select('d.name','d.describe','d.logo','d.filing','d.telephone','d.url','d.cright','d.id')
-              ->first(); 
+        $data = DB::table('blog_webs')->first();
 
         return view('admin/wp/edit',['data'=>$data]);
     }
@@ -87,7 +84,6 @@ class WzpzController extends Controller
             if($request -> hasFile('logo')){
               // 使用request 创建文件上传对象
                 $profile = $request -> file('logo');
-                dump($profile);
                 $ext = $profile->getClientOriginalExtension();
                 // 处理文件名称
                 $temp_name = str_random(20);
@@ -105,10 +101,10 @@ class WzpzController extends Controller
 
            }
            DB::beginTransaction();
-           $res = DB::table('blog_webs')->where('id','=',$id)->update(['name'=>$data['name'],'describe'=>$data['describe'],'logo'=>$lujing,'filing'=>$data['filing'],'telephone'=>$data['telephone'],'url'=>$data['url'],'cright'=>$data['cright']]);
+           $res = DB::table('blog_webs')->where('id','=',$id)->update(['name'=>$data['name'],'describe'=>$data['describe'],'logo'=>$lujing,'filing'=>$data['filing'],'telephone'=>$data['telephone'],'url'=>$data['url'],'cright'=>$data['cright'],'gjz'=>$data['gjz']]);
            if($res){
             DB::commit();
-            return redirect('/admin/wp/index')->with('success','修改成功');
+            return redirect('/admin/wp/edit')->with('success','修改成功');
             }else{
                 DB::rollBack();
                 return back()->with('error','修改失败');

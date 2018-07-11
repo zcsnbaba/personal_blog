@@ -51,8 +51,17 @@ class ArticleController extends Controller
      */
     public function postStore(ArticleRequest $request)
     {
-       $data = $request->except(['_token']);
-       $created_at = date('Y-m-d H.i.s',time());
+        $data = $request->except(['_token']);
+        $created_at = date('Y-m-d H.i.s',time());
+
+        $profile = $request -> file('file');
+        $ext = $profile->getClientOriginalExtension();
+        $temp_name = str_random(20);
+        $name =  $temp_name.'.'.$ext;
+        $dirname = date('Ymd',time());
+        $res = $profile -> move('./uploads/'.$dirname,$name);
+        $file = ('/uploads/'.$dirname.'/'.$name);
+
        $res = DB::table('article')->insert([
             'title' => $data['title'], 
             'cid' => $data['cid'],
@@ -61,6 +70,7 @@ class ArticleController extends Controller
             'content' => $data['content'],
             'ckick_count' => '0',
             'created_at' => $created_at,
+            'file' => $file,
         ]);
         if($res){
             return redirect('/admin/article/index')->with('success','添加成功');
@@ -105,6 +115,20 @@ class ArticleController extends Controller
     public function postUpdate(ArticleRequest $request, $id)
     {
         $data = $request->except(['_token']);
+        $res = false;
+        if($request -> hasFile('file')){
+            $profile = $request -> file('file');
+            $ext = $profile->getClientOriginalExtension();
+            $temp_name = str_random(20);
+            $name =  $temp_name.'.'.$ext;
+            $dirname = date('Ymd',time());
+            $res = $profile -> move('./uploads/'.$dirname,$name);
+            $file = ('/uploads/'.$dirname.'/'.$name);
+            $res = DB::table('article')
+                ->where('id','=',$id)
+                ->update(['file' => $file]);
+        }
+
         $res = DB::table('article')
                 ->where('id','=',$id)
                 ->update(['title' => $data['title'],'cid' => $data['cid'],'is_recommend'=>$data['is_recommend'],'desc'=>$data['desc'],'content'=>$data['content']]);

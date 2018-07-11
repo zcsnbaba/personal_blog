@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="gb2312">
-<title>黑色个人博客HTML5模板</title>
-<meta name="keywords" content="个人博客模板,博客模板,响应式" />
-<meta name="description" content="个人博客模板，神秘、俏皮。" />
+<title>{{ $common['web']['0']['name'] }}</title>
+<meta name="keywords" content="{{ $common['web']['0']['gjz'] }}" />
+<meta name="description" content="{{ $common['web']['0']['describe'] }}" />
 <link href="/homemoban/css/base.css" rel="stylesheet">
 <link href="/homemoban/css/index.css" rel="stylesheet">
 <link href="/homemoban/css/media.css" rel="stylesheet">
@@ -68,14 +68,14 @@
       </h2>
       <ul>
       @foreach($common['link'] as $k => $v)
-        <li><a href="{{ $v['link_url'] }}">{{ $v['link_name'] }}</a></li>
+        <b><i><li><a href="{{ $v['link_url'] }}">{{ $v['link_name'] }}</a></li></i></b>
       @endforeach
       </ul>
     </div>
     <div class="copyright">
       <ul>
-        <p> Design by <a href="/">DanceSmile</a></p>
-        <p>蜀ICP备11002373号-1</p>
+        <b><p> nibaba by <a href="/">{{ $common['web']['0']['cright'] }}</a></p>
+        <p>{{ $common['web']['0']['filing'] }}</p></b>
         </p>
       </ul>
     </div>

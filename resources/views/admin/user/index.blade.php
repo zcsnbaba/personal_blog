@@ -19,8 +19,6 @@
                     	<th>性别</th>
                     	<th>权限</th>
                     	<th>手机号</th>
-                    	<th>Q Q</th>
-                    	<th>邮箱</th>
                     	<th>注册时间</th>
                     	<th>头像</th>
                     	<th>操作</th>
@@ -35,8 +33,6 @@
 	                <td class=" ">{{ $v['sex' ] }}</td>
 	                <td class=" ">{{ $v['superuser' ] }}</td>
 	                <td class=" ">{{ $v['phone'] }}</td>
-	                <td class=" ">{{ $v['qq'] }}</td>
-	                <td class=" ">{{ $v['email'] }}</td>
 	                <td class=" ">{{ $v['created_at'] }}</td>
 	                @if($v['avatar'])
 	                	<td>

@@ -22,7 +22,12 @@
                             <input type="text" class="small" name="describe">
                         </div>
                     </div>
-                   
+                   <div class="mws-form-row">
+                        <label class="mws-form-label">网站关键字：</label>
+                        <div class="mws-form-item">
+                            <input type="text" class="small" name="gjz">
+                        </div>
+                    </div>
                     
                     <div class="mws-form-row">
                         <label class="mws-form-label">网站备案号：</label>

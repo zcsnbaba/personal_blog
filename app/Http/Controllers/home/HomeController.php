@@ -16,8 +16,12 @@ class HomeController extends Controller
      */
     public function getIndex()
     {
-        
-        return view('home.index.index');
+        $wz_data = DB::table('article as a')
+            ->join('user as u','a.uid','=','u.id')
+            ->where('is_recommend','=','1')
+            ->select('u.uname','a.*')
+            ->paginate(6);
+        return view('home.index.index',['wz_data'=>$wz_data]);
     }
 
     /**
