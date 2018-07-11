@@ -115,7 +115,7 @@ class ArticleController extends Controller
     public function postUpdate(ArticleRequest $request, $id)
     {
         $data = $request->except(['_token']);
-        $res = false;
+        $res1 = false;
         if($request -> hasFile('file')){
             $profile = $request -> file('file');
             $ext = $profile->getClientOriginalExtension();
@@ -124,15 +124,15 @@ class ArticleController extends Controller
             $dirname = date('Ymd',time());
             $res = $profile -> move('./uploads/'.$dirname,$name);
             $file = ('/uploads/'.$dirname.'/'.$name);
-            $res = DB::table('article')
+            $res1 = DB::table('article')
                 ->where('id','=',$id)
                 ->update(['file' => $file]);
         }
 
-        $res = DB::table('article')
+        $res2 = DB::table('article')
                 ->where('id','=',$id)
                 ->update(['title' => $data['title'],'cid' => $data['cid'],'is_recommend'=>$data['is_recommend'],'desc'=>$data['desc'],'content'=>$data['content']]);
-        if($res){
+        if($res2 || $res1){
             return redirect('/admin/article/index')->with('success','修改成功');
         }else{
             return back()->with('error','修改失败'); 

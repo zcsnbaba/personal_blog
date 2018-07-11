@@ -1,31 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\home;
+namespace App\Http\Controllers\\home;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use DB;
-class HomeController extends Controller
+
+class XcController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex()
+    public function index()
     {
-
-        $wz_data = DB::table('article as a')
-            ->join('user as u','a.uid','=','u.id')
-            ->where('is_recommend','=','1')
-            ->select('u.uname','a.*')
-            ->paginate(6);
-        $data = DB::table('carousel as c')
-           ->get();
-               
-        return view('home.index.index',['wz_data'=>$wz_data,'data'=>$data]);
+        //
     }
 
     /**
