@@ -1,25 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\home;
+namespace App\Http\Controllers\\home;
 
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use DB;
-class HomeController extends Controller
+
+class XcController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex()
+    public function index()
     {
-         $data = DB::table('carousel as c')
-               ->get();
-			   
-        return view('home.index.index',['data'=>$data]);
+        //
     }
 
     /**

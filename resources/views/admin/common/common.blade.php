@@ -168,19 +168,7 @@
                             <li><a href="/admin/xc/create">添加相册</a></li>
                             <li><a href="/admin/xc/tpcreate">添加图片</a></li>
                         </ul>
-<<<<<<< HEAD
-
-=======
->>>>>>> 942fc74de26c8cd6e299420db091a6469f4189c9
                     </li>
-
-                    
-
-<<<<<<< HEAD
-                    </li> 
-=======
-                    </li>
->>>>>>> 942fc74de26c8cd6e299420db091a6469f4189c9
                     <li>        
                         <a href="/admin/collect"><i class="icon-archive"></i>文章收藏管理</a>
                     </li>
