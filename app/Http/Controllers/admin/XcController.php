@@ -44,23 +44,34 @@ class XcController extends Controller
      public function postTpstore(Request $request)
     {
         $data = $request -> except('_token');
-        if($request -> hasFile('avatar')){
-          // 使用request 创建文件上传对象
-            $profile = $request -> file('avatar');
-            $ext = $profile->getClientOriginalExtension();
-            //getClientOriginalExtension();
+       //  dump($data);
+
+       //  if($request -> hasFile('avatar')){
+       //    // 使用request 创建文件上传对象
+       //      $profile = $request -> file('avatar');
+       //      $ext = $profile->getClientOriginalExtension();
+       //      //getClientOriginalExtension();
+       //      // 处理文件名称
+       //      $temp_name = str_random(20);
+       //      $name =  $temp_name.'.'.$ext;
+       //      $dirname = date('Ymd',time());
+       //      $res = $profile -> move('./photos/'.$dirname,$name);
+            
+       // }
+
+       $profile = $request -> file('avatar');
+        foreach ($profile as $key => $value) {
+            $hz = $value -> getClientOriginalExtension();
             // 处理文件名称
             $temp_name = str_random(20);
-            $name =  $temp_name.'.'.$ext;
+            $name =  $temp_name.'.'.$hz;
             $dirname = date('Ymd',time());
-            $res = $profile -> move('./photos/'.$dirname,$name);
-            
-       }
-       $lujing = '/photos/'.$dirname.'/'.$name;
-       //dump($lujing);
+            $res = $value -> move('./photos/'.$dirname,$name);
+            $lujing = '/photos/'.$dirname.'/'.$name;
+            $res = DB::table('photo')
+                ->insert(['cid'=>$data['cid'],'photo'=>$lujing]);
+        }
 
-        $res = DB::table('photo')
-                ->insert(['cname'=>$data['cname'],'photo'=>$lujing]);
         if($res){
             return redirect('/admin/xc/index')->with('success','添加成功');
         }else{
@@ -73,6 +84,18 @@ class XcController extends Controller
     public function postTpjd(Request $request,$id)
     {
         $data = $request -> except('_token');
+
+         // $data = DB::table('photo as p')
+         //      -> where('p.id','=',$id)
+         //      ->select('p.photo','p.id','p.cid')
+         //      ->first();
+         //  dump($data);
+         //  exit;
+         $a = DB::table('photo-cate as pc')
+             -> where('pc.id','=',$data['cid'])
+             ->select('name')
+             ->first();
+
         if($request -> hasFile('avatar')){
           // 使用request 创建文件上传对象
             $profile = $request -> file('avatar');
@@ -87,7 +110,7 @@ class XcController extends Controller
        }else{
               $data2 = DB::table('photo as p')
               -> where('p.id','=',$id)
-              ->select('p.photo','p.cname')
+              ->select('p.photo')
               ->first();
               $lujing = $data2['photo']; 
 
@@ -96,7 +119,9 @@ class XcController extends Controller
 
         $res = DB::table('photo')
                 ->where('id','=',$id)
-                ->update(['cname'=>$data['cname'],'photo'=>$lujing]);
+                ->update(['cid'=>$data['cid'],'photo'=>$lujing]);
+
+
         if($res){
             return redirect('/admin/xc/index')->with('success','修改成功');
         }else{
@@ -110,7 +135,7 @@ class XcController extends Controller
         //       ->select('p.photo','pc.name','p.id')
         $data = DB::table('photo as p')
               -> where('p.id','=',$id)
-              ->select('p.photo','p.id')
+              ->select('p.photo','p.id','p.cid')
               ->first();
         $data2 = DB::table('photo-cate')->get();
 
@@ -162,18 +187,13 @@ class XcController extends Controller
     {
         
 
-       $cname = DB::table('photo-cate as p')
-              ->where('id','=',$id)
-              ->select('p.name')
-              ->first();
+ 
 
        $data = DB::table('photo as p')
-              ->where('name','=',$cname['name'])
-              ->join('photo-cate as pc','p.cname','=','pc.name')
+              ->where('cid','=',$id)
+              ->join('photo-cate as pc','p.cid','=','pc.id')
               ->select('p.photo','pc.name','p.id')
-              ->paginate(10);
-              //dump($data);
-              //exit;  
+              ->paginate(10); 
         return view('admin/xc/show',['data'=>$data]);
     }
 

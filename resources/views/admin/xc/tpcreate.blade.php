@@ -12,18 +12,18 @@
                                 <div class="mws-form-row">
                                     <label class="mws-form-label">相册分类</label>
                                     <div class="mws-form-item">
-                                        <select class="large" name="cname">
+                                        <select class="large" name="cid">
                                         @foreach($data as $k => $v)
-                                            <option>{{$v['name']}}</option>
+                                            <option value="{{$v['id']}}">{{$v['name']}}</option>
                                         @endforeach
                                            
                                         </select>
                                     </div>
                                 </div>
-                                 <div class="mws-form-row">
+                                 <div class="mws-form-row">[]
                                     <label class="mws-form-label">图片：</label>
                                     <div class="mws-form-item" style="width:48%">
-                                        <input type="file" name="avatar" id="file"/> 
+                                        <input type="file" name="avatar[]" id="file" multiple/> 
                                     </div>
                                 </div>
                                 

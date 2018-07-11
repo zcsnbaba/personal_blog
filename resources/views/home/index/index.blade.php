@@ -1,13 +1,28 @@
 @extends('home.common.common')
 
 @section('content') 
-  <article>
-    <div class="banner">
-      <ul class="texts">
-        <p>The best life is use of willing attitude, a happy-go-lucky life. </p>
-        <p>最好的生活是用心甘情愿的态度，过随遇而安的生活。</p>
-      </ul>
-    </div>
+<article>
+    <div id="banner_tabs" class="flexslider">
+  <ul class="slides">
+    @foreach($data as $k => $v)
+    <li>
+      <a title="" target="_blank" href="#">
+        <img src="{{$v['address']}}" style=" width:720px height:300px no-repeat center;" src="images/alpha.png" >
+      </a>  
+    </li>
+
+    @endforeach
+  </ul>
+  <ul class="flex-direction-nav">
+    <li><a class="flex-prev" href="javascript:;">Previous</a></li>
+    <li><a class="flex-next" href="javascript:;">Next</a></li>
+  </ul>
+  <ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
+  @foreach($data as $k => $v)
+    <li><a>{{$k}}</a></li>
+  @endforeach
+  </ol>
+</div>
     <div class="bloglist">
       <h2>
         <p><span>推荐</span>文章</p>
@@ -26,4 +41,25 @@
       @endforeach
     </div>
   </article>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/slider.js"></script>
+<script type="text/javascript">
+$(function() {
+  var bannerSlider = new Slider($('#banner_tabs'), {
+    time: 5000,
+    delay: 400,
+    event: 'hover',
+    auto: true,
+    mode: 'fade',
+    controller: $('#bannerCtrl'),
+    activeControllerCls: 'active'
+  });
+  $('#banner_tabs .flex-prev').click(function() {
+    bannerSlider.prev()
+  });
+  $('#banner_tabs .flex-next').click(function() {
+    bannerSlider.next()
+  });
+})
+</script>
   @endsection
