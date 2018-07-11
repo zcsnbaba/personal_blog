@@ -11,12 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-//后台用户控制器
+
+    
+
+
 Route::controller('/admin/user', 'admin\UserController');
 
+Route::controller('/admin/message', 'admin\MessageController');
 
 
 
@@ -65,6 +66,7 @@ Route::controller('/admin/dh','admin\DhController');
 //Route::controller('/admin/xc','admin\XcController');
 Route::controller('/admin/lb','admin\LbController');
 Route::controller('/admin/wp','admin\WzpzController');
+Route::controller('/admin/xc','admin\XcController');
 
 
 
@@ -74,3 +76,5 @@ Route::controller('/admin/wp','admin\WzpzController');
 
 //后台控制器
 Route::controller('/admin', 'admin\AdminController');
+//前台控制器
+Route::controller('/', 'home\HomeController');

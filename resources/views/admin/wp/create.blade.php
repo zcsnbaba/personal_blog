@@ -22,7 +22,12 @@
                             <input type="text" class="small" name="describe">
                         </div>
                     </div>
-                   
+                   <div class="mws-form-row">
+                        <label class="mws-form-label">网站关键字：</label>
+                        <div class="mws-form-item">
+                            <input type="text" class="small" name="gjz">
+                        </div>
+                    </div>
                     
                     <div class="mws-form-row">
                         <label class="mws-form-label">网站备案号：</label>
@@ -58,7 +63,7 @@
                 </div>
                 <div class="mws-button-row">
                     <input type="submit" value="提交" class="btn btn-success">
-                    <input type="reset" value="返回" class="btn btn-warning">
+                    <a href="/admin/wp/index" class="btn btn-warning">返回</a>
                 </div>
             </form>
         </div>      

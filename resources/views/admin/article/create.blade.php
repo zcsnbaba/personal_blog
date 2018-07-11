@@ -10,7 +10,7 @@
     	<span>文章添加</span>
     </div>
     <div class="mws-panel-body no-padding">
-    	<form class="mws-form" action="/admin/article/store" method="post">
+    	<form class="mws-form" action="/admin/article/store" method="post" enctype="multipart/form-data">
     		{{ csrf_field() }}
     		<div class="mws-form-block">
     			<div class="mws-form-row">
@@ -44,7 +44,13 @@
     					<textarea cols="91" rows="2" style="height:75px" name="desc"></textarea>
     				</div>
     			</div>
-    			
+    			<div class="mws-form-row">
+                    <label class="mws-form-label">文章图片：</label>
+                    <div class="mws-form-item" style="width:48%">
+                        <input type="file" name="file" id="file" onchange="imgPreview(this)"/> 
+                        <img id="preview" style="width:200px">
+                    </div>
+                </div>
 				<div class="mws-form-row">
     				<label class="mws-form-label">文章内容：</label>
     				<script id="container" name="content" type="text/plain" style="width:87%;height:500px">
@@ -59,12 +65,38 @@
     			</div>
     		<div class="mws-button-row">
     			<input type="submit" value="提交" class="btn btn-danger">
-    			<input type="reset" value="返回" class="btn ">
+    			<a href="/admin/article/index" class="btn btn-warning">返回</a>
     		</div>
     	</form>
     </div>
 </div>
+<script type="text/javascript">
+    function imgPreview(fileDom){
+        //判断是否支持FileReader
+        if (window.FileReader) {
+            var reader = new FileReader();
+        } else {
+            alert("您的设备不支持图片预览功能，如需该功能请升级您的设备！");
+        }
 
+        //获取文件
+        var file = fileDom.files[0];
+        var imageType = /^image\//;
+        //是否是图片
+        if (!imageType.test(file.type)) {
+            alert("请选择图片！");
+            return;
+        }
+        //读取完成
+        reader.onload = function(e) {
+            //获取图片dom
+            var img = document.getElementById("preview");
+            //图片路径设置为读取的图片
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+</script>
 
 
 

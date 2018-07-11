@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use App\Http\Requests\admin\CegoryRequest;
 
 class CategoryController extends Controller
 {
@@ -17,11 +18,7 @@ class CategoryController extends Controller
      */
     public function getIndex()
     {   
-        // 操作数据库
         $cate = DB::table('category') -> paginate(5);
-        // dump($cate);
-
-        // 显示数据 分配到模板
         return view('admin.category.index',['cate' => $cate]);
     }
 
@@ -42,12 +39,9 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function postStore(Request $request)
+    public function postStore(CegoryRequest $request)
     {
-        // 获取值
         $cate = $request -> only('name_class');
-        // dump($cate);
-        // 执行添加
         $res = DB::table('category') -> insert(['name_class' => $cate['name_class']]);
         if($res){
             return redirect('/admin/category/index') -> with('success','添加成功');
@@ -77,9 +71,7 @@ class CategoryController extends Controller
      */
     public function getEdit($id)
     {   
-        // 获取要修改的值 显示到模板中
         $cate = DB::table('category') -> where('id','=',$id) -> select() -> first();
-         dump($cate);
         return view('admin.category.edit',['cate' => $cate]);
     }
 
@@ -90,13 +82,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function postUpdate(Request $request, $id)
+    public function postUpdate(CegoryRequest $request, $id)
     {
-        // 获取文本值
-        // dump($request);
         $cate = $request -> only('id','name_class');
-        // dump($cate);
-        // 执行修改
         $res = DB::table('category') -> where('id','=',$id) -> update(['name_class' => $cate['name_class']]);
         if($res){
             return redirect('/admin/category/index') -> with('success','修改成功');

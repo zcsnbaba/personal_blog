@@ -22,7 +22,12 @@
                             <input type="text" class="small" name="describe" value="{{$data['describe']}}">
                         </div>
                     </div>
-                   
+                    <div class="mws-form-row">
+                        <label class="mws-form-label">网站关键字：</label>
+                        <div class="mws-form-item">
+                            <input type="text" class="small" name="gjz" value="{{$data['gjz']}}">
+                        </div>
+                    </div>
                     
                     <div class="mws-form-row">
                         <label class="mws-form-label">网站备案号：</label>
@@ -52,14 +57,14 @@
                         <label class="mws-form-label">网站logo：</label>
                         <div class="mws-form-item" style="width:48%">
                                <input type="file" name="logo" id="file"/> 
-                                <img src="{{ $data['logo'] }}" class="img-rounded" style="width:70px;height:70px;border:1px #ccc double" value="1"> 
+                                <img src="{{ $data['logo'] }}" class="img-rounded" style="width:180px;height:37px;border:1px #ccc double" value="1"> 
                                 <input type="hidden" name="avatar" value="{{ $data['logo'] }}">
                         </div>
                     </div>      
                 </div>
                 <div class="mws-button-row">
                     <input type="submit" value="提交" class="btn btn-success">
-                    <input type="reset" value="返回" class="btn btn-warning">
+                    <a href="/admin/wp/index" class="btn btn-warning">返回</a>
                 </div>
             </form>
         </div>      

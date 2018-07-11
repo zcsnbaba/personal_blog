@@ -9,6 +9,9 @@
         <div class="mws-panel-body no-padding">
             
             <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1" aria-describedby="DataTables_Table_1_info">
+            <form action="/admin/user/index" method="git">
+            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper" role="grid"><div class="dataTables_filter" id="DataTables_Table_0_filter"><label>搜索用户名 ：<input type="text" aria-controls="DataTables_Table_0" name="username"><input type="submit" class="btn btn-success" value="搜索"></label></div>
+            </form>
                 <thead>
                     <tr role="row">
                     	<th>ID</th>
@@ -16,14 +19,13 @@
                     	<th>性别</th>
                     	<th>权限</th>
                     	<th>手机号</th>
-                    	<th>Q Q</th>
-                    	<th>邮箱</th>
                     	<th>注册时间</th>
                     	<th>头像</th>
                     	<th>操作</th>
                     </tr>
                 </thead>
              <tbody role="alert" aria-live="polite" aria-relevant="all">
+
              @foreach($user_data as $k => $v)
 	            <tr class="odd" style="border:1px #ccc solid">
 	                <td class=" sorting_1">{{ $v['id'] }}</td>
@@ -31,8 +33,6 @@
 	                <td class=" ">{{ $v['sex' ] }}</td>
 	                <td class=" ">{{ $v['superuser' ] }}</td>
 	                <td class=" ">{{ $v['phone'] }}</td>
-	                <td class=" ">{{ $v['qq'] }}</td>
-	                <td class=" ">{{ $v['email'] }}</td>
 	                <td class=" ">{{ $v['created_at'] }}</td>
 	                @if($v['avatar'])
 	                	<td>
@@ -79,6 +79,5 @@
             </div>
         </div>
     </div>
-
 </div>         
 @endsection

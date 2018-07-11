@@ -15,17 +15,17 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex()
+    public function getIndex(Request $request)
     {
-        $user_data = DB::table('user')->paginate(20);
-        // dd($user_data);
+        $username = $request->input('username');
+        $user_data = DB::table('user')->where('uname','like','%'.$username.'%')->paginate(15);
         $user_data->setPath('index');
         $num=$user_data->lastPage();
         $nextpage=$num-$user_data->currentPage() ==0 ? $num : $user_data->currentPage()+1 ; 
         $lastpage=$user_data->currentPage()-1 <0 ? 1 : $user_data->currentPage()-1 ; 
         $user_data->next=$nextpage;
         $user_data->last=$lastpage;
-        return view('admin.user.index',['user_data'=>$user_data]);
+        return view('admin.user.index',['user_data'=>$user_data,'$username'=>$username]);
     }
 
     /**
