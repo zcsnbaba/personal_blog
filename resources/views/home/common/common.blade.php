@@ -147,7 +147,6 @@
 #sjz .zt:hover { color:#ff95ca;}
 #sjz:hover { color:white;}
 #sjz:focus { color:black;}
-#sjz:focus { color:black;}
 </style>
 </head>
 <body>
