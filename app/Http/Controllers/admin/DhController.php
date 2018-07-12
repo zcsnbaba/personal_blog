@@ -48,10 +48,8 @@ class DhController extends Controller
     public function postStore(Request $request)
     {
         $this->validate($request,[
-            'name' => 'required',
             'url' => 'required',
           ],[
-            'name.required' => '导航名必填',
             'url.required' => 'url地址必填',
           ]);
         DB::beginTransaction();
