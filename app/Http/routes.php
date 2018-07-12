@@ -36,6 +36,7 @@ Route::controller('/admin/collect','admin\CollectController');
 Route::controller('/admin/link','admin\LinkController');
 
 
+Route::controller('/home/about','home\AboutController');
 
 
 
