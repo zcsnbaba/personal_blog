@@ -124,32 +124,23 @@
       line-height: 30px;
       border-radius: 15px;
       font-size:15px;
-
     }
 .bloglist{
   position: absolute;
   top :190px;
   left:350px;
-
 }
-
-
 @font-face{
     font-family: 'YaHei Consolas Hybrid';
     src : url('/YGYXSZITI2.0.TTF');
 }
-
 #sjz .zt{
     font-family: 'YaHei Consolas Hybrid';
     font-size: 16px;
 }
-
  #sjz .zt{
    color:white;
 }
-
-
-
 #sjz .zt:hover { color:#ff95ca;}
 #sjz:hover { color:white;}
 #sjz:focus { color:black;}
