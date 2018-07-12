@@ -5,9 +5,10 @@
                     <div class="mws-panel-header">
                         <span><i class="icon-pictures"></i> 相册显示</span>
                     </div>
-
-                    <div class="mws-panel-body">
-                        <ul class="thumbnails mws-gallery">@foreach($xc as $k => $v)
+@foreach($xc as $k => $v)
+                    <div class="mws-panel-body"   style="background-image: url(/photos/20180712/PxYMskKEjjTMtx9HSKok.jpg) no-repeat;">
+                    
+                        <ul class="thumbnails mws-gallery">
                             <li>
                                 <span class="thumbnail"><img src="{{$v['photo']}}" alt=""></span>
                                 <span class="mws-gallery-overlay">
@@ -15,10 +16,10 @@
                                     <a href="/admin/xc/tpdestroy/{{$v['id']}}" class="mws-gallery-btn"><i class="icon-trash"></i></a>
                                 </span>
                                 <span></span>
-                            </li>@endforeach
+                            </li>
                 
                         </ul>
                     </div>
-                     
+@endforeach                     
 </div>
 @endsection

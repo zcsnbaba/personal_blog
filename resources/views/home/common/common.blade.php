@@ -16,6 +16,22 @@
 <script src="js/modernizr.js"></script>
 <![endif]-->
 <style>
+.mws-panel-body {
+  width: 70px;
+  height: 70px;
+  line-height: 99em;
+  margin: -35px 0 0;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all .3s ease;
+  border-radius: 35px;
+}
+
+
 .flexslider {
   margin: 0px auto 20px;
   position: relative;
@@ -125,11 +141,6 @@
       border-radius: 15px;
       font-size:15px;
     }
-.bloglist{
-  position: absolute;
-  top :190px;
-  left:350px;
-}
 @font-face{
     font-family: 'YaHei Consolas Hybrid';
     src : url('/YGYXSZITI2.0.TTF');

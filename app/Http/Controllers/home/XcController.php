@@ -18,7 +18,7 @@ class XcController extends Controller
     public function getIndex()
     {
         $xc = DB::table('photo')-> get();
-
+        
          
         return view('home/xc/index',['xc'=>$xc]);
     }
