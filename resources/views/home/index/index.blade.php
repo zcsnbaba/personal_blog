@@ -62,4 +62,4 @@ $(function() {
   });
 })
 </script>
-  @endsection
+@endsection
