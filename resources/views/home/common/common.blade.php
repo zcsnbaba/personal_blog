@@ -131,7 +131,6 @@
 }
 
 #sjz .zt:hover { opacity:100;}
-#zt:focus { display:block;}
 #sjz:hover { color:white;}
 #sjz:focus { color:black;}
 </style>
