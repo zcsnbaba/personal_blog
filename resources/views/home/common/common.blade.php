@@ -127,13 +127,26 @@
       font-size:15px;
 
     }
- #sjz .zt{
-  color:#f0f;
-}
+.bloglist{
+  position: absolute;
+  top :190px;
+  left:350px;
 
-#sjz .zt:hover { color:blue;}
-#zt:focus { display:block;}
+}
+@font-face{
+    font-family: 'YaHei Consolas Hybrid';
+    src : url('/YGYXSZITI2.0.TTF');
+}
+#sjz .zt{
+    font-family: 'YaHei Consolas Hybrid';
+    font-size: 16px;
+}
+ #sjz .zt{
+   color:white;
+}
+#sjz .zt:hover { color:#ff95ca;}
 #sjz:hover { color:white;}
+#sjz:focus { color:black;}
 #sjz:focus { color:black;}
 </style>
 </head>
