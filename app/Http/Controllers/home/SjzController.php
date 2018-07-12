@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
 
-class XcController extends Controller
+class SjzController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +17,11 @@ class XcController extends Controller
      */
     public function getIndex()
     {
-        $xc = DB::table('photo')-> get();
+        //
+        $sjz = DB::table('sjz')->orderBy('id','desc')->get();
 
-         
-        return view('home/xc/index',['xc'=>$xc]);
+
+        return view('home/sjz/index',['sjz'=>$sjz]);
     }
 
     /**

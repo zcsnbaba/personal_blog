@@ -9,6 +9,9 @@
 <link href="/homemoban/css/index.css" rel="stylesheet">
 <link href="/homemoban/css/media.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+
+
+
 <!--[if lt IE 9]>
 <script src="js/modernizr.js"></script>
 <![endif]-->
@@ -114,6 +117,23 @@
 }
 .logo{position:absolute; z-index:20;}
 ..flexslider .slides img{position:absolute; z-index:10;}
+
+#sjz{
+      background: #333;
+      text-align: center;
+      line-height: 30px;
+      border-radius: 15px;
+      font-size:15px;
+
+    }
+ #sjz .zt{
+  opacity:0;
+}
+
+#sjz .zt:hover { opacity:100;}
+#zt:focus { display:block;}
+#sjz:hover { color:white;}
+#sjz:focus { color:black;}
 </style>
 </head>
 <body>

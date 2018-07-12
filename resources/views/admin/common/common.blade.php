@@ -166,6 +166,13 @@
                             <li><a href="/admin/xc/tpcreate">添加图片</a></li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#"><i class="icon-time"></i>时间轴</a>
+                        <ul>
+                            <li><a href="/admin/sjz/index">时间轴列表</a></li>
+                            <li><a href="/admin/sjz/create">添加时间轴</a></li>
+                        </ul>
+                    </li>
                     <li>        
                         <a href="/admin/collect"><i class="icon-archive"></i>文章收藏管理</a>
                     </li>
