@@ -18,6 +18,7 @@
 Route::controller('/admin/user', 'admin\UserController');
 Route::controller('/home/article', 'home\ArticleController');
 Route::controller('/admin/message', 'admin\MessageController');
+Route::controller('/admin/login', 'admin\LoginController');
 
 
 

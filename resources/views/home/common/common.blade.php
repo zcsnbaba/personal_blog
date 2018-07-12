@@ -128,10 +128,10 @@
 
     }
  #sjz .zt{
-  opacity:0;
+  color:#f0f;
 }
 
-#sjz .zt:hover { opacity:100;}
+#sjz .zt:hover { color:blue;}
 #zt:focus { display:block;}
 #sjz:hover { color:white;}
 #sjz:focus { color:black;}
