@@ -8,7 +8,7 @@
       </h2>
       @foreach($sjz as $k => $v)
       <div class="blogs"> 
-      <div id="sjz"><p class="zt">{{$v['title']}}</P></div>
+      <div id="sjz"><p class="zt">{{$v['title']}}</p></div>
         <div class="dateview">{{$v['time']}}</div>
       </div>
       @endforeach

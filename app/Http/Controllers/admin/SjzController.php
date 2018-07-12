@@ -42,10 +42,10 @@ class SjzController extends Controller
     {
         //
          $this->validate($request,[
-            'title' => 'required|between:0,60',
+            'title' => 'required|between:0,36',
           ],[
             'title.required' => '导航名必填',
-            'title.between' => '内容不能超过六十字',
+            'title.between' => '内容不能超过三十六字',
           ]);
         DB::beginTransaction();
         //接收 提交的数据
