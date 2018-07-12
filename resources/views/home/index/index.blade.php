@@ -6,7 +6,7 @@
   <ul class="slides">
     @foreach($data as $k => $v)
     <li>
-      <a title="" target="_blank" href="#">
+      <a title="" target="_blank" href="/">
         <img src="{{$v['address']}}" style=" width:720px height:300px no-repeat center;" src="images/alpha.png" >
       </a>  
     </li>
@@ -33,14 +33,14 @@
         <figure><img src="{{ $v['file'] }}" style="height:110px"></figure>
         <ul>
           <p>{{ $v['desc'] }}</p>
-          <a href="/" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
+          <a href="/home/article/index/{{ $v['id'] }}" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
         </ul>
         <p class="autor"><span>作者：{{ $v['uname'] }}</span><span>分类：【<a href="/">日记</a>】</span><span>浏览（{{ $v['ckick_count'] }}）</span><span>评论（<a href="/">1</a>）</span></p>
         <div class="dateview">{{ $v['created_at'] }}</div>
       </div>
       @endforeach
     </div>
-  </article>
+</article>
 <script src="js/jquery-1.10.2.min.js"></script>
 <script src="js/slider.js"></script>
 <script type="text/javascript">
