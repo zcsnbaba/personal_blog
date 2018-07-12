@@ -68,6 +68,9 @@ Route::controller('/admin/dh','admin\DhController');
 Route::controller('/admin/lb','admin\LbController');
 Route::controller('/admin/wp','admin\WzpzController');
 Route::controller('/admin/xc','admin\XcController');
+Route::controller('/admin/sjz','admin\SjzController');
+Route::controller('/home/xc','home\XcController');
+Route::controller('/home/sjz','home\SjzController');
 
 
 
