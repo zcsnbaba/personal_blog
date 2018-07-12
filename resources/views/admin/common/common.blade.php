@@ -176,7 +176,13 @@
                             <li><a href="/admin/link/create">友情链接添加</a></li>
                         </ul>
                     </li>
-
+                    <li>
+                        <a href="#"><i class="icon-th"></i>关于我图片管理</a>
+                        <ul>
+                            <li><a href="/admin/about/create">图片添加</a></li>
+                            <li><a href="/admin/about">图片列表</a></li>
+                        </ul>
+                    </li>
                     <li>
                         <a href="/admin/message/index"><i class="icon-sound"></i>留言管理</a>
                     </li>

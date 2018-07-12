@@ -8,6 +8,7 @@
 <link href="/homemoban/css/base.css" rel="stylesheet">
 <link href="/homemoban/css/index.css" rel="stylesheet">
 <link href="/homemoban/css/media.css" rel="stylesheet">
+<link href="/homemoban/css/about.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 <!--[if lt IE 9]>
 <script src="js/modernizr.js"></script>
