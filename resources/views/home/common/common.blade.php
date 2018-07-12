@@ -127,12 +127,6 @@
       font-size:15px;
 
     }
-.bloglist{
-  position: absolute;
-  top :190px;
-  left:350px;
-
-}
 @font-face{
     font-family: 'YaHei Consolas Hybrid';
     src : url('/YGYXSZITI2.0.TTF');
