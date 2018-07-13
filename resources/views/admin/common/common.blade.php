@@ -184,7 +184,6 @@
                             <li><a href="/admin/link/create">友情链接添加</a></li>
                         </ul>
                     </li>
-
                     <li>
                         <a href="/admin/message/index"><i class="icon-sound"></i>留言管理</a>
                     </li>

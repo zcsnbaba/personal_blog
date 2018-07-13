@@ -1,13 +1,14 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="gb2312">
+<meta charset="UTF-8">
 <title>{{ $common['web']['0']['name'] }}</title>
 <meta name="keywords" content="{{ $common['web']['0']['gjz'] }}" />
 <meta name="description" content="{{ $common['web']['0']['describe'] }}" />
 <link href="/homemoban/css/base.css" rel="stylesheet">
 <link href="/homemoban/css/index.css" rel="stylesheet">
 <link href="/homemoban/css/media.css" rel="stylesheet">
+<link href="/homemoban/css/about.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 
 <!--[if lt IE 9]>
@@ -176,7 +177,7 @@
       </h2>
       <ul>
       @foreach($common['wenzhang'] as $k => $v)
-        <li><a href="/">{{ $v['title'] }}</a></li>
+        <li><a href="/home/article/index/{{ $v['id'] }}">{{ $v['title'] }}</a></li>
       @endforeach
       </ul>
       <h2>
@@ -184,7 +185,7 @@
       </h2>
       <ul>
       @foreach($common['wenzhang2'] as $k => $v)
-        <li><a href="/">{{ $v['title'] }}</a></li>
+        <li><a href="/home/article/index/{{ $v['id'] }}">{{ $v['title'] }}</a></li>
       @endforeach
       </ul>
     </div>
@@ -194,7 +195,7 @@
       </h2>
       <ul>
       @foreach($common['link'] as $k => $v)
-        <b><i><li><a href="{{ $v['link_url'] }}">{{ $v['link_name'] }}</a></li></i></b>
+        <b><i><li><a href="http://{{ $v['link_url'] }}">{{ $v['link_name'] }}</a></li></i></b>
       @endforeach
       </ul>
     </div>
