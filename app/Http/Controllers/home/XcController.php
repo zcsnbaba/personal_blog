@@ -18,9 +18,10 @@ class XcController extends Controller
     public function getIndex()
     {
         $xc = DB::table('photo')-> get();
-        
+        $xcfl = DB :: table('photo-cate')->get();                                               
+
          
-        return view('home/xc/index',['xc'=>$xc]);
+        return view('home/xc/index',['xc'=>$xc,'xcfl'=>$xcfl]);
     }
 
     /**
@@ -50,9 +51,16 @@ class XcController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getShow($id)
     {
-        //
+      $name = DB :: table('photo-cate')->get();
+
+       $zp = DB::table('photo as p')
+              ->where('cid','=',$id)
+              ->join('photo-cate as pc','p.cid','=','pc.id')
+              ->select('p.photo','pc.name','p.id')
+              ->paginate(100); 
+        return view('home/xc/show',['zp'=>$zp,'name'=>$name]);   
     }
 
     /**

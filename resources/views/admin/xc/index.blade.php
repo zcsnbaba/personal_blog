@@ -20,7 +20,7 @@
                 <tr class="odd" style="border:1px #ccc solid">
                     <td class=" sorting_1" style="text-align:center">{{ $v['id'] }}</td>
                     <td class=" " style="text-align:center">{{ $v['name'] }}</td>
-                    
+  
                    
                     <td style="text-align:center">
                         <a href="/admin/xc/edit/{{ $v['id'] }}" class="btn btn-warning">修改</a>
