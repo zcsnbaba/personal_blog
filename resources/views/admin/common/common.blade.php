@@ -16,6 +16,7 @@
 <!-- Required Stylesheets -->
 <link rel="stylesheet" type="text/css" href="/adminmoban/bootstrap/css/bootstrap.min.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/adminmoban/css/fonts/ptsans/stylesheet.css" media="screen">
+<!-- 后台图片按钮样式 -->
 <link rel="stylesheet" type="text/css" href="/adminmoban/css/fonts/icomoon/style.css" media="screen">
 
 <link rel="stylesheet" type="text/css" href="/adminmoban/css/mws-style.css" media="screen">

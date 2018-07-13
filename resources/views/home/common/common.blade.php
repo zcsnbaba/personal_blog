@@ -11,8 +11,6 @@
 <link href="/homemoban/css/about.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 
-
-
 <!--[if lt IE 9]>
 <script src="js/modernizr.js"></script>
 <![endif]-->
@@ -125,7 +123,6 @@
       line-height: 30px;
       border-radius: 15px;
       font-size:15px;
-
     }
 @font-face{
     font-family: 'YaHei Consolas Hybrid';
