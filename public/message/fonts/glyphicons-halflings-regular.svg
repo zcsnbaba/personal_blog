@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        
+    <title>李聪个人博客</title>
+    <meta name="keywords" content="李聪,Leo,李聪博客,Leo博客,PHP博客">
+    <meta name="description" content="李聪(Leo)的博客主要分享关于PHP语言, JavaScript语言, HTML5语言, CSS3语言, MySQL数据库, Linux服务器等Web开发的相关技术文章, 以及记录对互联网行业的思考和分析。">
+</blade>
+        <meta name="author" content="Leo">
+        <meta name="copyright" content="copyright©2017 Leo">
+        <link rel="stylesheet" href="/resource/css/home/common/index.css">
+        <link rel="stylesheet" href="/resource/css/home/common/icomoon.css">
+<!--        <link rel="stylesheet" href="//at.alicdn.com/t/font_603813_k8zjrqwhbnmte29.css">-->
+        
+    <link rel="stylesheet" href="/resource/css/common/swiper-4.1.6.min.css">
+    <link rel="stylesheet" href="/resource/css/home/entry/index.css">
+</blade>
+	</head>
+    <body>
+        <header id="fh5co-header" role="banner" style="top:90px;opacity:.7;-moz-user-select:none;" onselectstart="return false">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header"> 
+                        <!-- Mobile Toggle Menu Button -->
+                        <a href="javascript:;" class="js-fh5co-nav-toggle fh5co-nav-toggle" data-toggle="collapse" data-target="#fh5co-navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
+                        <a class="navbar-brand" href="/">李聪 · 个人博客</a>
+                    </div>
+                    <div id="fh5co-navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="CateLists active">
+                                <div class="miao"></div>
+                                <a href="/">
+                                    <span class="cateNames">
+                                        首页<span class="border"></span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="CateLists ">
+                                <div class="miao miao2"></div>
+                                <a href="/about">
+                                    <span class="cateNames">
+                                        关于我<span class="border"></span>
+                                    </span>
+                                </a>
+                            </li>
+                                                        <li class="CateLists ">
+                                <div class="miao miao3"></div>
+                                <a >
+                                    <span class="cateNames">
+                                        学海无涯                                                                                <i class="Triangle"></i>
+                                                                                <span class="border"></span>
+                                    </span>
+                                </a>
+                                                                <ul class="SonCate">
+                                                                        <li>
+                                        <a href="/menu_22" class="sonCateA">
+                                            <span>></span>
+                                            <b>
+                                                印象笔记                                                <span class="rgt"><</span>
+                                            </b>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/menu_23" class="sonCateA">
+                                            <span>></span>
+                                            <b>
+                                                PHP                                                <span class="rgt"><</span>
+                                            </b>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/menu_24" class="sonCateA">
+                                            <span>></span>
+                                            <b>
+                                                JavaScript                                                <span class="rgt"><</span>
+                                            </b>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/menu_25" class="sonCateA">
+                                            <span>></span>
+                                            <b>
+                                                HTML5                                                <span class="rgt"><</span>
+                                            </b>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/menu_26" class="sonCateA">
+                                            <span>></span>
+                                            <b>
+                                                CSS3                                                <span class="rgt"><</span>
+                                            </b>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/menu_27" class="sonCateA">
+                                            <span>></span>
+                                            <b>
+                                                MySQL                                                <span class="rgt"><</span>
+                                            </b>
+                                        </a>
+                                    </li>
+                                                                        <li>
+                                        <a href="/menu_28" class="sonCateA">
+                                            <span>></span>
+                                            <b>
+                                                Linux                                                <span class="rgt"><</span>
+                                            </b>
+                                        </a>
+                                    </li>
+                                                                    </ul>
+                                                            </li>
+                                                        <li class="CateLists ">
+                                <div class="miao miao3"></div>
+                                <a href="/menu_2">
+                                    <span class="cateNames">
+                                        电影人生                                                                                <span class="border"></span>
+                                    </span>
+                                </a>
+                                                            </li>
+                                                        <li class="CateLists ">
+                                <div class="miao miao2"></div>
+                                <a href="/msg">
+                                    <span class="cateNames">
+                                        留言板<span class="border"></span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+    <aside class="fh5co-page-heading">
+        <div class="container" style="width:100%;">
+            <div class="row" >
+                <div class="col-md-12">
+                    <h1 class="fh5co-page-heading-lead">
+                        Home
+                        <span class="fh5co-border"></span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="http://lcgod.oss-cn-beijing.aliyuncs.com/entry/slide3.jpg"></div>
+            <div class="swiper-slide"><img src="http://lcgod.oss-cn-beijing.aliyuncs.com/entry/slide2.jpg"></div>
+            <div class="swiper-slide"><img src="http://lcgod.oss-cn-beijing.aliyuncs.com/entry/slide1.jpg"></div>
+            <div class="swiper-slide"><img src="http://lcgod.oss-cn-beijing.aliyuncs.com/entry/slide.jpg"></div>
+        </div>
+    </div>
+    <!-- 分页器 -->
+    <div class="swiper-pagination"></div>
+	<div id="fh5co-main">
+		<!-- Features -->
+		<div id="fh5co-features">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-md-8 col-md-offset-2">
+						<h1 class="fh5co-section-lead">个人作品展示</h1>
+<!--						<h3 class="fh5co-section-sub-lead"><a href="javascript:;" title="正在开发中...">查看所有项目</a></h3>-->
+					</div>
+					<div class="fh5co-spacer fh5co-spacer-md"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 fh5co-feature-border">
+						<div class="fh5co-feature">
+                            <div class="container-icon">
+                                <i class="icon-shop"></i>
+                            </div>
+							<div class="fh5co-feature-text">
+								<h3>乐创商城</h3>
+								<p>乐创商城是一个内容丰富的在线购物商城, 用户可以在前台进行注册登陆、购买商品、管理个人信息与订单, 管理者也可在后台方便地管理整个商城系统
+                                    <br>核心技能 : PHP + MySQL + JavaScript
+                                    <br>核心框架 : ThinkPHP3.2
+                                </p>
+                                <p>
+                                    <a href="http://shop.lcgod.com/" target="_blank">浏览Demo </a> |
+                                    <a href="http://shop.lcgod.com/index.php/Admin/Index/index" target="_blank">浏览商城后台</a>
+                                </p>
+							</div>
+						</div>
+						<div class="fh5co-feature no-border">
+                            <div class="container-icon">
+                                <i class="icon-video"></i>
+                            </div>
+							<div class="fh5co-feature-text">
+								<h3>LeoVideo</h3>
+								<p>LeoVideo是一个移动端的视频资源网站, 采用了前后端分离的架构, 聚合了大量的优质视频课程资源, 妈妈再也不用担心小伙伴们的学习啦！
+                                    <br>核心技能 : PHP + MySQL + ES6
+                                    <br>核心框架 : Laravel5.6 + VueJS
+                                </p>
+								<p><a href="http://video.lcgod.com/" target="_blank">浏览Demo(请使用手机进行浏览)</a></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6">
+                        <div class="fh5co-feature">
+                            <div class="container-icon">
+                                <i class="icon-cms"></i>
+                            </div>
+                            <div class="fh5co-feature-text">
+                                <h3>LeoCMS</h3>
+                                <p>LeoCMS是一个开源免费的网站内容管理系统, 并且集成了微信公众号接口的调用,
+                                    用户可以便捷地在后台管理网站内容, 微信公众号内容...
+                                    <br>
+                                    核心技能 : PHP + MySQL + JavaScript
+                                    <br>
+                                    核心框架 : ThinkPHP5.1
+                                </p>
+                                <p>
+                                    <a href="http://ms.lcgod.com/" target="_blank">浏览Demo </a> |
+                                    <a href="https://github.com/SpanishOnion/LeoCMS" target="_blank">下载LeoCMS</a>
+                                </p>
+                            </div>
+                        </div>
+						<div class="fh5co-feature no-border">
+                            <div class="container-icon">
+                                <i class="icon-animate"></i>
+                            </div>
+							<div class="fh5co-feature-text">
+								<h3>IT领袖峰会邀请函</h3>
+								<p>这是一封邀请函手机动画, 微信朋友圈里经常可以看到朋友们分享出这样的视频动画, Web中一样也可以实现这种动画效果
+                                    <br>
+                                    核心技能 : HTML5 + CSS3
+                                    <br>
+                                    核心框架 : SwiperJS
+                                </p>
+								<p><a href="http://Opus.lcgod.com/WeiJing" target="_blank">浏览Demo(使用手机效果更佳)</a></p>
+							</div>
+						</div>
+					</div>
+                    <div class="col-md-6 col-sm-6 fh5co-feature-border">
+                        <div class="fh5co-feature">
+                            <div class="container-icon">
+                                <i class="icon-manage"></i>
+                            </div>
+                            <div class="fh5co-feature-text">
+                                <h3>学生管理系统</h3>
+                                <p>这是一个类似于大学的教务管理的后台系统, 全站采用AJAX交互与CSS3动画, 管理者在便捷管理后台的同时, 还有更多优质的用户体验
+                                    <br>
+                                    核心技能 : PHP + JavaScript + CSS3
+                                    <br>
+                                    核心框架 : 基于MVC架构的原生PHP
+                                </p>
+                                <p><a href="http://stu.lcgod.com/" target="_blank">浏览Demo</a></p>
+                            </div>
+                        </div>
+                        <div class="fh5co-feature no-border">
+                            <div class="container-icon">
+                                <i class="icon-tmall"></i>
+                            </div>
+                            <div class="fh5co-feature-text">
+                                <h3>天猫网</h3>
+                                <p>这是我在刚学前端1周时花费了大概5天的时间仿写的双11天猫网的首页，使用了很多JS与CSS动画效果，完成后有一些小小的成就感</p>
+                                <p><a href="http://Opus.lcgod.com/Tmall" target="_blank">浏览Demo</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="fh5co-feature">
+                            <div class="container-icon">
+                                <i class="icon-dream"></i>
+                            </div>
+                            <div class="fh5co-feature-text">
+                                <h3>Wishing Wall</h3>
+                                <p>这是一个Web许愿墙, 全站采用AJAX交互与CSS3动画, 游客可以在网页中进行注册登录, 然后就可以美美地许下自己的愿望啦！
+                                    <br>
+                                    核心技能 : PHP + JavaScript + CSS3
+                                    <br>
+                                    核心框架 : 基于MVC架构的原生PHP
+                                </p>
+                                <p><a href="http://Opus.lcgod.com/WishWall" target="_blank">浏览Demo</a></p>
+                            </div>
+                        </div>
+                        <div class="fh5co-feature no-border">
+                            <div class="container-icon">
+                                <i class="icon-xys"></i>
+                            </div>
+                            <div class="fh5co-feature-text">
+                                <h3>StrongBrew</h3>
+                                <p>这是一个带了那么一点点文艺气息的响应式网页, 我利用了CSS3的媒体查询完成它的布局, 轮播图、导航栏等等都是响应式
+                                </p>
+                                <p><a href="http://Opus.lcgod.com/StrongBrew" target="_blank">浏览Demo</a></p>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+		<!-- Features -->
+		<div class="fh5co-spacer fh5co-spacer-lg"></div>		
+		<!-- Products -->
+		<div class="container" id="fh5co-products">
+			<div class="row text-left">
+				<div class="col-md-8" style="width:100%">
+					<h2 class="recommendBg"><span style="background:white">原创博文推荐</span></h2>
+				</div>
+				<div class="fh5co-spacer fh5co-spacer-md"></div>
+			</div>
+			<div class="row">
+                				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-mb30">
+					<div class="fh5co-product">
+						<img src="" class="img-responsive img-rounded to-animate rmImg lazyLoad" data-src="attachment/2018/04/18/78711524022353.png">
+						<h4 class="rmTitle">快速安装配置 Laravel Homestead 本地开发环境</h4>
+						<p class="rmAbstract">Laravel Homestead 是一个打包好各种 Laravel 开发所需软件和工具的 Vagrant 盒子 , 该盒子为我们提供了一个优秀的开发环境 , 同时也不用担心搞乱操作系统 , 本篇文章主要介绍如何快速地安装配置Laravel Homestead</p>
+						<p ><a href="/atc_92" class="btn btn-primary" target="_blank">阅读全文</a></p>
+					</div>
+				</div>
+                				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-mb30">
+					<div class="fh5co-product">
+						<img src="" class="img-responsive img-rounded to-animate rmImg lazyLoad" data-src="attachment/2018/03/29/95911522331245.png">
+						<h4 class="rmTitle">使用Vultr搭建科xuo上网的环境</h4>
+						<p class="rmAbstract">本篇文章主要介绍如何使用Vultr搭建科xuo上网的环境，愉快地与歪果友人交流技术！</p>
+						<p ><a href="/atc_91" class="btn btn-primary" target="_blank">阅读全文</a></p>
+					</div>
+				</div>
+                				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-mb30">
+					<div class="fh5co-product">
+						<img src="" class="img-responsive img-rounded to-animate rmImg lazyLoad" data-src="attachment/2018/01/18/42701516283448.jpg">
+						<h4 class="rmTitle">利用CSS HACK技术为各种浏览器添加专属样式，实现兼容</h4>
+						<p class="rmAbstract">浏览器厂商之间历史遗留下的兼容问题使我们开发者有时候不得不使用hack来解决问题，那么本篇文章对css hack技术进行详细讲解</p>
+						<p ><a href="/atc_89" class="btn btn-primary" target="_blank">阅读全文</a></p>
+					</div>
+				</div>
+                				<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-mb30">
+					<div class="fh5co-product">
+						<img src="" class="img-responsive img-rounded to-animate rmImg lazyLoad" data-src="attachment/2018/01/17/42661516204478.png">
+						<h4 class="rmTitle">HTML5 details summary结合纯CSS实现JQuery滑动效果</h4>
+						<p class="rmAbstract">使用H5的details与summary标签再借助CSS transition实现slideUp/Down效果，比JS实现起来方便很多，并且更省代码和性能</p>
+						<p ><a href="/atc_88" class="btn btn-primary" target="_blank">阅读全文</a></p>
+					</div>
+				</div>
+                			</div>
+		</div>
+		<!-- Products -->
+		<div class="fh5co-spacer fh5co-spacer-lg"></div>
+		<div id="fh5co-clients">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-client-logo text-center to-animate">
+                        <img src="" class="img-responsive lazyLoad" data-src="/resource/home/images/client_1.png">
+                    </div>
+					<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-client-logo text-center to-animate">
+                        <img src="" class="img-responsive lazyLoad" data-src="/resource/home/images/client_2.png">
+                    </div>
+					<div class="visible-sm-block visible-xs-block clearfix"></div>
+					<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-client-logo text-center to-animate">
+                        <img src="" class="img-responsive lazyLoad" data-src="/resource/home/images/client_3.png">
+                    </div>
+					<div class="col-md-3 col-sm-6 col-xs-6 col-xxs-12 fh5co-client-logo text-center to-animate">
+                        <img src="" class="img-responsive lazyLoad" data-src="/resource/home/images/client_4.png">
+                    </div>
+				</div>
+			</div>
+		</div>
+		<div class="fh5co-bg-section etBan">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="fh5co-hero-wrap">
+							<div class="fh5co-hero-intro text-center">
+								<h1 class="fh5co-lead"><span class="quo">&ldquo;</span>For you,a thousand times over. <span class="quo">&rdquo;</span></h1>
+								<p class="author">&mdash; The Kite Runner<cite></cite></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</blade>
+        <footer id="fh5co-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 contactTip">
+                        <div class="fh5co-footer-widget">
+                            <h2 class="fh5co-footer-logo">李聪 · 个人博客</h2>
+                            <p>Hi~欢迎访问我的博客！</p>
+                            <p>你可以通过以下的方式联系我！</p>
+                        </div>
+                        <div class="fh5co-footer-widget">
+                            <div class="fh5co-social">
+                                <a class="h-td-n" href="javascript:;">
+                                    <i class="qqIcon icon-qq fz-35"></i>
+                                </a>
+                                <a class="p-r t-1 h-td-n" href="javascript:;">
+                                    <i class="wcIcon icon-wechat fz-35"></i>
+                                </a>
+                                <a class="p-r t-4 h-td-n" href="http://weibo.com/u/5286219121?topnav=1&wvr=6&topsug=1&is_all=1" target="_blank">
+                                    <i class="iconfont icon-weibo fz-40"></i>
+                                </a>
+                                <a class="p-r b-1 h-td-n" href="https://github.com/SpanishOnion/" target="_blank">
+                                    <i class="iconfont icon-github fz-30"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6 skill">
+                        <div class="fh5co-footer-widget top-level">
+                            <h4 class="fh5co-footer-lead ">Languages</h4>
+                            <ul>
+                                <li>
+                                    <i class="icon-h5"></i>
+                                    <a>HTML5</a>
+                                </li>
+                                <li>
+                                    <i class="icon-c3"></i>
+                                    <a>CSS3</a>
+                                </li>
+                                <li>
+                                    <i class="icon-js"></i>
+                                    <a>Javascript</a>
+                                </li>
+                                <li>
+                                    <i class="icon-php"></i>
+                                    <a>PHP</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6 plan">
+                        <div class="fh5co-footer-widget top-level">
+                            <h4 class="fh5co-footer-lead">Dreams</h4>
+                            <ul>
+                                <li>
+                                    <i class="icon-jg"></i>
+                                    <a>圣杯级职业 -- 架构师</a>
+                                </li>
+                                <li>
+                                    <i class="icon-money"></i>
+                                    <a>换取一堆堆的发票</a>
+                                </li>
+                                <li>
+                                    <i class="icon-plane"></i>
+                                    <a>沿着西海岸 前行~前行</a>
+                                </li>
+                                <li>
+                                    <i class="icon-help"></i>
+                                    <a>治好多年的颈椎病</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6 hobby">
+                        <div class="fh5co-footer-widget top-level">
+                            <h4 class="fh5co-footer-lead">Interests</h4>
+                            <ul>
+                                <li>
+                                    <i class="icon-run"></i>
+                                    <a>跑步, 奔跑吧! 骚年~</a>
+                                </li>
+                                <li>
+                                    <i class="icon-music"></i>
+                                    <a>音乐, 诗歌, 美, 浪漫才是活着的意义</a>
+                                </li>
+                                <li>
+                                    <i class="icon-lol"></i>
+                                    <a>曾经是个王者, 后来被生活打压! 惨~</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footWebsit">
+                    <p>
+                        <small>
+                            <a onfocus="this.blur()">李聪的个人博客</a> |
+                            <a href="http://www.miitbeian.gov.cn/" onfocus="this.blur()" target="_blank">京ICP备17011914号</a> |
+                            <a onfocus="this.blur()">775126470@qq.com</a>
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <!--GoTop-->
+        <i class="icon-top goTop"></i>
+        <!--QQ && weChat-->
+        <div class="ctInfo qq fadeOut">
+            <div class="ctMask qqMask fadeOut"></div>
+            <i class="icon-close ctClose"></i>
+            <img src="" class="ctImg lazyLoad" data-src="/resource/home/images/qqma.jpg">
+        </div>
+        <div class="ctInfo weChat fadeOut">
+            <div class="ctMask wcMask fadeOut"></div>
+            <i class="icon-close ctClose"></i>
+            <img src="" class="ctImg lazyLoad" data-src="/resource/home/images/myma.jpg">
+        </div>
+        <script src="/resource/js/home/common/index.js"></script>
+        
+    <script src="/resource/js/common/swiper-4.1.6.min.js"></script>
+    <script src="/resource/js/home/entry/index.js"></script>
+</blade>
+	</body>
+</html>
+
+
+

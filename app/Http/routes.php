@@ -38,7 +38,7 @@ Route::controller('/admin/link','admin\LinkController');
 
 
 Route::controller('/home/about','home\AboutController');
-
+Route::controller('/home/message','home\MessageController');
 
 
 
