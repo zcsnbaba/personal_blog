@@ -56,9 +56,11 @@ class LoginController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getShow(Request $request)
     {
-        //
+        $request->session()->forget('user_login');
+        return redirect('/')->with('success','退出成功');
+        
     }
 
     /**

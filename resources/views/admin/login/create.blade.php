@@ -34,8 +34,8 @@
 				<span name="zc" id="zc5"></span>
 			<div class="send-buttone w3layouts agileits">
 				<br>&nbsp;<br>
-				<input type="submit" value="返回首页">&nbsp;
-				<input type="submit" value="去登录">&nbsp;
+				<input type="submit" onclick="fun()" value="返回首页">&nbsp;
+				<input type="submit" onclick="funs()" value="去登录">&nbsp;
 				<input type="submit" value="免费注册">
 				<script type="text/javascript">
 					function fun(){

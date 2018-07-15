@@ -95,7 +95,7 @@
                     <ul>
                         <li><a href="/"><i class="icon-file-openoffice" style="color:red"></i> 前台</a></li>
                         <li><a href="#"> | </a></li>
-                        <li><a href="/"><i class="icon-off" style="color:red"> </i> 退出</a></li>
+                        <li><a href="/admin/login/show"><i class="icon-off" style="color:red"> </i> 退出</a></li>
                     </ul>
                 </div>
             </div>
