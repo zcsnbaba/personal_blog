@@ -88,7 +88,7 @@ class LoginController extends Controller
         if($data_uname){
             return back()->with('error','用户名已存在'); 
         }
-        $dirname = date('Y-m-d H.i.s',time());
+        $dirname = date('Y-m-d H:i:s',time());
         $res = DB::table('user')->insert([
             'uname' => $login_data['uname'],
             'email' => $login_data['email'],
