@@ -4,8 +4,8 @@
 	<title>{{ $common['web']['0']['name'] }}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<script type="text/javascript" src="/adminmoban/login/jquery-1.8.3.min.js"></script>
-		<link rel="stylesheet" href="/adminmoban/login/css/style.css" type="text/css" media="all">
+		<script type="text/javascript" src="/homemoban/login/jquery-1.8.3.min.js"></script>
+		<link rel="stylesheet" href="/homemoban/login/css/style.css" type="text/css" media="all">
 </head>
 <body>
 	<h1>注册</h1>
@@ -17,7 +17,7 @@
 					{{ session('success') }}
 				</div>
 			@endif
-			<form action="/admin/login/update" method="post">
+			<form action="/home/login/update" method="post">
 			{{ csrf_field() }}
 				<input type="text" id="uname" name="uname" placeholder="用户名" required="" onblur="uname_check()">
 				<span id="zc1" name="zc"></span>
@@ -34,15 +34,15 @@
 				<span name="zc" id="zc5"></span>
 			<div class="send-buttone w3layouts agileits">
 				<br>&nbsp;<br>
-				<input type="submit" value="返回首页">&nbsp;
-				<input type="submit" value="去登录">&nbsp;
+				<input type="submit" onclick="fun()" value="返回首页">&nbsp;
+				<input type="submit" onclick="funs()" value="去登录">&nbsp;
 				<input type="submit" value="免费注册">
 				<script type="text/javascript">
 					function fun(){
 						location.replace('/');
 					}		
 					function funs(){
-						location.replace('/admin/login/index');
+						location.replace('/home/login/index');
 					}	
 				</script>
 				<script type="text/javascript">

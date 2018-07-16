@@ -16,14 +16,14 @@ class LoginMiddleware
     public function handle($request, Closure $next)
     {
         if($request->session()->has('user_login')){
-            if(session('user_login')['superuser'] == '鍗氫富'){
+            if(session('user_login')['superuser'] == '博主'){
                 return $next($request);
             }else{
                 return redirect('/');
             }
             
         }else{
-            return redirect('/admin/login/index');
+            return redirect('/home/login/index');
         }
     }
 }

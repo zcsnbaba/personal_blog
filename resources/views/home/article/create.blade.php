@@ -2,12 +2,15 @@
 
 @section('content')
 <article>
+<link rel="stylesheet" href="/homemoban/article/css/font-awesome.min.css">
+<link rel="stylesheet" href="/homemoban/article/css/anlou/style.css">
 <div class="bloglist">
 <br><br><br><br>
       <form  method="get" action="/home/article/create" style="float:right">
-            <input type="text" class="usersearch ab" value="" name="name" id="smart_input" autocomplete="off" disableautocomplete="" style="width:350px;height:40px;border:2px #ccc outset;font-size: 20px">
-            &nbsp;
-            <input id="searchbtn" type="submit" class="ab usersure" style="width:80px;height:40px;color:#fff;background-color:#6a96e9;border:2px #4d7ed9 solid;font-weight: 900;font-size: 20px;border-radius:10%" value="搜 索">
+       <div class="search d6">
+        <input type="text" placeholder="搜索从这里开始..." name="name">
+        <button type="submit"></button>
+  </div>
     </form>
   <br><br><br>
       <h2>

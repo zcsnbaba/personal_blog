@@ -158,7 +158,7 @@
 @show
 
   <aside>
-    <div class="avatar"><a href="about.html"><span>关于杨青</span></a></div>
+    <div class="avatar"><a href="/home/about"><span>关于杨青</span></a></div>
     <div class="topspaceinfo">
       <h1>执子之手，与子偕老</h1>
       <p>于千万人之中，我遇见了我所遇见的人....</p>

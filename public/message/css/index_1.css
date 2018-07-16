@@ -242,6 +242,9 @@
 .CBCai:hover .iconCai{
     background-image:url(../images/cai_active.png);
 }
+.CBCai:hover .isCai{
+    background-image:url(../images/cai_active.png);
+}
 .CBCai:hover .CaiCount{
     color: #e74851;
 }
@@ -250,6 +253,9 @@
     cursor:pointer;
 }
 .Cai_active .iconCai{
+    background-image:url(../images/cai_active.png);
+}
+.Cai_active .isCai{
     background-image:url(../images/cai_active.png);
 }
 .Cai_active .CaiCount{
@@ -262,6 +268,9 @@
 .CBDing:hover .iconDing{
     background-image:url(../images/ding_active.png);
 }
+.CBDing:hover .isDing{
+    background-image:url(../images/ding_active.png);
+}
 .CBDing:hover .dingCount{
     color: #e74851;
 }
@@ -270,6 +279,9 @@
     cursor:pointer;
 }
 .Ding_active .iconDing{
+    background-image:url(../images/ding_active.png);
+}
+.Ding_active .isDing{
     background-image:url(../images/ding_active.png);
 }
 .Ding_active .dingCount{
@@ -282,7 +294,21 @@
     background-image:url(../images/ding.png);
     margin-right:5px;
 }
+.isDing{
+    float:right;
+    width: 16px;
+    height: 15px;
+    background-image:url(../images/ding.png);
+    margin-right:5px;
+}
 .iconCai{
+    float:right;
+    width: 16px;
+    height: 15px;
+    background-image:url(../images/cai.png);
+    margin-right:5px;
+}
+.isCai{
     float:right;
     width: 16px;
     height: 15px;

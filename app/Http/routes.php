@@ -25,10 +25,10 @@ Route::group(['middleware' => 'user_login'],function(){
 	Route::controller('/admin/xc','admin\XcController');
 	Route::controller('/admin/sjz','admin\SjzController');
 	//后台控制器
-	
+	Route::controller('/admin', 'admin\AdminController');
 });
-Route::controller('/admin/login', 'admin\LoginController');    
-Route::controller('/admin', 'admin\AdminController');
+Route::controller('/home/login', 'home\LoginController');    
+
 Route::controller('/home/article', 'home\ArticleController');
 
 Route::controller('/home/message', 'home\MessageController');

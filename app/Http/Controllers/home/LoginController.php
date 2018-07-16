@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
 
@@ -16,7 +16,7 @@ class LoginController extends Controller
      */
     public function getIndex()
     {
-        return view('admin.login.index');
+        return view('home.login.index');
     }
 
     /**
@@ -71,7 +71,7 @@ class LoginController extends Controller
      */
     public function getEdit()
     {
-        return view('admin.login.create');
+        return view('home.login.create');
     }
 
     /**
@@ -97,7 +97,8 @@ class LoginController extends Controller
             'password' => $login_data['password'],
             'phone' => $login_data['phone'],
             'superuser' => '游客',
-            'created_at' =>$dirname,]
+            'created_at' =>$dirname,
+            'avatar' => '/homemoban/images/zdy.jpg']
         );
         if($res){
             return redirect('/')->with('success','修改成功');

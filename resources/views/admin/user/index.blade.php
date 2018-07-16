@@ -53,29 +53,32 @@
             @endforeach
             </tbody>
             </table>
-                @if ($user_data->LastPage() > 1)
-                    <a href="{{ $user_data->Url(1) }}" class="item{{ ($user_data->CurrentPage() == 1) ? ' disabled' : '' }}">
-                        <i class="icon left arrow"></i> 
-                        首页
-                    </a>&nbsp;&nbsp;  
-                    <a href="{{ $user_data->Url($user_data->last) }}" class="item{{ ($user_data->CurrentPage() == 1) ? ' disabled' : '' }}">
-                        <i class="icon left arrow"></i> 
-                        上一页
-                    </a>&nbsp;&nbsp;  
-                    @for ($i = 1; $i <= $user_data->LastPage(); $i++)
-                        <a href="{{ $user_data->Url($i) }}" class="item{{ ($user_data->CurrentPage() == $i) ? ' active' : '' }}" style="border:1px #ccc solid">
-                            &nbsp;&nbsp;&nbsp;{{ $i }}&nbsp;&nbsp;
-                        </a>
-                	@endfor
-                	&nbsp;&nbsp;<a href="{{ $user_data->Url($user_data->next) }}" class="item{{ ($user_data->CurrentPage() == 1) ? ' disabled' : '' }}">
-                        <i class="icon left arrow"></i> 
-                        下一页
-                    </a>&nbsp;&nbsp;
-                    <a href="{{ $user_data->Url($user_data->LastPage()) }}" class="item{{ ($user_data->CurrentPage() == $user_data->LastPage()) ? ' disabled' : '' }}">
-                        末页 
-                        <i class="icon right arrow"></i>
-                    </a>
-                @endif
+                  @if ($user_data->LastPage() > 1)
+                      <a href="{{ $user_data->Url(1) }}&username={{ $username}}" class="item{{ ($user_data->CurrentPage() == 1) ? ' disabled' : '' }}">
+                          <i class="icon left arrow"></i> 
+                          <b style="color:#f0f;font-size: 20px;border:4px #ccc dotted">首页</b>&nbsp;
+                      </a> 
+                      <a href="{{ $user_data->Url($user_data->last) }}&username={{ $username}}" class="item{{ ($user_data->CurrentPage() == 1) ? ' disabled' : '' }}">
+                          <i class="icon left arrow"></i> 
+                          <b style="color:#f0f;font-size: 20px;border:4px #ccc dotted">上一页</b>
+                      </a>  
+                      @for ($i = 1; $i <= $user_data->LastPage(); $i++)
+                      @if(($user_data->last + 1) == $i)
+
+                          <a href="{{ $user_data->Url($i) }}&username={{ $username}}" class="item{{ ($user_data->CurrentPage() == $i) ? ' active' : '' }}" name="nb" value="1"><b style="color:#ccc;font-size: 20px;border:4px #ccc dotted">&nbsp;{{ $i }}&nbsp;</b></a>
+                      @else
+                          <a href="{{ $user_data->Url($i) }}&username={{ $username}}" class="item{{ ($user_data->CurrentPage() == $i) ? ' active' : '' }}" name="nb" value="1"><b style="color:#f0f;font-size: 20px;border:4px #ccc dotted">&nbsp;{{ $i }}&nbsp;</b></a>
+                      @endif
+                      @endfor
+                    <a href="{{ $user_data->Url($user_data->next) }}&username={{ $username}}" class="item{{ ($user_data->CurrentPage() == 1) ? ' disabled' : '' }}">
+                          <i class="icon left arrow"></i> 
+                          <b style="color:#f0f;font-size: 20px;border:4px #ccc dotted">下一页</b>&nbsp;
+                      </a>
+                      <a href="{{ $user_data->Url($user_data->LastPage()) }}&username={{ $username}}" class="item{{ ($user_data->CurrentPage() == $user_data->LastPage()) ? ' disabled' : '' }}">
+                          <b style="color:#f0f;font-size: 20px;border:4px #ccc dotted">尾页</b>
+                          <i class="icon right arrow"></i>
+                      </a>
+                  @endif
             </div>
         </div>
     </div>
