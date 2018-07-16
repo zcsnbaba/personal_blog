@@ -23,39 +23,22 @@
 <!-- Theme Stylesheet -->
 <link rel="stylesheet" type="text/css" href="/adminmoban/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/adminmoban/css/themer.css" media="screen">
-
-<link href="/xc/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="/xc/css/templatemo_misc.css">
-<link type="text/css" rel="stylesheet" href="/xc/css/easy-responsive-tabs.css" />
-<link href="/xc/css/templatemo_style.css" rel="stylesheet"> 
-<script src="/xc/js/jquery-1.10.2.min.js"></script> 
-<script src="/xc/js/jquery.lightbox.js"></script>
-<script src="/xc/js/templatemo_custom.js"></script>
-<script src="/xc/js/easyResponsiveTabs.js" type="text/javascript"></script>       
-   
 <style type="text/css">
     .abc{
         float:left;
         list-style:none;
         margin:2px;
-        padding: 2px 0 2px 0; 
-        margin-right: 15px; 
-        border-radius: 5px
+        padding: 2px 0 2px 0; margin-right: 15px; border-radius: 5px
 
-    }
-
-    #xctp{
-        float:left;
-        margin:2px;
     }
 
 </style>
+<br><br><br>    
 <article>
 <div class="mws-panel grid_8">
-<br><br><br>    
-                       <div class="mws-panel-header">
+                    <div class="mws-panel-header">
                     
-                         <ul >@foreach($name as $a => $b)
+                         <ul >@foreach($xcfl as $a => $b)
                             <li class = 'abc'>
                         <span><i class="icon-pictures"><a href="/home/xc/show/{{$b['id']}}"> <font color="white">{{$b['name']}}</font></a></i></span>
                               
@@ -64,21 +47,21 @@
                 
                     </div>
 
+                    <div class="mws-panel-body">
+                        <ul class="thumbnails mws-gallery">@foreach($xc as $k => $v)
+                            <li>
+                                <span class="thumbnail"><img src="{{$v['photo']}}" alt=""></span>
 
-    @foreach($zp as $k => $v)
-                    <div class="templatemo_botgap templatemo_topgap gallery-item" style="width:100px;" id="xctp"><ul>
-                            <li><img src="{{$v['photo']}}" style="width:100x; height:80px;"alt="gallery 1">
-                            <div class="overlay">
-                                <a href="{{$v['photo']}}" data-rel="lightbox" class="fa fa-arrows-alt"></a>
-                            </div></li>
-                            </ul>
-                        </div>          
-    @endforeach
-
-
-
+                                
+                                <span></span>
+                            </li>@endforeach
+                
+                        </ul>
+                    </div>
                      
 </div>
+
 </article>
 
+                 
 @endsection
