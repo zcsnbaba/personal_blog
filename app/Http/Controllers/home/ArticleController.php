@@ -22,7 +22,10 @@ class ArticleController extends Controller
             ->where('a.id','=',$id)
             ->select('u.uname','a.*')
             ->first();
-        return view('home.article.index',['article_data'=>$article_data]);
+        $comment = DB::table('comment as c') -> get();
+        
+
+        return view('home.article.index',['article_data'=>$article_data,'comment'=>$comment]);
     }
 
     /**
@@ -55,7 +58,7 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
 //评论添加操作
-  public function postStore(Request $request)
+  public function getStore(Request $request)
     {
              //     $a = DB::table('photo-cate as pc')
              // -> where('pc.id','=',$data['cid'])
@@ -77,19 +80,20 @@ class ArticleController extends Controller
     //     exit;
     // }
 
-        $b = $request -> input('content');     
+        $data = isset($_GET) ? $_GET : '';
         $value = $request->session()->all();
         $a = $value['user_login']['id'];
         $time = date('Y-m-d H.i.s',time());
         $name = DB::table('user as u')->where('u.id','=',$a)->select('uname')->first();
         $res = DB::table('comment')
-                ->insert(['uid'=>$a,'created_at'=>$time,'content'=>$b,'name'=>$name['uname']]);
+                ->insert(['uid'=>$a,'created_at'=>$time,'content'=>$data['content'],'name'=>$name['uname']]);
+                //dump($res);
         $pl = DB::table('comment')->get();
-      if($res){
-            return 'success';
-        }else{
-            return 'error';
-        }
+          if($res){
+                echo  'success';
+            }else{
+                echo  'error';
+            }
      
    
     }

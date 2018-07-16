@@ -31,6 +31,7 @@
  
 <link rel="stylesheet" href="/message/css/icomoon.css">
 <link rel="stylesheet" href="/message/css/index_1.css">
+<meta name="csrf-token" content="{{ csrf_token() }}" />
   <div id="container">
         <div id="Comment">
             <div class="CommentTop"></div>
@@ -63,16 +64,16 @@
                     
                 <div class="MLContents">
                     <div class="LCSub">
-                   
+                   @foreach($comment as $k => $v)
                         <div class="CPortrait">
                           <a href="http://3.com" class="CPLink" target="_blank"><img src="" pid="14" class="PortImg"></a>
                         </div>
                       <div class="ContMsg">
                           <div class="UserInfo">
-                              <span class="MsgTime"></span>
-                              <span class="UserAdd" style="color:#f0c"></span>
+                              <span class="MsgTime">{{ $v['created_at'] }}</span>
+                              <span class="UserAdd" style="color:#f0c">{{ $v['name'] }}</span>
                           </div>
-                        <div class="CommentInfo"></div>
+                        <div class="CommentInfo">{{ $v['content'] }}</div>
                         <div class="CommentBtn" pid="180">
                           <div class="CBCai">
                             <span class="CaiCount">0</span>
@@ -85,7 +86,7 @@
                       </div>
                     </div>
                 <br><hr><br>
-              
+              @endforeach
                 </div>
             </div>
             </div>
@@ -124,18 +125,10 @@
       // 获取用户数据
       var content = form.content.value;
       // 发送ajax  
-      Ajax('HTML',true).post('/home/article/store',{'content':content},function(msg){
-        if(msg != 'error'){
-          // 创建元素并且赋值
-          var tr = table.insertRow(); //创建tr对象
-          tr.insertCell(0).innerHTML = msg; //id
-          tr.insertCell(1).innerHTML = username;
-          tr.insertCell(2).innerHTML = email;
-          tr.insertCell(3).innerHTML = phone;
-          tr.insertCell(4).innerHTML = '<a href="javascript:;" >删除</a>';
-        }else{
-          alert('添加失败');
-        }
+      Ajax('HTML',true).get('/home/article/store',function(msg){
+           if(msg == 'success'){
+             alert(1);
+           }
       });
       
       return false;
