@@ -14,11 +14,19 @@
 <h3 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="#">给我留言</a></h3>
 	<div id="container">
         <div id="Comment">
-    <div class="CPortrait">
-        <a href=""><img src="/homemoban/images/zdy.jpg" pid="14" class="PortImg"></a>
-    </div>
-    <br>
-    &nbsp;<span style="color:red;font-size:20px"><b><a href="">个人中心</a></b></span> 
+        @if(session('user_login'))
+            <div class="CPortrait">
+                <a href=""><img src="{{ $uid = session('user_login')['avatar'] }}" pid="14" class="PortImg"></a>
+            </div>
+            <br>
+            &nbsp;<span style="color:red;font-size:20px"><b><a href="">个人中心</a></b></span>
+        @else
+            <div class="CPortrait">
+                <img src="/homemoban/images/zdy.jpg" pid="14" class="PortImg">
+            </div>
+            <br>
+            &nbsp;<span style="color:#ccc;font-size:20px" disabled><b>个人中心</b></span>
+        @endif 
             <div class="CommentTop"></div>
             <div class="CHeader">
                 <div class="CPersonal">
