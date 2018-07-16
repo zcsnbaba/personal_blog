@@ -15,10 +15,17 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function Index()
+    public function getIndex(Request $request)
     {
-        //
-
+        $id = $request->input('id');
+        $nums = $request->input('cai');
+        $uid = session('user_login')['id'];
+        DB::table('message')
+            ->where('id','=',$id)
+            ->update(['badreview' => $nums]);
+        DB::table('caiji')->insert(
+            ['uid' => $uid,'cid' => '1','mid' => $id]
+        );
     }
 
     /**
@@ -31,12 +38,14 @@ class MessageController extends Controller
         //
         $message = DB::table('message as m')
             -> join('user as u','m.uid','=','u.id')
-            -> select('m.content','m.created_at','u.uname','u.avatar')
+            -> select('m.*','u.uname','u.avatar')
             ->orderBy('m.id','desc')
             ->paginate(10);
-        // dump($message);
-
-        return view('home.message.index',['message'=>$message]);
+        $uid = session('user_login')['id'];
+        $caiji = DB::table('caiji')
+            ->where('uid','=',$uid)
+            ->get();
+        return view('home.message.index',['message'=>$message,'caiji'=>$caiji]);
     }
 
     /**
@@ -70,9 +79,17 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getShow(Request $request)
     {
-        //
+        $id = $request->input('id');
+        $nums = $request->input('bang');
+        $uid = session('user_login')['id'];
+        DB::table('message')
+            ->where('id','=',$id)
+            ->update(['praise' => $nums]);
+        DB::table('caiji')->insert(
+            ['uid' => $uid,'cid' => '2','mid' => $id]
+        );
     }
 
     /**

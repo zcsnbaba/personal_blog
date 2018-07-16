@@ -6,7 +6,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-		<link rel="stylesheet" href="/adminmoban/login/css/style.css" type="text/css" media="all">
+		<link rel="stylesheet" href="/homemoban/login/css/style.css" type="text/css" media="all">
 </head>
 <body>
 	<h1>登录</h1>
@@ -18,7 +18,7 @@
 					{{ session('error') }}
 				</div>
 			@endif
-			<form action="/admin/login/store" method="post">
+			<form action="/home/login/store" method="post">
 			{{ csrf_field() }}
 				<input type="text" name="uname" placeholder="用户名" required="">
 				<input type="password" name="password" placeholder="密码" required="">
@@ -34,7 +34,7 @@
 					<input type="submit" onclick="fun()" value="免费注册">
 					<script type="text/javascript">
 						function fun(){
-							location.replace('/admin/login/edit');
+							location.replace('/home/login/edit');
 						}
 						function funs(){
 							var nb = document.getElementById('error')
