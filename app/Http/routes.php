@@ -78,6 +78,7 @@ Route::controller('/home/about','home\AboutController');
 
 Route::controller('/home/xc','home\XcController');
 Route::controller('/home/sjz','home\SjzController');
+Route::controller('/home/pl','home\PlController');
 
 
 

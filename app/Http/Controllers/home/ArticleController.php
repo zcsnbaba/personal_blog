@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use PDO;
 class ArticleController extends Controller
 {
     /**
@@ -53,9 +54,44 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+//评论添加操作
+  public function postStore(Request $request)
     {
-        //
+             //     $a = DB::table('photo-cate as pc')
+             // -> where('pc.id','=',$data['cid'])
+             // ->select('name')
+             // ->first();
+        // 接受数据 
+    // $data = isset($_POST) ? $_POST : '';
+
+    // dump($data);
+    // exit;
+
+    // if($res){
+    //     //返回id
+    //     //echo $pdo -> lastInsertId(); //返回最后插入的id号
+    //     echo 'success';
+    //     exit;
+    // }else{
+    //     echo 'error';
+    //     exit;
+    // }
+
+        $b = $request -> input('content');     
+        $value = $request->session()->all();
+        $a = $value['user_login']['id'];
+        $time = date('Y-m-d H.i.s',time());
+        $name = DB::table('user as u')->where('u.id','=',$a)->select('uname')->first();
+        $res = DB::table('comment')
+                ->insert(['uid'=>$a,'created_at'=>$time,'content'=>$b,'name'=>$name['uname']]);
+        $pl = DB::table('comment')->get();
+      if($res){
+            return 'success';
+        }else{
+            return 'error';
+        }
+     
+   
     }
 
     /**
