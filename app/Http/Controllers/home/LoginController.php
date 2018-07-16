@@ -97,7 +97,8 @@ class LoginController extends Controller
             'password' => $login_data['password'],
             'phone' => $login_data['phone'],
             'superuser' => '游客',
-            'created_at' =>$dirname,]
+            'created_at' =>$dirname,
+            'avatar' => '/homemoban/images/zdy.jpg']
         );
         if($res){
             return redirect('/')->with('success','修改成功');

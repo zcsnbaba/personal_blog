@@ -14,17 +14,33 @@
 <h3 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="#">给我留言</a></h3>
 	<div id="container">
         <div id="Comment">
+    <div class="CPortrait">
+        <a href=""><img src="/homemoban/images/zdy.jpg" pid="14" class="PortImg"></a>
+    </div>
+    <br>
+    &nbsp;<span style="color:red;font-size:20px"><b><a href="">个人中心</a></b></span> 
             <div class="CommentTop"></div>
             <div class="CHeader">
                 <div class="CPersonal">
                 </div>
-                <form action="/home/message/store" method="post">
+                <form action="/home/message/store" method="post" id="myform">
                 {{ csrf_field() }}
                 <div class="CContent">
                     <textarea name="content" class="Ccontents" placeholder="来说两句吧..."></textarea>
                 </div>
                 @if(session('user_login'))
                     <input type="submit" class="Csubmit"  onselectstart="return false" pid="0" aid="0" value="发布留言">
+                    <script type="text/javascript">
+                        console.log();
+                        $('#myform').submit(function(){
+                            if($('.Ccontents').val()){
+                                return true;
+                            }else{
+                                alert('请输入留言内容');
+                                return false;
+                            }
+                        })
+                    </script>
                     </form>
                  @else
                  </form>
@@ -54,7 +70,7 @@
                     <div class="LCSub">
                     @foreach($message as $k => $v)
                         <div class="CPortrait">
-                        	<a href="#" class="CPLink" target="_blank"><img src="{{ $v['avatar'] }}" pid="14" class="PortImg"></a>
+                        	<img src="{{ $v['avatar'] }}" pid="14" class="PortImg">
                         </div>
                     	<div class="ContMsg">
                         	<div class="UserInfo">
