@@ -55,7 +55,7 @@ class MessageController extends Controller
             ->insert(['content'=>$message['content'],
                 'uid'=>$data,
                 'created_at'=>$message['created_at']]);
-        // dump($message);
+         dump($message);
         if($res){
             return redirect('/home/message/create') -> with('success','留言成功');
         }else{
