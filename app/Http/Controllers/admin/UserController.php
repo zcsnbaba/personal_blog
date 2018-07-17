@@ -25,7 +25,7 @@ class UserController extends Controller
         $lastpage=$user_data->currentPage()-1 <0 ? 1 : $user_data->currentPage()-1 ; 
         $user_data->next=$nextpage;
         $user_data->last=$lastpage;
-        return view('admin.user.index',['user_data'=>$user_data,'$username'=>$username]);
+        return view('admin.user.index',['user_data'=>$user_data,'username'=>$username]);
     }
 
     /**

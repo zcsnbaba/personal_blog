@@ -23,6 +23,16 @@
 <!-- Theme Stylesheet -->
 <link rel="stylesheet" type="text/css" href="/adminmoban/css/mws-theme.css" media="screen">
 <link rel="stylesheet" type="text/css" href="/adminmoban/css/themer.css" media="screen">
+
+<link href="/xc/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/xc/css/templatemo_misc.css">
+<link type="text/css" rel="stylesheet" href="/xc/css/easy-responsive-tabs.css" />
+<link href="/xc/css/templatemo_style.css" rel="stylesheet"> 
+<script src="/xc/js/jquery-1.10.2.min.js"></script> 
+<script src="/xc/js/jquery.lightbox.js"></script>
+<script src="/xc/js/templatemo_custom.js"></script>
+<script src="/xc/js/easyResponsiveTabs.js" type="text/javascript"></script>       
+   
 <style type="text/css">
     .abc{
         float:left;
@@ -32,6 +42,11 @@
         margin-right: 15px; 
         border-radius: 5px
 
+    }
+
+    #xctp{
+        float:left;
+        margin:2px;
     }
 
 </style>
@@ -49,16 +64,21 @@
                 
                     </div>
 
-                    <div class="mws-panel-body">
-                        <ul class="thumbnails mws-gallery">@foreach($zp as $k => $v)
-                            <li>
-                                <span class="thumbnail"><img src="{{$v['photo']}}" alt=""></span>
-                                <span></span>
-                            </li>@endforeach
-                
-                        </ul>
-                    </div>
+
+    @foreach($zp as $k => $v)
+                    <div class="templatemo_botgap templatemo_topgap gallery-item" style="width:100px;" id="xctp"><ul>
+                            <li><img src="{{$v['photo']}}" style="width:100x; height:80px;"alt="gallery 1">
+                            <div class="overlay">
+                                <a href="{{$v['photo']}}" data-rel="lightbox" class="fa fa-arrows-alt"></a>
+                            </div></li>
+                            </ul>
+                        </div>          
+    @endforeach
+
+
+
                      
 </div>
 </article>
+
 @endsection

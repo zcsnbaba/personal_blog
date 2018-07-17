@@ -23,7 +23,7 @@ class LoginMiddleware
             }
             
         }else{
-            return redirect('/admin/login/index');
+            return redirect('/home/login/index');
         }
     }
 }
