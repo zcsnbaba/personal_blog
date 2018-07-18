@@ -147,7 +147,7 @@ class ArticleController extends Controller
      */
     public function getDestroy($id)
     {
-        echo $id;
+        // echo $id;
         $res = DB::table('article')->where('id', '=', $id)->delete();
         if($res){
             return redirect('/admin/article/index')->with('success','删除成功');

@@ -13,7 +13,7 @@
 
 Route::group(['middleware' => 'user_login'],function(){
 	Route::controller('/admin/user', 'admin\UserController');
-	
+	Route::controller('/admin/about','admin\AboutController');
 	Route::controller('/admin/message', 'admin\MessageController');
 	Route::controller('/admin/category','admin\CategoryController');
 	Route::controller('/admin/article','admin\ArticleController');
@@ -33,22 +33,24 @@ Route::controller('/home/article', 'home\ArticleController');
 
 Route::controller('/home/message', 'home\MessageController');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::controller('/home/about','home\AboutController');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
