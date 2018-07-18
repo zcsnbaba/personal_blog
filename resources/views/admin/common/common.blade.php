@@ -163,6 +163,10 @@
                         <a href="/admin/wp/edit"><i class="icon-cog-2"></i>网站配置管理</a>
                     </li>
                     <li>
+                        <a href="/admin/about/edit"><i class="icon-pictures"></i>关于我管理</a>
+
+                    </li>
+                    <li>
                         <a href="#"><i class="icon-picture"></i>相册管理</a>
                         <ul>
                             <li><a href="/admin/xc/index">相册列表</a></li>
@@ -174,7 +178,7 @@
                         <a href="#"><i class="icon-time"></i>时间轴</a>
                         <ul>
                             <li><a href="/admin/sjz/index">时间轴列表</a></li>
-                            <li><a href="/admin/sjz/create">添加时间轴</a></li>
+                            <li><a href="/admin/sjz/create">添加时间轴</a></li>s
                         </ul>
                     </li>
                     <li>        

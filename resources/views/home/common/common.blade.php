@@ -151,7 +151,7 @@
     <nav id="topnav">
       @foreach($common['daohang'] as $k => $v)
         <a href="{{ $v['url'] }}">{{ $v['name'] }}</a>
-      @endforeach
+      @endforeach  
     </nav>
   </header>
 @section('content')

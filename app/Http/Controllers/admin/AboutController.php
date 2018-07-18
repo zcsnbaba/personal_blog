@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\home;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 
@@ -18,8 +18,6 @@ class AboutController extends Controller
     public function getIndex()
     {
         //
-        $about = DB::table('about')->get();
-        return view('home.about.index',['about'=>$about]);
     }
 
     /**
@@ -27,7 +25,7 @@ class AboutController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function getCreate()
     {
         //
     }
@@ -38,7 +36,7 @@ class AboutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function postStore(Request $request)
     {
         //
     }
@@ -60,9 +58,12 @@ class AboutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function getEdit()
     {
         //
+        $about = DB::table('about')->get();
+        // dump($about);
+        return view('admin.about.edit',['about'=>$about]);
     }
 
     /**
@@ -72,9 +73,17 @@ class AboutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function postUpdate(Request $request)
     {
         //
+        $about = $request->except(['_token']);
+        // dump($about);
+        $res = DB::table('about')->update(['content'=>$about['content']]);
+        if($res){
+            return redirect('/admin/about/edit')->with('success','修改成功');
+        }else{
+            return back()->with('error','修改失败'); 
+        }
     }
 
     /**
@@ -83,7 +92,7 @@ class AboutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function getDestroy($id)
     {
         //
     }
