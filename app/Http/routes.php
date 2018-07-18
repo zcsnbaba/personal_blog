@@ -39,13 +39,11 @@ Route::controller('/home/article', 'home\ArticleController');
 
 Route::controller('/home/message', 'home\MessageController');
 
-<<<<<<< HEAD
+
 Route::controller('/home/geren', 'home\GerenController');
-=======
+
 Route::controller('/home/about','home\AboutController');
 
-
->>>>>>> origin/yangfeng
 
 
 
