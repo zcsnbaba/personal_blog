@@ -179,17 +179,6 @@ layui.use(['layer', 'form'], function(){
 });
 </script>
 @endif
-@if (count($errors) > 0)
-<script type="text/javascript">
-
-layui.use(['layer', 'form'], function(){
-  var layer = layui.layer
-  ,form = layui.form;
-  
-  layer.msg("{{ $error }}",{icon: 5});
-});
-</script>
-@endif
   <aside>
     <div class="avatar"><a href="/home/about"><span>关于杨青</span></a></div>
     <div class="topspaceinfo">

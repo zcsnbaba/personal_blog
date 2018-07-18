@@ -2,6 +2,9 @@
 <html>
 <head>
 	<title>{{ $common['web']['0']['name'] }}</title>
+	
+<link href="/layui/css/layui.css" rel="stylesheet">
+<script type="text/javascript" src="/layui/layui.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
@@ -9,6 +12,19 @@
 		<link rel="stylesheet" href="/homemoban/login/css/style.css" type="text/css" media="all">
 </head>
 <body>
+@if (count($errors) > 0)
+<script type="text/javascript">
+layui.use(['layer', 'form'], function(){
+  var layer = layui.layer
+  ,form = layui.form;
+  
+  @foreach ($errors->all() as $error)
+    layer.msg("{{ $error }}",{icon: 5});
+  @endforeach
+  
+});
+</script>
+@endif
 	<h1>登录</h1>
 	<div class="container w3layouts agileits">
 		<div class="login w3layouts agileits">
