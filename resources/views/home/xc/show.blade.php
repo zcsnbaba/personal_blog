@@ -66,13 +66,13 @@
 
 
     @foreach($zp as $k => $v)
-                    <div class="templatemo_botgap templatemo_topgap gallery-item" style="width:100px;" id="xctp"><ul>
-                            <li><img src="{{$v['photo']}}" style="width:100x; height:80px;"alt="gallery 1">
-                            <div class="overlay">
-                                <a href="{{$v['photo']}}" data-rel="lightbox" class="fa fa-arrows-alt"></a>
-                            </div></li>
-                            </ul>
-                        </div>          
+                <div class="templatemo_botgap templatemo_topgap gallery-item" style="width:100px;" id="xctp"><ul>
+                        <li><img src="{{$v['photo']}}" style="width:100x; height:80px;"alt="gallery 1">
+                        <div class="overlay">
+                            <a href="{{$v['photo']}}" data-rel="lightbox" class="fa fa-arrows-alt"></a>
+                        </div></li>
+                        </ul>
+                </div>          
     @endforeach
 
 

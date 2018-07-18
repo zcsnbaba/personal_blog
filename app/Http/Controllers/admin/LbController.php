@@ -55,6 +55,7 @@ class LbController extends Controller
             'url.required' => 'url地址必填',
           ]);
          $data = $request -> except('_token');
+
          //$data = $request -> all();
          if($request -> hasFile('avatar')){
           // 使用request 创建文件上传对象
@@ -104,7 +105,8 @@ class LbController extends Controller
          $data = DB::table('carousel as d')
               -> where('d.id','=',$id)
               ->select('d.carousel_name','d.url','d.address','d.id')
-              ->first();   
+              ->first();
+                 
         return view('admin/lb/edit',['data'=>$data]);
     }
 

@@ -147,7 +147,10 @@
                             <li><a href="/admin/dh/index">导航列表</a></li>
                             <li><a href="/admin/dh/create">添加导航</a></li>
                         </ul>
-                    </li>  
+                    </li>
+                    <li>
+                        <a href="/admin/pl"><i class="icon-pencil"></i>评论管理</a>
+                    </li>    
                     
                     <li>
                         <a href="#"><i class="icon-pictures"></i>轮播管理</a>

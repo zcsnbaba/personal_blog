@@ -30,5 +30,7 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'user_login' => \App\Http\Middleware\LoginMiddleware::class,
+        'admin.login' => \App\Http\Middleware\AdminLogin::class,
+        'admin.loginn' => \App\Http\Middleware\AdminloginMiddlewar::class,
     ];
 }
