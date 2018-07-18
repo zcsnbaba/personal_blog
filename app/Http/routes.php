@@ -10,10 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+	Route::controller('/admin/login','admin\LoginController');
 
-Route::group(['middleware' => 'user_login'],function(){
-	Route::controller('/admin/user', 'admin\UserController');
-	
+Route::group([ 'middleware' => ['admin.login']], function () {
+
+    Route::controller('/admin/user', 'admin\UserController');
 	Route::controller('/admin/message', 'admin\MessageController');
 	Route::controller('/admin/category','admin\CategoryController');
 	Route::controller('/admin/article','admin\ArticleController');
@@ -24,9 +25,14 @@ Route::group(['middleware' => 'user_login'],function(){
 	Route::controller('/admin/wp','admin\WzpzController');
 	Route::controller('/admin/xc','admin\XcController');
 	Route::controller('/admin/sjz','admin\SjzController');
-	//后台控制器
+	Route::controller('/admin/pl','admin\PlController');
 	Route::controller('/admin', 'admin\AdminController');
+
 });
+
+
+
+
 Route::controller('/home/login', 'home\LoginController');    
 
 Route::controller('/home/article', 'home\ArticleController');

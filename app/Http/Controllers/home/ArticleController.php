@@ -15,15 +15,25 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getIndex($id)
+    public function getIndex(Request $request,$id)
     {
+        //$value = $request->session()->all();
+        // $a = $value['user_login']['uname'];
+        // $b = isset($a);
+        // if($a == null){
+        //     echo '123';
+        // }else{
+        //     echo '777';
+        // }
+        // dump($b);
+        // exit;
+
         $article_data = DB::table('article as a')
             ->join('user as u','a.uid','=','u.id')
             ->where('a.id','=',$id)
             ->select('u.uname','a.*')
             ->first();
-        $comment = DB::table('comment as c') -> get();
-        
+        $comment = DB::table('comment as c') ->where('c.pid','=',$id)-> orderBy('id','desc')->get();
 
         return view('home.article.index',['article_data'=>$article_data,'comment'=>$comment]);
     }
@@ -60,42 +70,29 @@ class ArticleController extends Controller
 //评论添加操作
   public function getStore(Request $request)
     {
-             //     $a = DB::table('photo-cate as pc')
-             // -> where('pc.id','=',$data['cid'])
-             // ->select('name')
-             // ->first();
-        // 接受数据 
-    // $data = isset($_POST) ? $_POST : '';
+        
 
-    // dump($data);
-    // exit;
-
-    // if($res){
-    //     //返回id
-    //     //echo $pdo -> lastInsertId(); //返回最后插入的id号
-    //     echo 'success';
-    //     exit;
-    // }else{
-    //     echo 'error';
-    //     exit;
-    // }
-
-        $data = isset($_GET) ? $_GET : '';
-        $value = $request->session()->all();
-        $a = $value['user_login']['id'];
+         $content = $request -> input('content');   
+         $pid = $request -> input('pid');
+        
+         // $value = $request->session()->all();
+         //  $uid = session('user_login')['id'];
+         $a = session('user_login')['id'];
         $time = date('Y-m-d H.i.s',time());
         $name = DB::table('user as u')->where('u.id','=',$a)->select('uname')->first();
+        $n = $name['uname']; 
+
         $res = DB::table('comment')
-                ->insert(['uid'=>$a,'created_at'=>$time,'content'=>$data['content'],'name'=>$name['uname']]);
-                //dump($res);
-        $pl = DB::table('comment')->get();
-          if($res){
-                echo  'success';
-            }else{
-                echo  'error';
-            }
-     
-   
+                ->insertGetId(['uid'=>$a,'created_at'=>$time,'content'=>$content,'name'=>$n,'pid'=>$pid]);
+        
+        $plc = DB::table('comment as c')->where('c.id','=',$res) -> select('content','name','created_at')-> first();
+        $plcontent = $plc['content'];
+        $plname = ','.$plc['name'];
+        $pltime = ','.$plc['created_at'];
+        echo $plcontent;
+        echo $plname;
+        echo $pltime;
+       
     }
 
     /**

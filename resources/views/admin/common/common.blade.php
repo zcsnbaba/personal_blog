@@ -149,7 +149,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="/admin/pl/index"><i class="icon-th"></i>评论管理</a>
+                        <a href="/admin/pl"><i class="icon-pencil"></i>评论管理</a>
                     </li>    
                     
                     <li>

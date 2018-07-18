@@ -40,7 +40,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <img src="/error/1.jpg">
+                <img src="/errortp/2.jpg" style="width:1600px;height:800px;">
             </div>
         </div>
     </body>

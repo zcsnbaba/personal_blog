@@ -16,7 +16,7 @@ class LoginController extends Controller
      */
     public function getIndex()
     {
-        return view('admin.login.index');
+      return view('admin/login/index');
     }
 
     /**
@@ -42,11 +42,11 @@ class LoginController extends Controller
             ->where('uname','=',$login_data['uname'])
             ->where('password','=',$login_data['password'])
             ->first();
-        if($res){
+        if($res['superuser']=='博主'){
             session(['user_login'=>$res]);
-            return redirect('/')->with('success','登录成功');
+            return redirect('/admin')->with('success','登录成功');
         }else{
-            return back()->with('error','用户名或密码错误!!'); 
+            return back()->with('error','用户名或密码错误或者没有权限!!'); 
         }
     }
 

@@ -4,7 +4,7 @@
 <script type="text/javascript" src="/pl/ajax3.0-min.js"></script>
 <link href="/homemoban/css/about.css" rel="stylesheet">
  <article>
-    <h3 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="1/">所有文章</a></h3>
+    <h3 class="about_h">您现在的位置是：<a href="/">首页</a><a href="1/">所有文章</a></h3>
     <div class="about">
       <h2>{{ $article_data['title'] }}</h2>
       <ul>
@@ -21,7 +21,7 @@
       <ul>
       <br>
         {!! $article_data['content'] !!}
-      </ul>
+      </ul
       <h2>About my blog</h2>
       <ul class="blog_a">
         <div class="bdsharebuttonbox bdshare-button-style1-32" data-bd-bind="1531300058720"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_more" data-cmd="more"></a></div>
@@ -39,8 +39,8 @@
                 <div class="CPersonal">
 
                 </div>
-                <form  method="post" action="/home/article/store">
-                {{ csrf_field() }}
+                <form  method="get" id="myform" action="/home/article/store">
+                
                 <div class="CContent">
                     <textarea name="content" class="Ccontents" placeholder="来说两句吧..."></textarea>
                 </div>
@@ -62,9 +62,9 @@
                         最新评论
                     </div>
                     
-                <div class="MLContents">
+                <div class="MLContents" id="father">@foreach($comment as $k => $v)
                     <div class="LCSub">
-                   @foreach($comment as $k => $v)
+                   
                         <div class="CPortrait">
                           <a href="http://3.com" class="CPLink" target="_blank"><img src="" pid="14" class="PortImg"></a>
                         </div>
@@ -85,55 +85,44 @@
                         </div>
                       </div>
                     </div>
-                <br><hr><br>
-              @endforeach
-                </div>
+                <br><br><br>
+              
+                </div>@endforeach
             </div>
             </div>
             
         </div>
   </article>
-  
+  <script type="text/javascript" src="/pl/jquery-1.8.3.min.js"></script>
   <script type="text/javascript">
-
+  // var id = $(this).prev().prev().val();
+  // Ajax('HTML',true).get('/home/article/store?conten'+content+'&pid='+pid,function(msg){
+  //          console.log(msg);  
+  //     });
     var form = document.forms[0];
-    // form.onsubmit = function(){
-    //   var content = form.content.value;
-    //      $.ajax({
-    //        type:"POST",
-    //        url:"{{url('home/article/store')}}",
-    //        data:{'content':content}
-    //        dataType:'json',
-    //        function(msg){
-    //           if(msg != 'error'){
-    //       // 创建元素并且赋值
-    //           var tr = table.insertRow(); //创建tr对象
-    //           tr.insertCell(0).innerHTML = msg;
-    //           tr.insertCell(1).innerHTML = uid;
-    //           tr.insertCell(2).innerHTML = name;
-    //           tr.insertCell(3).innerHTML = content;
-    //           tr.insertCell(4).innerHTML = '<a href="javascript:;" >删除</a>';
-    //         }else{
-    //           alert('添加失败');
-    //         }
-    //      });
-
-    //   return false;
-    // }
-
       form.onsubmit = function(){
-      // 获取用户数据
-      var content = form.content.value;
-      // 发送ajax  
-      Ajax('HTML',true).get('/home/article/store',function(msg){
-           if(msg == 'success'){
-             alert(1);
-           }
-      });
+            // 获取用户数据
+            var content = form.content.value; 
+            //console.log(content);
+            // 发送ajax  ?id='+id
+            Ajax('HTML',true).get('/home/article/store?content='+content+'&pid='+{{$article_data['id']}},function(msg){
+                  //console.log(msg);
+                   arr=msg.split(',');
+                    for(var i=0;i<arr.length;i++)
+                    {
+                      var content = arr[0];
+                      var name = arr[1];
+                      var data = arr[2];
+                    } 
+                    $(document).ready(function(){
+                       $("#father").prepend('<div class="LCSub"><div class="CPortrait"><a href="http://3.com" class="CPLink" target="_blank"><img src="" pid="14" class="PortImg"></a></div><div class="ContMsg"><div class="UserInfo"><span class="MsgTime">'+data+'</span><span class="UserAdd" style="color:#f0c">'+name+'</span></div><div class="CommentInfo">'+content+'</div><div class="CommentBtn" pid="180"><div class="CBCai"><span class="CaiCount">0</span><i class="iconCai"></i></div><div class="CBDing"><span class="dingCount">0</span><i class="iconDing"></i></div></div></div><br><br><br></div>');
+                    })
+                          
+            });
+      
+    
       
       return false;
-    }
-
-
+    } 
   </script>
 @endsection
