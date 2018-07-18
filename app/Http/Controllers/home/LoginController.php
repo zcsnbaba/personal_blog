@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\home;
 
 use Illuminate\Http\Request;
-
+use Gregwar\Captcha\CaptchaBuilder;
+use Gregwar\Captcha\PhraseBuilder;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
@@ -16,6 +17,7 @@ class LoginController extends Controller
      */
     public function getIndex()
     {
+          
         return view('home.login.index');
     }
 
@@ -37,11 +39,18 @@ class LoginController extends Controller
      */
     public function postStore(Request $request)
     {
+        $this->validate($request, [
+            'captcha' => 'required|captcha'
+        ],[
+            'captcha.required' => '验证码不能为空',
+            'captcha.captcha' => '验证码错误',
+          ]);
         $login_data = $request->except(['_token']);
         $res = DB::table('user')
             ->where('uname','=',$login_data['uname'])
             ->where('password','=',$login_data['password'])
             ->first();
+        
         if($res){
             session(['user_login'=>$res]);
             return redirect('/')->with('success','登录成功');
@@ -49,7 +58,7 @@ class LoginController extends Controller
             return back()->with('error','用户名或密码错误!!'); 
         }
     }
-
+    
     /**
      * Display the specified resource.
      *
@@ -104,8 +113,7 @@ class LoginController extends Controller
             return redirect('/')->with('success','修改成功');
         }else{
             return back()->with('error','修改失败'); 
-        }
-        dd($login_data);    
+        }  
         
         
         

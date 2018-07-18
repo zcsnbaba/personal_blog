@@ -20,7 +20,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                 <div class="mws-form-row">[]
+                                 <div class="mws-form-row">
                                     <label class="mws-form-label">图片：</label>
                                     <div class="mws-form-item" style="width:48%">
                                         <input type="file" name="avatar[]" id="file" multiple/> 

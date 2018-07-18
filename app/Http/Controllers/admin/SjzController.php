@@ -51,7 +51,7 @@ class SjzController extends Controller
         //接收 提交的数据
         $data = $request -> only('title');
 
-        $time = date('Y-m-d H.i.s',time());
+        $time = date('Y-m-d',time());
         $res = DB::table('sjz')->insert(['title'=>$data['title'],'time'=>$time]);
         if($res){
             DB::commit();

@@ -16,10 +16,10 @@
         <div id="Comment">
         @if(session('user_login'))
             <div class="CPortrait">
-                <a href=""><img src="{{ $uid = session('user_login')['avatar'] }}" pid="14" class="PortImg"></a>
+                <a href="/home/geren/index/{{ session('user_login')['id'] }}"><img src="{{ $uid = session('user_login')['avatar'] }}" pid="14" class="PortImg"></a>
             </div>
             <br>
-            &nbsp;<span style="color:red;font-size:20px"><b><a href="">个人中心</a></b></span>
+            &nbsp;<span style="color:red;font-size:20px"><b><a href="/home/geren/index/{{ session('user_login')['id'] }}">个人中心</a></b></span>
         @else
             <div class="CPortrait">
                 <img src="/homemoban/images/zdy.jpg" pid="14" class="PortImg">
@@ -44,7 +44,12 @@
                             if($('.Ccontents').val()){
                                 return true;
                             }else{
-                                alert('请输入留言内容');
+                                 layui.use(['layer', 'form'], function(){
+                                      var layer = layui.layer
+                                      ,form = layui.form;
+                                      
+                                      layer.msg("请输入留言内容",{icon: 5});
+                                    });
                                 return false;
                             }
                         })
@@ -65,7 +70,7 @@
                     <div class="MTContent">留言</div>
                     <div class="MTCount">
                         共计
-                        <span class="TCNumber">34</span>条留言
+                        <span class="TCNumber">{{ $message -> total() }}</span>条留言
                     </div>
                 </div>
                 <div class="CMLists">

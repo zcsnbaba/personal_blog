@@ -18,7 +18,7 @@
       </h2>
       @foreach($wz_data as $k => $v)
       <div class="blogs">
-        <h3><a href="/">{{ $v['title'] }}</a></h3>
+        <h3>&nbsp;&nbsp;{{ $v['title'] }}</h3>
         <figure><img src="{{ $v['file'] }}" style="height:110px"></figure>
         <ul>
           <p>{{ $v['desc'] }}</p>

@@ -9,6 +9,8 @@
 <link href="/homemoban/css/index.css" rel="stylesheet">
 <link href="/homemoban/css/media.css" rel="stylesheet">
 <link href="/homemoban/css/about.css" rel="stylesheet">
+<link href="/layui/css/layui.css" rel="stylesheet">
+<script type="text/javascript" src="/layui/layui.js"></script>
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
 
 <!--[if lt IE 9]>
@@ -156,7 +158,38 @@
 
 
 @show
+@if(session('success'))
+<script type="text/javascript">
+layui.use(['layer', 'form'], function(){
+  var layer = layui.layer
+  ,form = layui.form;
+  
+  layer.msg("{{ session('success') }}",{icon: 6});
+});
+</script>
+@endif
+@if(session('error'))
+<script type="text/javascript">
 
+layui.use(['layer', 'form'], function(){
+  var layer = layui.layer
+  ,form = layui.form;
+  
+  layer.msg("{{ session('error') }}",{icon: 5});
+});
+</script>
+@endif
+@if (count($errors) > 0)
+<script type="text/javascript">
+
+layui.use(['layer', 'form'], function(){
+  var layer = layui.layer
+  ,form = layui.form;
+  
+  layer.msg("{{ $error }}",{icon: 5});
+});
+</script>
+@endif
   <aside>
     <div class="avatar"><a href="/home/about"><span>关于杨青</span></a></div>
     <div class="topspaceinfo">

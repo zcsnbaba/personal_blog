@@ -22,13 +22,14 @@
 			{{ csrf_field() }}
 				<input type="text" name="uname" placeholder="用户名" required="">
 				<input type="password" name="password" placeholder="密码" required="">
-			
+    			<input placeholder="验证码" type="text" style="width:180px" class="tt-text" name="captcha">{!! captcha_img() !!}
 			<ul class="tick w3layouts agileits">
 				<li>
 					<input type="checkbox" id="brand1" value="1" name="jizhu">
 					<label for="brand1"><span></span>记住我</label>
 				</li>
 			</ul>
+			<p style="clear:both"></p>
 			<div class="send-button w3layouts agileits">
 					<input type="submit" value="登 录"> &nbsp;
 					<input type="submit" onclick="fun()" value="免费注册">

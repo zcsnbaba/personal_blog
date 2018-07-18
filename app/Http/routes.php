@@ -33,6 +33,7 @@ Route::controller('/home/article', 'home\ArticleController');
 
 Route::controller('/home/message', 'home\MessageController');
 
+Route::controller('/home/geren', 'home\GerenController');
 
 
 
