@@ -18,9 +18,14 @@ class LbController extends Controller
     public function getIndex()
     {
         //
+        $mrphoto = '/uploads/20180718/Bj6vCx9Ms2Na7EIS9mtI.jpg';
         $data = DB::table('carousel as c')
               ->get();
-              //dump($data);
+              if($data == null){
+                    $res = DB::table('carousel')
+                ->insert(['address'=>$mrphoto]); 
+                  }
+              
         return view('admin/lb/index',['data'=>$data]);
     }
 

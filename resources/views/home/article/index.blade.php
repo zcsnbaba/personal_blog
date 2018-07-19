@@ -98,7 +98,11 @@
                 <div class="LCSub">
                 @foreach($comment as $k => $v)
                         <div class="CPortrait">
+<<<<<<< HEAD
                           <img src="{{ $v['photo'] }}" pid="14" class="PortImg">
+=======
+                          <a href="" class="CPLink" target="_blank"><img src="{{$v['photo']}}" pid="14" class="PortImg"></a>
+>>>>>>> origin/zhaopingang
                         </div>
                       <div class="ContMsg">
                           <div class="UserInfo">
@@ -222,7 +226,7 @@
                       var count = arr[4];
                     } 
                     $(document).ready(function(){
-                       $("#father").prepend('<div class="LCSub"><div class="CPortrait"><a href="http://3.com" class="CPLink" target="_blank"><img src="'+photo+'" pid="14" class="PortImg"></a></div><div class="ContMsg"><div class="UserInfo"><span class="MsgTime">'+data+'</span><span class="UserAdd" style="color:#f0c">'+name+'</span></div><div class="CommentInfo">'+content+'</div><div class="CommentBtn" pid="180"><div class="CBCai"><span class="CaiCount">0</span><i class="iconCai"></i></div><div class="CBDing"><span class="dingCount">0</span><i class="iconDing"></i></div></div></div><br><br><br></div>');
+                       $("#father").prepend('<div class="LCSub"><div class="CPortrait"><a href="" class="CPLink" target="_blank"><img src="'+photo+'" pid="14" class="PortImg"></a></div><div class="ContMsg"><div class="UserInfo"><span class="MsgTime">'+data+'</span><span class="UserAdd" style="color:#f0c">'+name+'</span></div><div class="CommentInfo">'+content+'</div><div class="CommentBtn" pid="180"><div class="CBCai"><span class="CaiCount">0</span><i class="iconCai"></i></div><div class="CBDing"><span class="dingCount">0</span><i class="iconDing"></i></div></div></div><br><br><br></div>');
                     })
 
                       //console.log(count);

@@ -22,9 +22,11 @@ class PlController extends Controller
 
         $search = $request -> input('search','');
         //paginate 分页 get();
+              
         $pl = DB::table('comment as c')
               -> where('c.content','like','%'.$search.'%')
               ->join('article as a','a.id','=','c.pid')
+              -> orwhere('a.title','like','%'.$search.'%')
               ->select('a.title','c.*')
               ->paginate(20);
         $pl->setPath(' ');
