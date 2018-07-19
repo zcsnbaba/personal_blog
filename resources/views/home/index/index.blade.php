@@ -8,7 +8,7 @@
   <ul class="slides">
     @foreach($data as $k => $v)
     <li>
-      <a title="" target="_blank" href="/">
+      <a title="" target="_blank" href="{{$v['url']}}">
         <img src="{{$v['address']}}" style=" width:720px height:300px no-repeat center;" src="images/alpha.png" >
       </a>  
     </li>
@@ -38,7 +38,7 @@
           <input type="hidden" class="ycy" value="{{ $v['id'] }}"> 
           <a href="/home/article/index/{{ $v['id'] }}" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
         </ul>
-        <p class="autor"><span>作者：{{ $v['uname'] }}</span><span>分类：【<a href="/">日记</a>】</span>浏览(<span>{{ $v['ckick_count'] }}</span>)&nbsp;&nbsp; 评论(<span>{{ $nima[$k] }}</span>)</p>
+        <p class="autor"><span>作者：{{ $v['uname'] }}</span><span>分类：【日记】</span>浏览(<span>{{ $v['ckick_count'] }}</span>)&nbsp;&nbsp; 评论(<span>{{ $nima[$k] }}</span>)</p>
         <div class="dateview">{{ $v['created_at'] }}</div>
       </div>
       @endforeach

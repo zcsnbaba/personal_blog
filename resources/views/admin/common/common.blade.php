@@ -90,7 +90,7 @@
                 </div>
                 <div id="mws-user-functions">
                     <div id="mws-username">
-                        zcwd
+                        {{ session('user_login')['uname'] }}
                     </div>
                     <ul>
                         <li><a href="/"><i class="icon-file-openoffice" style="color:red"></i> 前台</a></li>
@@ -180,9 +180,6 @@
                             <li><a href="/admin/sjz/index">时间轴列表</a></li>
                             <li><a href="/admin/sjz/create">添加时间轴</a></li>s
                         </ul>
-                    </li>
-                    <li>        
-                        <a href="/admin/collect"><i class="icon-archive"></i>文章收藏管理</a>
                     </li>
                     <li>
                         <a href="#"><i class="icon-th"></i>友情链接管理</a>

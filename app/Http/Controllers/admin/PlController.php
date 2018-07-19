@@ -19,16 +19,20 @@ class PlController extends Controller
     {
         $value = $request->session()->all();
           $uid = session('user_login')['id'];
-          dump($value);
-          exit;
 
         $search = $request -> input('search','');
         //paginate 分页 get();
         $pl = DB::table('comment as c')
-              -> where('content','like','%'.$search.'%')
+              -> where('c.content','like','%'.$search.'%')
               ->join('article as a','a.id','=','c.pid')
               ->select('a.title','c.*')
-              ->paginate(2);
+              ->paginate(20);
+        $pl->setPath(' ');
+        $num=$pl->lastPage();
+        $nextpage=$num-$pl->currentPage() ==0 ? $num : $pl->currentPage()+1 ; 
+        $lastpage=$pl->currentPage()-1 <0 ? 1 : $pl->currentPage()-1 ; 
+        $pl->next=$nextpage;
+        $pl->last=$lastpage;
         return view('admin/pl/index',['pl'=>$pl,'search'=>$search]);       
     }
 

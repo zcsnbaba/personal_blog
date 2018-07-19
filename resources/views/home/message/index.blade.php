@@ -16,13 +16,13 @@
         <div id="Comment">
         @if(session('user_login'))
             <div class="CPortrait">
-                <a href="/home/geren/index/{{ session('user_login')['id'] }}"><img src="{{ $uid = session('user_login')['avatar'] }}" pid="14" class="PortImg"></a>
+                <a href="/home/geren/index/{{ session('user_login')['id'] }}"><img src="{{ $sss }}" pid="14" class="PortImg"></a>
             </div>
             <br>
             &nbsp;<span style="color:red;font-size:20px"><b><a href="/home/geren/index/{{ session('user_login')['id'] }}">个人中心</a></b></span>
         @else
             <div class="CPortrait">
-                <img src="/homemoban/images/zdy.jpg" pid="14" class="PortImg">
+                <img src="{{ session('user_login')['avatar'] }}" pid="14" class="PortImg">
             </div>
             <br>
             &nbsp;<span style="color:#ccc;font-size:20px" disabled><b>个人中心</b></span>
@@ -39,7 +39,6 @@
                 @if(session('user_login'))
                     <input type="submit" class="Csubmit"  onselectstart="return false" pid="0" aid="0" value="发布留言">
                     <script type="text/javascript">
-                        console.log();
                         $('#myform').submit(function(){
                             if($('.Ccontents').val()){
                                 return true;
@@ -129,21 +128,13 @@
                                             <span disabled class="dingCount">{{ $v['praise'] }}</span>
                                             <input disabled type="text" class="iconDing" style="border:0px;cursor:pointer;background:#fff;background-image:url(/message/images/ding_active.png)">
                                         </div> 
-
                                         @endif
                                         <script type="text/javascript">
                                         var id = {{ $v['id'] }}
-                                        console.log(id);
                                         $('#q'+id+'').addClass('xiaoshi')
                                     </script>
                                     @endif    
-                                   
                                     @endforeach
-                                     
-                                       
-                                       
-                                 
-                                         
                                 </div>
                             @else
     		                    <div class="CommentBtn" pid="180">
@@ -152,7 +143,7 @@
                                         <input type="text" class="isCai" style="border:0px;cursor:pointer">
                                     </div>
                                     <div class="CBDing">
-                                        <span class="dingCount">{{ $v['praise'] }}@</span>
+                                        <span class="dingCount">{{ $v['praise'] }}</span>
                                         <input type="text" class="isDing" style="border:0px;cursor:pointer">
                                     </div>
                                 </div>

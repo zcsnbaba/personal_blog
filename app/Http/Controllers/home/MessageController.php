@@ -45,13 +45,18 @@ class MessageController extends Controller
         $caiji = DB::table('caiji')
             ->where('uid','=',$uid)
             ->get();
+        $avatar = DB::table('user')
+            ->where('id','=',$uid)
+            -> select('avatar')
+            ->get();
+       $sss = (session('user_login')['avatar'] = $avatar['0']['avatar']);
         $message->setPath('create');
         $num=$message->lastPage();
         $nextpage=$num-$message->currentPage() ==0 ? $num : $message->currentPage()+1 ; 
         $lastpage=$message->currentPage()-1 <0 ? 1 : $message->currentPage()-1 ; 
         $message->next=$nextpage;
         $message->last=$lastpage;
-        return view('home.message.index',['message'=>$message,'caiji'=>$caiji]);
+        return view('home.message.index',['message'=>$message,'caiji'=>$caiji,'sss'=>$sss]);
     }
 
     /**

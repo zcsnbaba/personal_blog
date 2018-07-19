@@ -18,7 +18,7 @@ class UserController extends Controller
     public function getIndex(Request $request)
     {
         $username = $request->input('username');
-        $user_data = DB::table('user')->where('uname','like','%'.$username.'%')->paginate(15);
+        $user_data = DB::table('user')->where('uname','like','%'.$username.'%')-> orderBy('id','desc')->paginate(15);
         $user_data->setPath('index');
         $num=$user_data->lastPage();
         $nextpage=$num-$user_data->currentPage() ==0 ? $num : $user_data->currentPage()+1 ; 

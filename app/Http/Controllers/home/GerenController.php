@@ -36,6 +36,7 @@ class GerenController extends Controller
         $res = $profile -> move('./uploads/'.$dirname,$name);
         $avatar = ('/uploads/'.$dirname.'/'.$name);
         $id = session('user_login')['id'];
+        session('user_login')['avatar'] = $avatar;
         DB::table('user')
             ->where('id','=',$id)
             ->update(['avatar' => $avatar]);

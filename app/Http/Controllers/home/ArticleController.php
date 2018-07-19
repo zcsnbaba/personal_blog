@@ -17,14 +17,28 @@ class ArticleController extends Controller
      */
     public function getIndex(Request $request,$id)
     {
+        $uid = session('user_login')['id'];
+        $shuaige = DB::table('shuaige')
+            ->where('uid','=',$uid)
+            ->get();
         $article_data = DB::table('article as a')
             ->join('user as u','a.uid','=','u.id')
             ->where('a.id','=',$id)
             ->select('u.uname','a.*')
             ->first();
-        $comment = DB::table('comment as c') ->where('c.pid','=',$id)-> orderBy('id','desc')->get();
-
-        return view('home.article.index',['article_data'=>$article_data,'comment'=>$comment]);
+        $comment = DB::table('comment as c') 
+            -> where('c.pid','=',$id)
+            -> join('user as u','c.uid','=','u.id')
+            -> orderBy('c.id','desc')
+            ->select('u.uname','c.*')
+            ->paginate(10);
+        $comment->setPath(' ');
+        $num=$comment->lastPage();
+        $nextpage=$num-$comment->currentPage() ==0 ? $num : $comment->currentPage()+1 ; 
+        $lastpage=$comment->currentPage()-1 <0 ? 1 : $comment->currentPage()-1 ; 
+        $comment->next=$nextpage;
+        $comment->last=$lastpage;
+        return view('home.article.index',['article_data'=>$article_data,'comment'=>$comment,'shuaige'=>$shuaige]);
     }
 
     /**
@@ -49,6 +63,7 @@ class ArticleController extends Controller
             $nima[$key] = $lz;
             
         }
+        
         $wz_data->setPath('create');
         $num=$wz_data->lastPage();
         $nextpage=$num-$wz_data->currentPage() ==0 ? $num : $wz_data->currentPage()+1 ; 
@@ -71,24 +86,39 @@ class ArticleController extends Controller
 
          $content = $request -> input('content');   
          $pid = $request -> input('pid');
+         $mrphoto = '/uploads/20180718/Bj6vCx9Ms2Na7EIS9mtI.jpg';
         
          // $value = $request->session()->all();
          //  $uid = session('user_login')['id'];
          $a = session('user_login')['id'];
-        $time = date('Y-m-d H.i.s',time());
-        $name = DB::table('user as u')->where('u.id','=',$a)->select('uname')->first();
-        $n = $name['uname']; 
+         $time = date('Y-m-d H.i.s',time());
+         $name = DB::table('user as u')->where('u.id','=',$a)->select('uname','avatar')->first();
+         $n = $name['uname']; 
+         $photo = $name['avatar'];
+          if(isset($photo)){
+             $photo = $name['avatar'];
+          }else{
+            $photo = $mrphoto;
+          }
 
-        $res = DB::table('comment')
-                ->insertGetId(['uid'=>$a,'created_at'=>$time,'content'=>$content,'name'=>$n,'pid'=>$pid]);
+         $res = DB::table('comment')
+                 ->insertGetId(['uid'=>$a,'created_at'=>$time,'content'=>$content,'name'=>$n,'pid'=>$pid,'photo'=>$photo]);
         
-        $plc = DB::table('comment as c')->where('c.id','=',$res) -> select('content','name','created_at')-> first();
+        $plc = DB::table('comment as c')->where('c.id','=',$res) -> select('content','name','created_at','photo')-> first();
+        $plzs = DB::table('comment as c')->where('c.pid','=',$pid)->count();
+
+        
+
         $plcontent = $plc['content'];
         $plname = ','.$plc['name'];
         $pltime = ','.$plc['created_at'];
+        $plphoto = ','.$plc['photo'];
+        $plcount = ','.$plzs;
         echo $plcontent;
         echo $plname;
         echo $pltime;
+        echo $plphoto;
+        echo $plcount; 
        
     }
 
@@ -111,9 +141,17 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function getEdit(Request $request)
     {
-        //
+        $id = $request->input('id');
+        $nums = $request->input('bang');
+        $uid = session('user_login')['id'];
+        DB::table('comment')
+            ->where('id','=',$id)
+            ->update(['bang' => $nums]);
+        DB::table('shuaige')->insert(
+            ['uid' => $uid,'cid' => '2','mid' => $id]
+        );
     }
 
     /**
@@ -123,9 +161,17 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function getUpdate(Request $request)
     {
-        //
+        $id = $request->input('id');
+        $nums = $request->input('cai'); 
+        $uid = session('user_login')['id'];
+        DB::table('comment')
+            ->where('id','=',$id)
+            ->update(['cai' => $nums]);
+        DB::table('shuaige')->insert(
+            ['uid' => $uid,'cid' => '1','mid' => $id]
+        );
     }
 
     /**

@@ -14,7 +14,7 @@
                                     <a href="/admin/xc/tpedit/{{$v['id']}}" class="mws-gallery-btn"><i class="icon-pencil"></i></a>
                                     <a href="/admin/xc/tpdestroy/{{$v['id']}}" class="mws-gallery-btn"><i class="icon-trash"></i></a>
                                 </span>
-                                <span></span>
+                                <span>{{$v['time']}}</span>
                             </li>@endforeach
                 
                         </ul>

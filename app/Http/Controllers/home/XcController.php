@@ -58,8 +58,9 @@ class XcController extends Controller
        $zp = DB::table('photo as p')
               ->where('cid','=',$id)
               ->join('photo-cate as pc','p.cid','=','pc.id')
-              ->select('p.photo','pc.name','p.id')
+              ->select('p.photo','pc.name','p.id','p.time')
               ->paginate(100); 
+
         return view('home/xc/show',['zp'=>$zp,'name'=>$name]);   
     }
 

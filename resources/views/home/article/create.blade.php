@@ -29,7 +29,7 @@
         </ul>
         <p class="autor">
           <span>作者：{{ $v['uname'] }}</span>
-          <span>分类：【<a href="/">{{ $v['name_class'] }}</a>】</span>浏览(<span>{{ $v['ckick_count'] }}</span>) &nbsp;&nbsp; 
+          <span>分类：【{{ $v['name_class'] }}】</span>浏览(<span>{{ $v['ckick_count'] }}</span>) &nbsp;&nbsp; 
           评论(<span>{{$nima[$k]}}</span>)
         </p>
         <div class="dateview">{{ $v['created_at'] }}</div>
