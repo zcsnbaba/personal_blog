@@ -18,17 +18,18 @@ class PlController extends Controller
     public function getIndex(Request $request)
     {
         $value = $request->session()->all();
-          $uid = session('user_login')['id'];
-          dump($value);
-          exit;
+       $uid = session('user_login')['id'];
+       
 
         $search = $request -> input('search','');
         //paginate 分页 get();
-        $pl = DB::table('comment as c')
-              -> where('content','like','%'.$search.'%')
+        $pl = DB::table('comment as c','article as a')
+              -> where('c.content','like','%'.$search.'%')
               ->join('article as a','a.id','=','c.pid')
+              -> orwhere('a.title','like','%'.$search.'%')
               ->select('a.title','c.*')
-              ->paginate(2);
+              ->paginate(100);
+
         return view('admin/pl/index',['pl'=>$pl,'search'=>$search]);       
     }
 

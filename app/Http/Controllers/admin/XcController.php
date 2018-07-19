@@ -176,6 +176,11 @@ class XcController extends Controller
  
          $res = DB::table('photo-cate')
                 ->insert(['name'=>$data['name']]);
+         $xczs = DB::table('photo-cate')->count();
+         if($xczs > 7){
+            return back() -> with('error','相册最多存在七个');
+         }
+         
         if($res){
             return redirect('/admin/xc/index')->with('success','添加成功');
         }else{

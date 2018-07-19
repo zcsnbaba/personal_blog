@@ -7,16 +7,22 @@
     <link rel="stylesheet" href="/xc2/css/magnific-popup.css">                                 
     <link rel="stylesheet" href="/xc2/css/tooplate-style.css">
     <style type="text/css">
+    body,div,ul,li,h3,article{margin:0px;padding:0px;}
         #abc{
             height:100px;
             width:100px;
             margin:2px;
-            text-overflow : clip
-            float:right;
+            overflow:hidden;
+            border-radius:50%;
         }
 
-        #tmNavbar{
+        .sn{
             float:left;
+            border-radius: 50%;
+        }
+
+        .xc{
+            border-radius:50%;
         }
 
         #xcym{
@@ -41,8 +47,8 @@
                         @foreach($xcfl as $a=>$b)
 
                         <div  class=" sn collapse navbar-toggleable-md text-xs-center text-uppercase tm-navbar" id="tmNavbar">
-                            <ul class="sn nav navbar-nav">
-                                <li class="nav-item active selected" id="abc">
+                            <ul class="sn nav navbar-nav" id="xcul">
+                                <li class="nav-item active selected" id="abc" style="border-radius: 50%;">
                                     <a class="nav-link" href="/home/xc/show/{{$b['id']}}" data-no="1">{{$b['name']}}</a>
                                 </li>                                
                               
@@ -66,7 +72,7 @@
                                 @foreach($xc as $k=>$v)    
                                     <div class="grid-item">
                                         <figure class="effect-bubba">
-                                            <img src="{{$v['photo']}}" alt="Image" class="img-fluid tm-img" style="width:100px;height:100px;">
+                                            <img src="{{$v['photo']}}" alt="Image" class="img-fluid tm-img" style="width:100px;height:100px; border-radius: 50%;">
                                             <figcaption>
                                                 <h2 class="tm-figure-title">Image <span>Fifteen</span></h2>
                                                 <p class="tm-figure-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

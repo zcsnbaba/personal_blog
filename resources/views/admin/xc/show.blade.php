@@ -8,14 +8,14 @@
 
                     <div class="mws-panel-body">
                         <ul class="thumbnails mws-gallery">@foreach($data as $k => $v)
-                            <br><br><li>
+                          <li>
                                 <span class="thumbnail"><img src="{{$v['photo']}}" alt=""></span>
                                 <span class="mws-gallery-overlay">
                                     <a href="/admin/xc/tpedit/{{$v['id']}}" class="mws-gallery-btn"><i class="icon-pencil"></i></a>
                                     <a href="/admin/xc/tpdestroy/{{$v['id']}}" class="mws-gallery-btn"><i class="icon-trash"></i></a>
                                 </span>
                                 <span>{{$v['time']}}</span>
-                            </li><br><br>@endforeachbr
+                            </li>@endforeach
                 
                         </ul>
                     </div>
