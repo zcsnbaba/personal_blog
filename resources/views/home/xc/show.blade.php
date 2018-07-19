@@ -1,84 +1,197 @@
 @extends('home.common.common')
 
 @section('content')
-<link rel="stylesheet" type="text/css" href="/adminmoban/plugins/colorpicker/colorpicker.css" media="screen">
-<link rel="stylesheet" type="text/css" href="/adminmoban/custom-plugins/wizard/wizard.css" media="screen">
+   <link rel="stylesheet" href="/xc2/font-awesome-4.5.0/css/font-awesome.min.css">                
+    <link rel="stylesheet" href="/xc2/css/bootstrap.min.css">                                      
+    <link rel="stylesheet" href="/xc2/css/hero-slider-style.css">                              
+    <link rel="stylesheet" href="/xc2/css/magnific-popup.css">                                 
+    <link rel="stylesheet" href="/xc2/css/tooplate-style.css">
+    <style type="text/css">
+         #abc{
+            height:100px;
+            width:100px;
+            margin:2px;
+            text-overflow : clip
+            float:right;
+        }
 
-<!-- Required Stylesheets -->
-<link rel="stylesheet" type="text/css" href="/adminmoban/css/fonts/ptsans/stylesheet.css" media="screen">
-<!-- 后台图片按钮样式 -->
-<link rel="stylesheet" type="text/css" href="/adminmoban/css/fonts/icomoon/style.css" media="screen">
-<!-- 图片样式 -->
-<link rel="stylesheet" type="text/css" href="/adminmoban/css/mws-style.css" media="screen">
-<link rel="stylesheet" type="text/css" href="/adminmoban/css/icons/icol16.css" media="screen">
-<link rel="stylesheet" type="text/css" href="/adminmoban/css/icons/icol32.css" media="screen">
+        #tmNavbar{
+            float:left;
+        }
 
-<!-- Demo Stylesheet -->
-<link rel="stylesheet" type="text/css" href="/adminmoban/css/demo.css" media="screen">
+         #xcym{
+            
+              background-color:white;
+            }
+    </style>    
+ <article>
+ <div class="cd-hero">
 
-<!-- jQuery-UI Stylesheet -->
-<link rel="stylesheet" type="text/css" href="/adminmoban/jui/css/jquery.ui.all.css" media="screen">
+            <!-- Navigation -->        
+            <div class="cd-slider-nav">
+                <nav class="navbar"><br>
+                    <div class="">
+                        
+                        <!-- <a class="navbar-brand text-uppercase" href="#"><i class="fa fa-gears tm-brand-icon"></i>相册</a> -->
 
-
-<!-- Theme Stylesheet -->
-<link rel="stylesheet" type="text/css" href="/adminmoban/css/mws-theme.css" media="screen">
-<link rel="stylesheet" type="text/css" href="/adminmoban/css/themer.css" media="screen">
-
-<link href="/xc/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="/xc/css/templatemo_misc.css">
-<link type="text/css" rel="stylesheet" href="/xc/css/easy-responsive-tabs.css" />
-<link href="/xc/css/templatemo_style.css" rel="stylesheet"> 
-<script src="/xc/js/jquery-1.10.2.min.js"></script> 
-<script src="/xc/js/jquery.lightbox.js"></script>
-<script src="/xc/js/templatemo_custom.js"></script>
-<script src="/xc/js/easyResponsiveTabs.js" type="text/javascript"></script>       
-   
-<style type="text/css">
-    .abc{
-        float:left;
-        list-style:none;
-        margin:2px;
-        padding: 2px 0 2px 0; 
-        margin-right: 15px; 
-        border-radius: 5px
-
-    }
-
-    #xctp{
-        float:left;
-        margin:2px;
-    }
-
-</style>
-<article>
-<div class="mws-panel grid_8">
-<br><br><br>    
-                       <div class="mws-panel-header">
-                    
-                         <ul >@foreach($name as $a => $b)
-                            <li class = 'abc'>
-                        <span><i class="icon-pictures"><a href="/home/xc/show/{{$b['id']}}"> <font color="white">{{$b['name']}}</font></a></i></span>
+                        <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#tmNavbar">
+                            &#9776;
+                        </button>
+                        @foreach($name as $a=>$b)
+                        <div class="collapse navbar-toggleable-md text-xs-center text-uppercase tm-navbar" id="tmNavbar">
+                            <ul class="nav navbar-nav">
+                                <li class="nav-item active selected" id="abc" >
+                                    <a class="nav-link" href="/home/xc/show/{{$b['id']}}" data-no="1">{{$b['name']}} <span class="sr-only">(current)</span></a>
+                                </li>                                
                               
-                            </li>@endforeach
-                        </ul>
-                
+                            </ul>
+                        </div> 
+                        @endforeach                       
                     </div>
 
+                </nav>
+            </div> 
 
-    @foreach($zp as $k => $v)
-                <div class="templatemo_botgap templatemo_topgap gallery-item" style="width:100px;" id="xctp"><ul>
-                        <li><img src="{{$v['photo']}}" style="width:100x; height:80px;"alt="gallery 1">
-                        <div class="overlay">
-                            <a href="{{$v['photo']}}" data-rel="lightbox" class="fa fa-arrows-alt"></a>
-                        </div></li>
-                        </ul>
-                </div>          
-    @endforeach
+            <ul class="cd-hero-slider">
 
+                <!-- Page 1 Gallery One -->
+                <li class="selected">                    
+                    <div class="cd-full-width" id="xcym">
+                        <div class="container-fluid js-tm-page-content" data-page-no="1" data-page-type="gallery">
+                            <div class="tm-img-gallery-container">
+                                <div class="tm-img-gallery gallery-one"><br>
+                                <!-- Gallery One pop up connected with JS code below -->
+                                @foreach($zp as $k=>$v)    
+                                    <div class="grid-item">
+                                        <figure class="effect-bubba">
+                                            <img src="{{$v['photo']}}" alt="Image" class="img-fluid tm-img" style="width:100px;height:100px;">
+                                            <figcaption>
+                                                <h2 class="tm-figure-title">Image <span>Fifteen</span></h2>
+                                                <p class="tm-figure-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                <a href="{{$v['photo']}}">View more</a>
+                                            </figcaption>           
+                                        </figure>
+                                    </div>
+                                @endforeach                                                                       
+                                </div>                                 
+                            </div>
+                        </div>                                                    
+                    </div>                    
+                </li>            
+        </div> <!-- .cd-hero -->
+        <!-- Preloader, https://ihatetomatoes.net/create-custom-preloading-screen/ -->
+        <div id="loader-wrapper">
+            
+            <div id="loader"></div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
 
+        </div>
+        
+        <!-- load JS files -->
+        <script src="/xc2/js/jquery-1.11.3.min.js"></script>        
+        <script src="/xc2/js/tether.min.js"></script> 
+        <script src="/xc2/js/bootstrap.min.js"></script>             
+        <script src="/xc2/js/hero-slider-main.js"></script>         
+        <script src="/xc2/js/jquery.magnific-popup.min.js"></script> 
+        
+        <script>
 
-                     
-</div>
+            function adjustHeightOfPage(pageNo) {
+
+                var offset = 80;
+                var pageContentHeight = 0;
+
+                var pageType = $('div[data-page-no="' + pageNo + '"]').data("page-type");
+
+                if( pageType != undefined && pageType == "gallery") {
+                    pageContentHeight = $(".cd-hero-slider li:nth-of-type(" + pageNo + ") .tm-img-gallery-container").height();
+                }
+                else {
+                    pageContentHeight = $(".cd-hero-slider li:nth-of-type(" + pageNo + ") .js-tm-page-content").height() + 20;
+                }
+
+                if($(window).width() >= 992) { offset = 120; }
+                else if($(window).width() < 480) { offset = 40; }
+               
+                // Get the page height
+                var totalPageHeight = $('.cd-slider-nav').height()
+                                        + pageContentHeight + offset
+                                        + $('.tm-footer').height();
+
+                // Adjust layout based on page height and window height
+                if(totalPageHeight > $(window).height()) 
+                {
+                    $('.cd-hero-slider').addClass('small-screen');
+                    $('.cd-hero-slider li:nth-of-type(' + pageNo + ')').css("min-height", totalPageHeight + "px");
+                }
+                else 
+                {
+                    $('.cd-hero-slider').removeClass('small-screen');
+                    $('.cd-hero-slider li:nth-of-type(' + pageNo + ')').css("min-height", "100%");
+                }
+            }
+
+            /*
+                Everything is loaded including images.
+            */
+            $(window).load(function(){
+
+                adjustHeightOfPage(1); // Adjust page height
+
+                /* Gallery One pop up
+                -----------------------------------------*/
+                $('.gallery-one').magnificPopup({
+                    delegate: 'a', // child items selector, by clicking on it popup will open
+                    type: 'image',
+                    gallery:{enabled:true}                
+                });
+				
+				/* Gallery Two pop up
+                -----------------------------------------*/
+				$('.gallery-two').magnificPopup({
+                    delegate: 'a',
+                    type: 'image',
+                    gallery:{enabled:true}                
+                });
+
+                /* Gallery Three pop up
+                -----------------------------------------*/
+                $('.gallery-three').magnificPopup({
+                    delegate: 'a',
+                    type: 'image',
+                    gallery:{enabled:true}                
+                });
+
+                /* Collapse menu after click 
+                -----------------------------------------*/
+                $('#tmNavbar a').click(function(){
+                    $('#tmNavbar').collapse('hide');
+
+                    adjustHeightOfPage($(this).data("no")); // Adjust page height       
+                });
+
+                /* Browser resized 
+                -----------------------------------------*/
+                $( window ).resize(function() {
+                    var currentPageNo = $(".cd-hero-slider li.selected .js-tm-page-content").data("page-no");
+                    
+                    // wait 3 seconds
+                    setTimeout(function() {
+                        adjustHeightOfPage( currentPageNo );
+                    }, 1000);
+                    
+                });
+        
+                // Remove preloader (https://ihatetomatoes.net/create-custom-preloading-screen/)
+                $('body').addClass('loaded');
+                           
+            });
+
+           
+
+        </script>   
 </article>
 
+                 
 @endsection

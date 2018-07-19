@@ -45,15 +45,42 @@
                     <textarea name="content" class="Ccontents" placeholder="来说两句吧..."></textarea>
                 </div>
                   
-                    <input type="submit" class="Csubmit"  onselectstart="return false" pid="0" aid="0" value="发布评论" name="submit">
+                        @if(session('user_login'))
+                    <input type="submit" class="Csubmit"  onselectstart="return false" pid="0" aid="0" value="发布留言">
+                    <script type="text/javascript">
+                        console.log();
+                        $('#myform').submit(function(){
+                            if($('.Ccontents').val()){
+                                return true;
+                            }else{
+                                 layui.use(['layer', 'form'], function(){
+                                      var layer = layui.layer
+                                      ,form = layui.form;
+                                      
+                                      layer.msg("请输入留言内容",{icon: 5});
+                                    });
+                                return false;
+                            }
+                        })
+                    </script>
+                    </form>
+                 @else
+                 </form>
+                    <input type="submit" class="Csubmit" pid="0" aid="0" value="登陆" onclick="denglu()">
+                       <script type="text/javascript">
+                            function denglu(){
+                               location.replace('/home/login/index'); 
+                            }
+                        </script>
+                 @endif 
               </form>
               </div>
               <div class="CMain">
                 <div class="CMTitle">
-                    <div class="MTContent">评论</div>
-                    <div class="MTCount">
-                        共计
-                        <span class="TCNumber">34</span>条评论
+                    <div class="MTContent" >评论</div>
+                    <div class="MTCount" id="plzs">
+                        共计    
+                        <span class="TCNumber">{{ count($comment) }}</span>条留言
                     </div>
                 </div>
                 <div class="CMLists">
@@ -66,7 +93,7 @@
                     <div class="LCSub">
                    
                         <div class="CPortrait">
-                          <a href="http://3.com" class="CPLink" target="_blank"><img src="" pid="14" class="PortImg"></a>
+                          <a href="http://3.com" class="CPLink" target="_blank"><img src="{{$v['photo']}}" pid="14" class="PortImg"></a>
                         </div>
                       <div class="ContMsg">
                           <div class="UserInfo">
@@ -106,16 +133,23 @@
             //console.log(content);
             // 发送ajax  ?id='+id
             Ajax('HTML',true).get('/home/article/store?content='+content+'&pid='+{{$article_data['id']}},function(msg){
-                  //console.log(msg);
+                  console.log(msg);
                    arr=msg.split(',');
                     for(var i=0;i<arr.length;i++)
                     {
                       var content = arr[0];
                       var name = arr[1];
                       var data = arr[2];
+                      var photo = arr[3];
+                      var count = arr[4];
                     } 
                     $(document).ready(function(){
-                       $("#father").prepend('<div class="LCSub"><div class="CPortrait"><a href="http://3.com" class="CPLink" target="_blank"><img src="" pid="14" class="PortImg"></a></div><div class="ContMsg"><div class="UserInfo"><span class="MsgTime">'+data+'</span><span class="UserAdd" style="color:#f0c">'+name+'</span></div><div class="CommentInfo">'+content+'</div><div class="CommentBtn" pid="180"><div class="CBCai"><span class="CaiCount">0</span><i class="iconCai"></i></div><div class="CBDing"><span class="dingCount">0</span><i class="iconDing"></i></div></div></div><br><br><br></div>');
+                       $("#father").prepend('<div class="LCSub"><div class="CPortrait"><a href="http://3.com" class="CPLink" target="_blank"><img src="'+photo+'" pid="14" class="PortImg"></a></div><div class="ContMsg"><div class="UserInfo"><span class="MsgTime">'+data+'</span><span class="UserAdd" style="color:#f0c">'+name+'</span></div><div class="CommentInfo">'+content+'</div><div class="CommentBtn" pid="180"><div class="CBCai"><span class="CaiCount">0</span><i class="iconCai"></i></div><div class="CBDing"><span class="dingCount">0</span><i class="iconDing"></i></div></div></div><br><br><br></div>');
+                    })
+
+                      //console.log(count);
+                      $(document).ready(function(){
+                          $(".TCNumber").text(count);
                     })
                           
             });

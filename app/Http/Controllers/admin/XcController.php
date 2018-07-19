@@ -69,7 +69,7 @@ class XcController extends Controller
             $res = $value -> move('./photos/'.$dirname,$name);
             $lujing = '/photos/'.$dirname.'/'.$name;
             $res = DB::table('photo')
-                ->insert(['cid'=>$data['cid'],'photo'=>$lujing]);
+                ->insert(['cid'=>$data['cid'],'photo'=>$lujing,'time'=>$dirname]);
         }
 
         if($res){
@@ -192,7 +192,7 @@ class XcController extends Controller
        $data = DB::table('photo as p')
               ->where('cid','=',$id)
               ->join('photo-cate as pc','p.cid','=','pc.id')
-              ->select('p.photo','pc.name','p.id')
+              ->select('p.photo','pc.name','p.id','p.time')
               ->paginate(10); 
         return view('admin/xc/show',['data'=>$data]);
     }

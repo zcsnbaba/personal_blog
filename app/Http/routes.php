@@ -26,6 +26,7 @@ Route::group([ 'middleware' => ['admin.login']], function () {
 	Route::controller('/admin/xc','admin\XcController');
 	Route::controller('/admin/sjz','admin\SjzController');
 	Route::controller('/admin/pl','admin\PlController');
+	Route::controller('/admin/about', 'admin\AboutController');
 	Route::controller('/admin', 'admin\AdminController');
 
 });

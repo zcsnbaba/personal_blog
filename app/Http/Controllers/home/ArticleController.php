@@ -74,24 +74,39 @@ class ArticleController extends Controller
 
          $content = $request -> input('content');   
          $pid = $request -> input('pid');
+         $mrphoto = '/uploads/20180718/Bj6vCx9Ms2Na7EIS9mtI.jpg';
         
          // $value = $request->session()->all();
          //  $uid = session('user_login')['id'];
          $a = session('user_login')['id'];
-        $time = date('Y-m-d H.i.s',time());
-        $name = DB::table('user as u')->where('u.id','=',$a)->select('uname')->first();
-        $n = $name['uname']; 
+         $time = date('Y-m-d H.i.s',time());
+         $name = DB::table('user as u')->where('u.id','=',$a)->select('uname','avatar')->first();
+         $n = $name['uname']; 
+         $photo = $name['avatar'];
+          if(isset($photo)){
+             $photo = $name['avatar'];
+          }else{
+            $photo = $mrphoto;
+          }
 
-        $res = DB::table('comment')
-                ->insertGetId(['uid'=>$a,'created_at'=>$time,'content'=>$content,'name'=>$n,'pid'=>$pid]);
+         $res = DB::table('comment')
+                 ->insertGetId(['uid'=>$a,'created_at'=>$time,'content'=>$content,'name'=>$n,'pid'=>$pid,'photo'=>$photo]);
         
-        $plc = DB::table('comment as c')->where('c.id','=',$res) -> select('content','name','created_at')-> first();
+        $plc = DB::table('comment as c')->where('c.id','=',$res) -> select('content','name','created_at','photo')-> first();
+        $plzs = DB::table('comment as c')->where('c.pid','=',$pid)->count();
+
+        
+
         $plcontent = $plc['content'];
         $plname = ','.$plc['name'];
         $pltime = ','.$plc['created_at'];
+        $plphoto = ','.$plc['photo'];
+        $plcount = ','.$plzs;
         echo $plcontent;
         echo $plname;
         echo $pltime;
+        echo $plphoto;
+        echo $plcount; 
        
     }
 
