@@ -45,6 +45,12 @@ class MessageController extends Controller
         $caiji = DB::table('caiji')
             ->where('uid','=',$uid)
             ->get();
+        $message->setPath('create');
+        $num=$message->lastPage();
+        $nextpage=$num-$message->currentPage() ==0 ? $num : $message->currentPage()+1 ; 
+        $lastpage=$message->currentPage()-1 <0 ? 1 : $message->currentPage()-1 ; 
+        $message->next=$nextpage;
+        $message->last=$lastpage;
         return view('home.message.index',['message'=>$message,'caiji'=>$caiji]);
     }
 
@@ -64,7 +70,6 @@ class MessageController extends Controller
             ->insert(['content'=>$message['content'],
                 'uid'=>$data,
                 'created_at'=>$message['created_at']]);
-         dump($message);
         if($res){
             return redirect('/home/message/create') -> with('success','留言成功');
         }else{

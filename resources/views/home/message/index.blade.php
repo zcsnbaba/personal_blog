@@ -203,5 +203,31 @@
             </div>
         
         </div>
+        @if ($message->LastPage() > 1)
+      <a href="{{ $message->Url(1) }}" class="item{{ ($message->CurrentPage() == 1) ? ' disabled' : '' }}">
+          <i class="icon left arrow"></i> 
+          <b style="color:#f0f;font-size: 20px;border:4px #ccc dotted">首页</b>&nbsp;
+      </a> 
+      <a href="{{ $message->Url($message->last) }}" class="item{{ ($message->CurrentPage() == 1) ? ' disabled' : '' }}">
+          <i class="icon left arrow"></i> 
+          <b style="color:#f0f;font-size: 20px;border:4px #ccc dotted">上一页</b>
+      </a>  
+      @for ($i = 1; $i <= $message->LastPage(); $i++)
+      @if(($message->last + 1) == $i)
+
+          <a href="{{ $message->Url($i) }}" class="item{{ ($message->CurrentPage() == $i) ? ' active' : '' }}" name="nb" value="1"><b style="color:#ccc;font-size: 20px;border:4px #ccc dotted">&nbsp;{{ $i }}&nbsp;</b></a>
+      @else
+          <a href="{{ $message->Url($i) }}" class="item{{ ($message->CurrentPage() == $i) ? ' active' : '' }}" name="nb" value="1"><b style="color:#f0f;font-size: 20px;border:4px #ccc dotted">&nbsp;{{ $i }}&nbsp;</b></a>
+      @endif
+      @endfor
+    <a href="{{ $message->Url($message->next) }}" class="item{{ ($message->CurrentPage() == 1) ? ' disabled' : '' }}">
+          <i class="icon left arrow"></i> 
+          <b style="color:#f0f;font-size: 20px;border:4px #ccc dotted">下一页</b>&nbsp;
+      </a>
+      <a href="{{ $message->Url($message->LastPage()) }}" class="item{{ ($message->CurrentPage() == $message->LastPage()) ? ' disabled' : '' }}">
+          <b style="color:#f0f;font-size: 20px;border:4px #ccc dotted">尾页</b>
+          <i class="icon right arrow"></i>
+      </a>
+  @endif
 </article>
 @endsection

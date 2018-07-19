@@ -25,15 +25,31 @@ layui.use(['layer', 'form'], function(){
 });
 </script>
 @endif
+@if(session('success'))
+<script type="text/javascript">
+layui.use(['layer', 'form'], function(){
+  var layer = layui.layer
+  ,form = layui.form;
+  
+  layer.msg("{{ session('success') }}",{icon: 6});
+});
+</script>
+@endif
+@if(session('error'))
+<script type="text/javascript">
+
+layui.use(['layer', 'form'], function(){
+  var layer = layui.layer
+  ,form = layui.form;
+  
+  layer.msg("{{ session('error') }}",{icon: 5});
+});
+</script>
+@endif
 	<h1>登录</h1>
 	<div class="container w3layouts agileits">
 		<div class="login w3layouts agileits">
 			<h2>登 录</h2>
-			@if(session('error'))
-				<div style="border:1px red solid;color:red;font-size: 25px;width:80%;height:30px" id="error" onclick="funs()">
-					{{ session('error') }}
-				</div>
-			@endif
 			<form action="/home/login/store" method="post">
 			{{ csrf_field() }}
 				<input type="text" name="uname" placeholder="用户名" required="">

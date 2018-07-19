@@ -38,11 +38,6 @@ class PlController extends Controller
      */
     public function postStore(Request $request , $id)
     {
-             //     $a = DB::table('photo-cate as pc')
-             // -> where('pc.id','=',$data['cid'])
-             // ->select('name')
-             // ->first();
-
         $b = $request -> input('content');     
         $value = $request->session()->all();
         $a = $value['user_login']['id'];
@@ -50,22 +45,12 @@ class PlController extends Controller
         $name = DB::table('user as u')->where('u.id','=',$a)->select('uname')->first();
         $res = DB::table('comment')
                 ->insert(['uid'=>$a,'created_at'=>$time,'content'=>$b,'name'=>$name['uname']]);
-        // if($res){
-        //     return redirect('/home/article/index/$id')->with('success','修改成功');
-        // }else{
-        //     return back()->with('error','修改失败'); 
-        //}
 
-         if($res){
-        //返回id
-        echo $pdo -> lastInsertId(); //返回最后插入的id号
-            }else{
-                echo 'error';
-            }
-
-        
-    
-        
+        if($res){
+            echo $pdo -> lastInsertId(); //返回最后插入的id号
+        }else{
+            echo 'error';
+        }  
     }
 
     /**

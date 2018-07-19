@@ -3,6 +3,8 @@
 @section('content')
 <article>
 <link rel="stylesheet" href="/homemoban/article/css/font-awesome.min.css">
+<script type="text/javascript" src="/homemoban/login/ajax3.0-min.js"></script>
+<script type="text/javascript" src="/homemoban/login/jquery-1.8.3.min.js"></script>
 <link rel="stylesheet" href="/homemoban/article/css/anlou/style.css">
 <div class="bloglist">
 <br><br><br><br>
@@ -22,12 +24,27 @@
         <figure><img src="{{ $v['file'] }}" style="height:110px"></figure>
         <ul>
           <p>{{ $v['desc'] }}</p>
+          <input type="hidden" class="ycy" value="{{ $v['id'] }}"> 
           <a href="/home/article/index/{{ $v['id'] }}" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
         </ul>
-        <p class="autor"><span>作者：{{ $v['uname'] }}</span><span>分类：【<a href="/">{{ $v['name_class'] }}</a>】</span><span>浏览（{{ $v['ckick_count'] }}）</span><span>评论（<a href="/">1</a>）</span></p>
+        <p class="autor">
+          <span>作者：{{ $v['uname'] }}</span>
+          <span>分类：【<a href="/">{{ $v['name_class'] }}</a>】</span>浏览(<span>{{ $v['ckick_count'] }}</span>) &nbsp;&nbsp; 
+          评论(<span>{{$nima[$k]}}</span>)
+        </p>
         <div class="dateview">{{ $v['created_at'] }}</div>
       </div>
       @endforeach
+      <script>
+        $('.readmore').click(function(){
+          var ss = $(this).parent().next().children().eq(2).text();
+          var nums = parseInt(ss)+1;
+          var id = $(this).prev().val();
+          $(this).parent().next().children().eq(2).text(nums);
+          Ajax('HTML',true).get('/home/article/show/'+nums+'/'+id,function(msg){
+          });
+        })
+      </script>
     </div>
   @if ($wz_data->LastPage() > 1)
       <a href="{{ $wz_data->Url(1) }}&name={{ $wz_name}}" class="item{{ ($wz_data->CurrentPage() == 1) ? ' disabled' : '' }}">

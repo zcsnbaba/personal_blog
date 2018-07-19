@@ -1,6 +1,8 @@
 @extends('home.common.common')
 
 @section('content') 
+<script type="text/javascript" src="/homemoban/login/ajax3.0-min.js"></script>
+<script type="text/javascript" src="/homemoban/login/jquery-1.8.3.min.js"></script>
 <article>
     <div id="banner_tabs" class="flexslider">
   <ul class="slides">
@@ -29,16 +31,28 @@
       </h2>
       @foreach($wz_data as $k => $v)
       <div class="blogs">
-        <h3><a href="/">{{ $v['title'] }}</a></h3>
+        <h3><a href="/">&nbsp;&nbsp;{{ $v['title'] }}</a></h3>
         <figure><img src="{{ $v['file'] }}" style="height:110px"></figure>
         <ul>
           <p>{{ $v['desc'] }}</p>
+          <input type="hidden" class="ycy" value="{{ $v['id'] }}"> 
           <a href="/home/article/index/{{ $v['id'] }}" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
         </ul>
-        <p class="autor"><span>作者：{{ $v['uname'] }}</span><span>分类：【<a href="/">日记</a>】</span><span>浏览（{{ $v['ckick_count'] }}）</span><span>评论（<a href="/">1</a>）</span></p>
+        <p class="autor"><span>作者：{{ $v['uname'] }}</span><span>分类：【<a href="/">日记</a>】</span>浏览(<span>{{ $v['ckick_count'] }}</span>)&nbsp;&nbsp; 评论(<span>{{ $nima[$k] }}</span>)</p>
         <div class="dateview">{{ $v['created_at'] }}</div>
       </div>
       @endforeach
+      <script>
+        $('.readmore').click(function(){
+          var ss = $(this).parent().next().children().eq(2).text();
+          var nums = parseInt(ss)+1;
+          console.log(nums);
+          var id = $(this).prev().val();
+          $(this).parent().next().children().eq(2).text(nums);
+          Ajax('HTML',true).get('/home/article/show/'+nums+'/'+id,function(msg){
+          });
+        })
+      </script>
     </div>
 </article>
 <script src="js/jquery-1.10.2.min.js"></script>

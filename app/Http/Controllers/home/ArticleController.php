@@ -17,17 +17,6 @@ class ArticleController extends Controller
      */
     public function getIndex(Request $request,$id)
     {
-        //$value = $request->session()->all();
-        // $a = $value['user_login']['uname'];
-        // $b = isset($a);
-        // if($a == null){
-        //     echo '123';
-        // }else{
-        //     echo '777';
-        // }
-        // dump($b);
-        // exit;
-
         $article_data = DB::table('article as a')
             ->join('user as u','a.uid','=','u.id')
             ->where('a.id','=',$id)
@@ -52,13 +41,21 @@ class ArticleController extends Controller
             ->join('category as c','c.id','=','a.cid')
             ->select('u.uname','c.name_class','a.*')
             ->paginate(15);
+        $nima = [];
+        foreach ($wz_data as $key => $value) {
+            $lz = DB::table('comment')
+            ->where('pid','=',$value['id'])
+            ->count(); 
+            $nima[$key] = $lz;
+            
+        }
         $wz_data->setPath('create');
         $num=$wz_data->lastPage();
         $nextpage=$num-$wz_data->currentPage() ==0 ? $num : $wz_data->currentPage()+1 ; 
         $lastpage=$wz_data->currentPage()-1 <0 ? 1 : $wz_data->currentPage()-1 ; 
         $wz_data->next=$nextpage;
         $wz_data->last=$lastpage;
-        return view('home.article.create',['wz_data'=>$wz_data,'wz_name'=>$wz_name]);
+        return view('home.article.create',['wz_data'=>$wz_data,'wz_name'=>$wz_name,'nima'=>$nima]);
     }
 
     /**
@@ -101,9 +98,11 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function getShow($dian,$id)
     {
-        //
+        DB::table('article')
+            ->where('id','=',$id)
+            ->update(['ckick_count' => $dian]);
     }
 
     /**
