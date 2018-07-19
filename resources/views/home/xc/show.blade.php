@@ -44,8 +44,8 @@
                             &#9776;
                         </button>
                         @foreach($name as $a=>$b)
-                        <div class="collapse navbar-toggleable-md text-xs-center text-uppercase tm-navbar" id="tmNavbar">
-                            <ul class="nav navbar-nav">
+                        <div class="sn collapse navbar-toggleable-md text-xs-center text-uppercase tm-navbar" id="tmNavbar">
+                            <ul class="nav sn navbar-nav">
                                 <li class="nav-item active selected" id="abc" >
                                     <a class="nav-link" href="/home/xc/show/{{$b['id']}}" data-no="1">{{$b['name']}} <span class="sr-only">(current)</span></a>
                                 </li>                                

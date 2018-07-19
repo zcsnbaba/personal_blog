@@ -4,6 +4,7 @@
 	<title>{{ $common['web']['0']['name'] }}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="shortcut icon" href="/homemoban/images/home.png" />
 		<script type="text/javascript" src="/homemoban/login/jquery-1.8.3.min.js"></script>
 		<link rel="stylesheet" href="/homemoban/login/css/style.css" type="text/css" media="all">
 </head>

@@ -16,13 +16,13 @@
         <div id="Comment">
         @if(session('user_login'))
             <div class="CPortrait">
-                <a href="/home/geren/index/{{ session('user_login')['id'] }}"><img src="{{ $sss }}" pid="14" class="PortImg"></a>
+                <a href="/home/geren/index/{{ session('user_login')['id'] }}"><img src="{{$sss}}" pid="14" class="PortImg"></a>
             </div>
             <br>
             &nbsp;<span style="color:red;font-size:20px"><b><a href="/home/geren/index/{{ session('user_login')['id'] }}">个人中心</a></b></span>
         @else
             <div class="CPortrait">
-                <img src="{{ session('user_login')['avatar'] }}" pid="14" class="PortImg">
+                <img src="/homemoban/images/home.png" pid="14" class="PortImg">
             </div>
             <br>
             &nbsp;<span style="color:#ccc;font-size:20px" disabled><b>个人中心</b></span>
@@ -139,7 +139,7 @@
                             @else
     		                    <div class="CommentBtn" pid="180">
                                     <div class="CBCai">                            
-                                        <span class="CaiCount" name="zan">{{ $v['badreview'] }}!</span>
+                                        <span class="CaiCount" name="zan">{{ $v['badreview'] }}</span>
                                         <input type="text" class="isCai" style="border:0px;cursor:pointer">
                                     </div>
                                     <div class="CBDing">
@@ -153,10 +153,18 @@
                 @endforeach
                 <script type="text/javascript">
                     $('.isCai').click(function(){
-                        alert('请先登录!');
+                        layui.use(['layer', 'form'], function(){
+                          var layer = layui.layer
+                          ,form = layui.form;
+                          layer.msg("请先登录",{icon: 5});
+                        });
                     }); 
                     $('.isDing').click(function(){
-                        alert('请先登录!');
+                        layui.use(['layer', 'form'], function(){
+                          var layer = layui.layer
+                          ,form = layui.form;
+                          layer.msg("请先登录",{icon: 5});
+                        });
                     });    
                     $('.iconCai').click(function(){      
                         var n = $(this).prev().html();

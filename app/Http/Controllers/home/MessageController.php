@@ -33,7 +33,7 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getCreate()
+    public function getCreate(Request $request)
     {
         //
         $message = DB::table('message as m')
@@ -41,15 +41,21 @@ class MessageController extends Controller
             -> select('m.*','u.uname','u.avatar')
             ->orderBy('m.id','desc')
             ->paginate(10);
-        $uid = session('user_login')['id'];
-        $caiji = DB::table('caiji')
-            ->where('uid','=',$uid)
-            ->get();
-        $avatar = DB::table('user')
-            ->where('id','=',$uid)
-            -> select('avatar')
-            ->get();
-       $sss = (session('user_login')['avatar'] = $avatar['0']['avatar']);
+            if($request->session()->has('user_login')){
+            $uid = session('user_login')['id'];
+            $caiji = DB::table('caiji')
+                ->where('uid','=',$uid)
+                ->get();
+            $avatar = DB::table('user')
+                ->where('id','=',$uid)
+                -> select('avatar')
+                ->get();
+           $sss = (session('user_login')['avatar'] = $avatar['0']['avatar']);
+            }else{
+               $caiji = DB::table('caiji')
+                ->get();
+                $sss = null; 
+            }
         $message->setPath('create');
         $num=$message->lastPage();
         $nextpage=$num-$message->currentPage() ==0 ? $num : $message->currentPage()+1 ; 
@@ -108,9 +114,9 @@ class MessageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function getEdit()
     {
-        //
+        
     }
 
     /**

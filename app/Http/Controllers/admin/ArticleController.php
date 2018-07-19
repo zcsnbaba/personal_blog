@@ -53,15 +53,18 @@ class ArticleController extends Controller
     {
         $data = $request->except(['_token']);
         $created_at = date('Y-m-d H.i.s',time());
-
-        $profile = $request -> file('file');
-        $ext = $profile->getClientOriginalExtension();
-        $temp_name = str_random(20);
-        $name =  $temp_name.'.'.$ext;
-        $dirname = date('Ymd',time());
-        $res = $profile -> move('./uploads/'.$dirname,$name);
-        $file = ('/uploads/'.$dirname.'/'.$name);
-
+        if( $request->hasFile('file')) {
+            $profile = $request -> file('file');
+            $ext = $profile->getClientOriginalExtension();
+            $temp_name = str_random(20);
+            $name =  $temp_name.'.'.$ext;
+            $dirname = date('Ymd',time());
+            $res = $profile -> move('./uploads/'.$dirname,$name);
+            $file = ('/uploads/'.$dirname.'/'.$name);
+        }else{
+            return back()->with('error','请选择图片'); 
+        }
+       $uid = session('user_login')['id'];
        $res = DB::table('article')->insert([
             'title' => $data['title'], 
             'cid' => $data['cid'],
@@ -70,6 +73,7 @@ class ArticleController extends Controller
             'content' => $data['content'],
             'ckick_count' => '0',
             'created_at' => $created_at,
+            'uid' => $uid,
             'file' => $file,
         ]);
         if($res){
@@ -149,7 +153,8 @@ class ArticleController extends Controller
     {
         // echo $id;
         $res = DB::table('article')->where('id', '=', $id)->delete();
-        if($res){
+        $res1 = DB::table('comment')->where('pid', '=', $id)->delete();
+        if($res && $res1){
             return redirect('/admin/article/index')->with('success','删除成功');
         }else{
             return back()->with('error','删除失败'); 

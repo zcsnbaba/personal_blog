@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="shortcut icon" href="/homemoban/images/home.png" />
 <title>{{ $common['web']['0']['name'] }}</title>
 <meta name="keywords" content="{{ $common['web']['0']['gjz'] }}" />
 <meta name="description" content="{{ $common['web']['0']['describe'] }}" />
@@ -12,10 +13,6 @@
 <link href="/layui/css/layui.css" rel="stylesheet">
 <script type="text/javascript" src="/layui/layui.js"></script>
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-
-<!--[if lt IE 9]>
-<script src="js/modernizr.js"></script>
-<![endif]-->
 <style>
 .flexslider {
   margin: 0px auto 20px;

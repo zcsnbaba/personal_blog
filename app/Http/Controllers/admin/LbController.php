@@ -72,9 +72,11 @@ class LbController extends Controller
             $name =  $temp_name.'.'.$ext;
             $dirname = date('Ymd',time());
             $res = $profile -> move('./uploads/'.$dirname,$name);
-            
+            $lujing = '/uploads/'.$dirname.'/'.$name;
+       }else{
+            return back()->with('error','请选择图片'); 
        }
-       $lujing = '/uploads/'.$dirname.'/'.$name;
+       
        //dump($lujing);
 
         $res = DB::table('carousel')

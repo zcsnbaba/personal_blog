@@ -6,13 +6,14 @@
 <h3 class="about_h">您现在的位置是：<a href="/">首页</a>><a href="#">个人中心</a></h3><br><br>
 <form class="layui-form layui-form-pane" action="/home/geren/update/{{ $geren_data['id'] }}" method="post" style="margin:0px 0px 15px 120px;">
   <div class="layui-form-item layui-col-md9">
-    <label for="test1"><img id="avatar" name="avatar" src="{{ $geren_data['avatar'] }}" style="border:1px red solid;width:100px;height:100px;border-radius:50%"></label>
+    <label for="test1"><img id="avatar" name="avatar" src="{{ $geren_data['avatar'] }}" style="border:1px red solid;width:110px;height:110px;border-radius:50%"></label>
       {{ csrf_field() }}
       <button type="button" class="layui-btn" id="test1" style="display:none">
         <i class="layui-icon">&#xe67c;</i>上传图片
       </button> 
    
   </div>
+  <a href="/home/login/show" class="layui-btn layui-btn-primary" style="background-color:#CD3333;color:#fcc">退出登录</a>
   <script>
 layui.use('upload', function(){
   var upload = layui.upload;

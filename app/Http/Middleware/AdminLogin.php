@@ -15,10 +15,16 @@ class AdminLogin
      */
     public function handle($request, Closure $next)
     {
-        if(!session('user_login')){
-        
-         return redirect('/admin/login');   
+        if($request->session()->has('user_login')){
+            if(session('user_login')['superuser'] == '博主'){
+                return $next($request);
+            }else{
+                return back() -> with('error','没有权限');
+            }
+         
+        }else{
+            return redirect('/home/login')-> with('error','请先登录');   
         }
-        return $next($request);
+        
     }
 }

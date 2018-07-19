@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>{{ $common['web']['0']['name'] }}</title>
-	
+	<link rel="shortcut icon" href="/homemoban/images/home.png" />
 <link href="/layui/css/layui.css" rel="stylesheet">
 <script type="text/javascript" src="/layui/layui.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">

@@ -158,7 +158,9 @@ class UserController extends Controller
     public function getDestroy($id)
     {
         $user_res = DB::table('user')->where('id', '=', $id)->delete();
-        if($user_res){
+        $res = DB::table('comment')->where('uid', '=', $id)->delete();
+        $res1 = DB::table('message')->where('uid', '=', $id)->delete();
+        if($user_res && $res1 && $res){
             return redirect('/admin/user/index')->with('success','删除成功');
         }else{
             return back()->with('error','删除失败'); 

@@ -47,7 +47,7 @@
     			<div class="mws-form-row">
                     <label class="mws-form-label">文章图片：</label>
                     <div class="mws-form-item" style="width:48%">
-                        <input type="file" name="file" id="file" onchange="imgPreview(this)"/> 
+                        <input type="file" name="file" id="file"> 
                         <img id="preview" style="width:200px">
                     </div>
                 </div>

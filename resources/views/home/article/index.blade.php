@@ -52,7 +52,7 @@
                 </div>
                   
                 @if(session('user_login'))
-                    <input type="submit" class="Csubmit"  onselectstart="return false" pid="0" aid="0" value="发布留言">
+                    <input type="submit" class="Csubmit"  onselectstart="return false" pid="0" aid="0" value="发布评论">
                     <script type="text/javascript">
                         $('#myform').submit(function(){
                             if($('.Ccontents').val()){
@@ -85,7 +85,7 @@
                     <div class="MTContent" >评论</div>
                     <div class="MTCount" id="plzs">
                         本页共计    
-                        <span class="TCNumber">{{ count($comment) }}</span>条留言
+                        <span class="TCNumber">{{ count($comment) }}</span>条评论
                     </div>
                 </div>
                 <div class="CMLists">
@@ -98,11 +98,7 @@
                 <div class="LCSub">
                 @foreach($comment as $k => $v)
                         <div class="CPortrait">
-<<<<<<< HEAD
-                          <img src="{{ $v['photo'] }}" pid="14" class="PortImg">
-=======
-                          <a href="" class="CPLink" target="_blank"><img src="{{$v['photo']}}" pid="14" class="PortImg"></a>
->>>>>>> origin/zhaopingang
+                          <img src="{{$v['photo']}}" pid="14" class="PortImg">
                         </div>
                       <div class="ContMsg">
                           <div class="UserInfo">
@@ -226,7 +222,7 @@
                       var count = arr[4];
                     } 
                     $(document).ready(function(){
-                       $("#father").prepend('<div class="LCSub"><div class="CPortrait"><a href="" class="CPLink" target="_blank"><img src="'+photo+'" pid="14" class="PortImg"></a></div><div class="ContMsg"><div class="UserInfo"><span class="MsgTime">'+data+'</span><span class="UserAdd" style="color:#f0c">'+name+'</span></div><div class="CommentInfo">'+content+'</div><div class="CommentBtn" pid="180"><div class="CBCai"><span class="CaiCount">0</span><i class="iconCai"></i></div><div class="CBDing"><span class="dingCount">0</span><i class="iconDing"></i></div></div></div><br><br><br></div>');
+                       $("#father").prepend('<div class="LCSub"><div class="CPortrait"><img src="'+photo+'" pid="14" class="PortImg"></div><div class="ContMsg"><div class="UserInfo"><span class="MsgTime">'+data+'</span><span class="UserAdd" style="color:#f0c">'+name+'</span></div><div class="CommentInfo">'+content+'</div><div class="CommentBtn" pid="180"><div class="CBCai"><span class="CaiCount">0</span><i class="iconCai"></i></div><div class="CBDing"><span class="dingCount">0</span><i class="iconDing"></i></div></div></div></div>');
                     })
 
                       //console.log(count);
