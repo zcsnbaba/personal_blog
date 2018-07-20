@@ -1,6 +1,11 @@
 @extends('home.common.common')
 
 @section('content') 
+<style type="text/css">
+    .xiaoshi{
+        display: none;
+    }
+</style>
 <script type="text/javascript" src="/homemoban/login/ajax3.0-min.js"></script>
 <script type="text/javascript" src="/homemoban/login/jquery-1.8.3.min.js"></script>
 <article>
@@ -38,7 +43,27 @@
           <input type="hidden" class="ycy" value="{{ $v['id'] }}"> 
           <a href="/home/article/index/{{ $v['id'] }}" target="_blank" class="readmore">阅读全文&gt;&gt;</a>
         </ul>
-        <p class="autor"><span>作者：{{ $v['uname'] }}</span><span>分类：【日记】</span>浏览(<span>{{ $v['ckick_count'] }}</span>)&nbsp;&nbsp; 评论(<span>{{ $nima[$k] }}</span>)</p>
+        <p class="autor"><span>作者：{{ $v['uname'] }}</span><span>分类：【日记】</span>浏览(<span>{{ $v['ckick_count'] }}</span>)&nbsp;&nbsp; 评论(<span>{{ $nima[$k] }}</span>)
+        
+         @if(session('user_login'))
+         <input disabled type="hidden" class="ycy" value="{{ $v['id'] }}">
+          <span style="float:right" class="scs" id="q{{ $v['id'] }}"><label for="sc" class="ss">收藏 </label><img src="/homemoban/images/6264.png" id="sc"></span>
+          @foreach($sc_data as $key => $val)
+            
+           @if($val['cid'] == $v['id'])
+
+              <span style="float:right" disabled class="sb"><label for="sc" class="ss">以收藏 </label><img src="/homemoban/images/6264.png" id="sc"></span>
+           <script type="text/javascript">
+            var id = {{ $v['id'] }}
+            $('#q'+id+'').addClass('xiaoshi')
+          </script>
+           @endif
+          @endforeach
+         @else
+         <span style="float:right" class="sbdl"><label for="sc" class="ss">收藏 </label><img src="/homemoban/images/6264.png" id="sc"></span>
+          @endif
+         </p>
+
         <div class="dateview">{{ $v['created_at'] }}</div>
       </div>
       @endforeach
@@ -52,6 +77,32 @@
           Ajax('HTML',true).get('/home/article/show/'+nums+'/'+id,function(msg){
           });
         })
+        $('.sbdl').click(function(){
+          layui.use(['layer', 'form'], function(){
+            var layer = layui.layer
+            ,form = layui.form;
+            layer.msg("请登录",{icon: 5});
+          });
+        });
+        $('.sb').click(function(){
+          layui.use(['layer', 'form'], function(){
+            var layer = layui.layer
+            ,form = layui.form;
+            layer.msg("以收藏",{icon: 5});
+          });
+        });
+        $('.scs').click(function(){
+          $(this).css('display','none');
+          var id = parseInt($(this).prev().val());
+          layui.use(['layer', 'form'], function(){
+            var layer = layui.layer
+            ,form = layui.form;
+            layer.msg("收藏成功",{icon: 6});
+          });
+          Ajax('HTML',true).get('/home/sc/show/'+id,function(msg){
+          });
+        });
+
       </script>
     </div>
 </article>

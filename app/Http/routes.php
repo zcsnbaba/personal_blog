@@ -27,6 +27,7 @@ Route::group([ 'middleware' => ['admin.login']], function () {
 	Route::controller('/admin/sjz','admin\SjzController');
 	Route::controller('/admin/pl','admin\PlController');
 	Route::controller('/admin/about', 'admin\AboutController');
+	Route::controller('/admin/sc', 'admin\ScController');
 	Route::controller('/admin', 'admin\AdminController');
 
 });
@@ -42,6 +43,7 @@ Route::controller('/home/message', 'home\MessageController');
 
 
 Route::controller('/home/geren', 'home\GerenController');
+
 
 Route::controller('/home/about','home\AboutController');
 
@@ -97,6 +99,6 @@ Route::controller('/home/pl','home\PlController');
 
 
 
-
+Route::controller('/home/sc', 'home\scController');
 //前台控制器
 Route::controller('/', 'home\HomeController');

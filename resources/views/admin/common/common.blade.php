@@ -191,6 +191,9 @@
                     <li>
                         <a href="/admin/message/index"><i class="icon-sound"></i>留言管理</a>
                     </li>
+                    <li>
+                        <a href="/admin/sc/index"><i class="icon-sound"></i>收藏管理</a>
+                    </li>
                 </ul>
             </div>                    
         </div>   
