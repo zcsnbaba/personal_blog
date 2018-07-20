@@ -48,7 +48,7 @@ class ScController extends Controller
         $lastpage=$wz_data->currentPage()-1 <0 ? 1 : $wz_data->currentPage()-1 ; 
         $wz_data->next=$nextpage;
         $wz_data->last=$lastpage;
-        return view('home.article.create',['wz_data'=>$wz_data,'wz_name'=>$wz_name,'nima'=>$nima,'sc_data'=>$sc_data]);
+        return view('home.sc.create',['wz_data'=>$wz_data,'wz_name'=>$wz_name,'nima'=>$nima,'sc_data'=>$sc_data]);
     }
 
     /**
@@ -120,8 +120,13 @@ class ScController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function getDestroy($id)
     {
-        //
+        $res = DB::table('shouchang')->where('cid', '=', $id)->delete();
+        if($res){
+            return redirect('/home/sc/index')->with('success','取消成功');
+        }else{
+            return back()->with('error','取消失败'); 
+        }
     }
 }

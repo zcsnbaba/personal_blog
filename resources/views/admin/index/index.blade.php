@@ -24,13 +24,6 @@
                     </span>
                 </a>
                 <a class="mws-stat" href="#">
-                    <span class="mws-stat-icon icol32-bug"></span>
-                    <span class="mws-stat-content">
-                        <span class="mws-stat-title">Bugs Fixed</span>
-                        <span class="mws-stat-value up">22%</span>
-                    </span>
-                </a>
-                <a class="mws-stat" href="#">
                     <span class="mws-stat-icon icol32-car"></span>
                     <span class="mws-stat-content">
                         <span class="mws-stat-title">Cars Repaired</span>
