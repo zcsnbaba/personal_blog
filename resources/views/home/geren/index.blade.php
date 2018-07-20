@@ -72,6 +72,7 @@ layui.use('upload', function(){
     <div class="layui-input-block">
       <button class="layui-btn" lay-submit lay-filter="formDemo">提交并修改</button>
       <a href="/home/message/create" class="layui-btn layui-btn-primary">返回</a>
+      <a href="/home/sc/index" class="layui-btn layui-btn-primary">我的收藏</a>
     </div>
   </div>
 </form>

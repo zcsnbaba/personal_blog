@@ -14,9 +14,41 @@ class ScController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getIndex(Request $request)
     {
-        //
+        $uid = session('user_login')['id'];
+        $wz_name = $request->input('name');
+       $wz_data = DB::table('article as a')
+            ->where('a.title','like','%'.$wz_name.'%')
+            ->join('shouchang as s','s.cid','=','a.id')
+            ->where('s.uid','=',$uid)
+            ->join('user as u','a.uid','=','u.id')
+            ->join('category as c','c.id','=','a.cid')
+            ->select('u.uname','c.name_class','a.*')
+            ->paginate(15);
+        $nima = [];
+        foreach ($wz_data as $key => $value) {
+            $lz = DB::table('comment')
+            ->where('pid','=',$value['id'])
+            ->count(); 
+            $nima[$key] = $lz;
+            
+        }
+        if($request->session()->has('user_login')){
+            $uid = session('user_login')['id'];
+            $sc_data = DB::table('shouchang')
+                ->where('uid','=',$uid)
+                ->get();
+        }else{
+            $sc_data['cid'] = '1';
+        }
+        $wz_data->setPath('create');
+        $num=$wz_data->lastPage();
+        $nextpage=$num-$wz_data->currentPage() ==0 ? $num : $wz_data->currentPage()+1 ; 
+        $lastpage=$wz_data->currentPage()-1 <0 ? 1 : $wz_data->currentPage()-1 ; 
+        $wz_data->next=$nextpage;
+        $wz_data->last=$lastpage;
+        return view('home.article.create',['wz_data'=>$wz_data,'wz_name'=>$wz_name,'nima'=>$nima,'sc_data'=>$sc_data]);
     }
 
     /**
