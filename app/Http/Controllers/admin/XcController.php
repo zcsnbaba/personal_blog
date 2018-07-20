@@ -260,7 +260,8 @@ class XcController extends Controller
         //
         DB::beginTransaction();
         $res = DB::table('photo-cate')->where('id','=',$id)->delete();
-        if($res){
+        $res1 = DB::table('photo')->where('cid','=',$id)->delete();
+        if($res && $res1){
             DB::commit();
             return redirect('/admin/xc/index')->with('success','删除成功');
         }else{

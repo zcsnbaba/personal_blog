@@ -155,7 +155,7 @@
                             @else
                             <div class="CommentBtn" pid="180">
                                     <div class="CBCai">                            
-                                        <span class="CaiCount" name="zan">{{ $v['cai'] }}!</span>
+                                        <span class="CaiCount" name="zan">{{ $v['cai'] }}</span>
                                         <input type="text" class="isCai" style="border:0px;cursor:pointer">
                                     </div>
                                     <div class="CBDing">
